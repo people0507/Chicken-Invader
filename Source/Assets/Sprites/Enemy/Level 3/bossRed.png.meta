@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7312b29cb35e7ea4c81dc6d267da0c91
+guid: 365dfbc102acd6c45a058dea9f9a5b95
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RedChicken_0
+      name: bossRed_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 356
-        height: 284
+        width: 75
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b281175b29afc3e469d7a436425749a7
-      internalID: -1180783769
+      spriteID: 13ec70451b048f14a9a5d5ffb0e8c415
+      internalID: 1227811461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken_1
+      name: bossRed_1
       rect:
         serializedVersion: 2
-        x: 356
+        x: 75
         y: 0
-        width: 356
-        height: 284
+        width: 75
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b171f1542e145e4bb8bbf16100dc68a
-      internalID: -183824398
+      spriteID: 8693907c243fe174b98453e20d97decb
+      internalID: -2068203755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken_2
+      name: bossRed_2
       rect:
         serializedVersion: 2
-        x: 712
+        x: 150
         y: 0
-        width: 356
-        height: 284
+        width: 75
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fd426c7ee2d13a47a260eb6deb7ea73
-      internalID: -1204225536
+      spriteID: 06bbdd4730c607b41a62693f76494c7d
+      internalID: -1417583095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken_3
+      name: bossRed_3
       rect:
         serializedVersion: 2
-        x: 1068
+        x: 225
         y: 0
-        width: 356
-        height: 284
+        width: 75
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf9d047ad17d6ab449d2965aefa0d865
-      internalID: 1107625867
+      spriteID: 8d4196bae7156704498bdf9f39198580
+      internalID: -368734207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken_4
+      name: bossRed_4
       rect:
         serializedVersion: 2
-        x: 1424
+        x: 300
         y: 0
-        width: 356
-        height: 284
+        width: 75
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d90eba4a53d2c68429ec230f869027a5
-      internalID: 2047803550
+      spriteID: 9fb43b6aefe6c17478bd8c0d2ad67e81
+      internalID: 1147810714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken_5
+      name: bossRed_5
       rect:
         serializedVersion: 2
-        x: 1780
+        x: 375
         y: 0
-        width: 356
-        height: 284
+        width: 75
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1959a02b890bb945a7024b068de18ec
-      internalID: -203309952
+      spriteID: 8832a8c073caeef4e93b180f898169f9
+      internalID: 767902961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken_6
+      name: bossRed_6
       rect:
         serializedVersion: 2
-        x: 2136
+        x: 450
         y: 0
-        width: 356
-        height: 284
+        width: 75
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b83fb40e543707e4ebb83bdb658fc7ce
-      internalID: 5624730
+      spriteID: f3e58770e9fe84c41957de834ecb14a2
+      internalID: -1776321380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken_7
+      name: bossRed_7
       rect:
         serializedVersion: 2
-        x: 2492
+        x: 525
         y: 0
-        width: 356
-        height: 284
+        width: 75
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ad9ea50c431f8540ba3a0dcbe5c10ee
-      internalID: -856155745
+      spriteID: 3ebda82939af8ea48af780682377a559
+      internalID: 216317454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken_8
+      name: bossRed_8
       rect:
         serializedVersion: 2
-        x: 2848
+        x: 600
         y: 0
-        width: 356
-        height: 284
+        width: 75
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a549229bf9ef50c488464d4173b966f6
-      internalID: 1993683354
+      spriteID: d9ee4f0f58f314840a46f4669f03324e
+      internalID: -2011793531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken_9
+      name: bossRed_9
       rect:
         serializedVersion: 2
-        x: 3204
+        x: 675
         y: 0
-        width: 356
-        height: 284
+        width: 75
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97739039c0370c74abcc6a766641431e
-      internalID: -753001979
+      spriteID: a514ba89006dd2542a30d2b24321ca36
+      internalID: 1768032028
       vertices: []
       indices: 
       edges: []
@@ -325,16 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RedChicken_0: -1180783769
-      RedChicken_1: -183824398
-      RedChicken_2: -1204225536
-      RedChicken_3: 1107625867
-      RedChicken_4: 2047803550
-      RedChicken_5: -203309952
-      RedChicken_6: 5624730
-      RedChicken_7: -856155745
-      RedChicken_8: 1993683354
-      RedChicken_9: -753001979
+      bossRed_0: 1227811461
+      bossRed_1: -2068203755
+      bossRed_2: -1417583095
+      bossRed_3: -368734207
+      bossRed_4: 1147810714
+      bossRed_5: 767902961
+      bossRed_6: -1776321380
+      bossRed_7: 216317454
+      bossRed_8: -2011793531
+      bossRed_9: 1768032028
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
