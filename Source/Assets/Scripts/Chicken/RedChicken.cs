@@ -42,14 +42,14 @@ public class RedChicken : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(1f, 4f));
 
-        //AudioSource audioSource = GetComponent<AudioSource>();
+        AudioSource audioSource = GetComponent<AudioSource>();
 
-        //// Kiểm tra nếu AudioSource tồn tại và có AudioClip
-        //if (audioSource != null && audioSource.clip != null)
-        //{
-        //    // Phát âm thanh
-        //    audioSource.Play();
-        //}
+        //Kiểm tra nếu AudioSource tồn tại và có AudioClip
+        if (audioSource != null && audioSource.clip != null)
+        {
+            //Phát âm thanh
+            audioSource.Play();
+        }
 
         Vector3 temp = transform.position;
         temp.y -= 0.6f;
