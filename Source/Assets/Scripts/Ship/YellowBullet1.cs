@@ -7,6 +7,7 @@ public class YellowBullet1 : MonoBehaviour
     public float bulletSpeed;
     private Rigidbody2D myBody;
     public float aliveTimeBullet;
+    public GameObject fog;
 
     private void Start()
     {
@@ -29,4 +30,11 @@ public class YellowBullet1 : MonoBehaviour
             Destroy(target.gameObject);
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+{
+    if (collision.gameObject.tag == "RedChicken")
+    {
+        Instantiate(fog, transform.position, transform.rotation);
+    }
+}
 }
