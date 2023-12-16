@@ -8,7 +8,7 @@ private float minX, maxX, minY, maxY;
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width,Screen.height, 0f));
+        Vector2 bounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width,Screen.height));
 
         minX = -bounds.x;
         maxX = bounds.x;
