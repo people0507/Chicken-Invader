@@ -7,7 +7,7 @@ public class RedChicken : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Rigidbody2D myBody;
-    [SerializeField] private float changeDirectionInterval = 3f; // Thời gian đổi hướng
+    [SerializeField] private float changeDirectionInterval = 3f;
     private float timer;
 
     void Awake()
