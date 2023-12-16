@@ -22,4 +22,11 @@ public class YellowBullet1 : MonoBehaviour
     {
         myBody.velocity = new Vector2(0f, bulletSpeed);
     }
+    private void OnTriggerExit2D(Collider2D target)
+    {
+        if (target.tag == "RedChicken")
+        {
+            Destroy(target.gameObject);
+        }
+    }
 }
