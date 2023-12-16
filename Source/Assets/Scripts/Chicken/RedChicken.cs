@@ -57,4 +57,12 @@ public class RedChicken : MonoBehaviour
         StartCoroutine(EnemyShoot());
 
     }
+    private void OnTriggerExit2D(Collider2D target)
+    {
+        if (target.tag == "Bullet")
+        {
+            //Instantiate(food, transform.position, transform.rotation);
+            Destroy(target.gameObject);
+        }
+    }
 }
