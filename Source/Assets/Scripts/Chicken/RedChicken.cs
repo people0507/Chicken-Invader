@@ -9,6 +9,7 @@ public class RedChicken : MonoBehaviour
     private Rigidbody2D myBody;
     [SerializeField] private float changeDirectionInterval = 3f;
     private float timer;
+    [SerializeField] private GameObject egg;
 
     void Awake()
     {
@@ -19,6 +20,7 @@ public class RedChicken : MonoBehaviour
     {
         timer = changeDirectionInterval;
         GetRandomDirection();
+        StartCoroutine(EnemyShoot());
     }
 
     void FixedUpdate()
@@ -35,5 +37,24 @@ public class RedChicken : MonoBehaviour
     private void GetRandomDirection()
     {
         myBody.velocity = new Vector2(Random.Range(-1f, 1f), -speed);
+    }
+    IEnumerator EnemyShoot()
+    {
+        yield return new WaitForSeconds(Random.Range(1f, 4f));
+
+        //AudioSource audioSource = GetComponent<AudioSource>();
+
+        //// Kiểm tra nếu AudioSource tồn tại và có AudioClip
+        //if (audioSource != null && audioSource.clip != null)
+        //{
+        //    // Phát âm thanh
+        //    audioSource.Play();
+        //}
+
+        Vector3 temp = transform.position;
+        temp.y -= 0.6f;
+        Instantiate(egg, temp, Quaternion.identity);
+        StartCoroutine(EnemyShoot());
+
     }
 }
