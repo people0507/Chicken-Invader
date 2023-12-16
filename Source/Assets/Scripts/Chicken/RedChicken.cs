@@ -10,6 +10,7 @@ public class RedChicken : MonoBehaviour
     [SerializeField] private float changeDirectionInterval = 3f;
     private float timer;
     [SerializeField] private GameObject egg;
+    [SerializeField] private GameObject chickenleg;
     public float aliveTimeChicken;
 
     void Awake()
@@ -61,9 +62,14 @@ public class RedChicken : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D target)
     {
+        if(target.tag == "Player")
+        {
+            Destroy(target.gameObject);
+        }
+
         if (target.tag == "Bullet")
         {
-            //Instantiate(food, transform.position, transform.rotation);
+            Instantiate(chickenleg, transform.position, transform.rotation);
             Destroy(target.gameObject);
         }
     }
