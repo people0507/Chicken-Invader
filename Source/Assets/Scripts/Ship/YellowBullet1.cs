@@ -6,10 +6,16 @@ public class YellowBullet1 : MonoBehaviour
 {
     public float bulletSpeed;
     private Rigidbody2D myBody;
+    public float aliveTimeBullet;
 
+    private void Start()
+    {
+        Destroy(gameObject, aliveTimeBullet);
+    }
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
+
     }
 
     private void FixedUpdate()
