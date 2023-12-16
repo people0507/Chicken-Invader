@@ -9,6 +9,7 @@ public class Egg : MonoBehaviour
     [SerializeField] private float speed;
     private Rigidbody2D myBody;
     [SerializeField] private GameObject eggBreak;
+    public float aliveTimeEgg;
 
     private void Awake()
     {
@@ -18,7 +19,7 @@ public class Egg : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Destroy(gameObject,aliveTimeEgg);
     }
 
     private void FixedUpdate()

@@ -10,6 +10,7 @@ public class RedChicken : MonoBehaviour
     [SerializeField] private float changeDirectionInterval = 3f;
     private float timer;
     [SerializeField] private GameObject egg;
+    public float aliveTimeChicken;
 
     void Awake()
     {
@@ -18,6 +19,7 @@ public class RedChicken : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject,aliveTimeChicken);
         timer = changeDirectionInterval;
         GetRandomDirection();
         StartCoroutine(EnemyShoot());

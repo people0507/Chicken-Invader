@@ -138,3 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   eggBreak: {fileID: 4739016596559470710, guid: 0944e5943513d914cbfbb35d78f03365, type: 3}
+  aliveTimeEgg: 10
