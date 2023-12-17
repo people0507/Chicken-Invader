@@ -9,11 +9,12 @@ public class ChickenLeg : MonoBehaviour
     public float aliveTimeChickenLeg;
     public float jumpForce;
     private float countJump;
-
+    private float rotate;
 
     private void Start()
     {
         Destroy(gameObject,aliveTimeChickenLeg);
+        rotate = Random.Range(-10, 10);
     }
     private void Awake()
     {
@@ -22,23 +23,34 @@ public class ChickenLeg : MonoBehaviour
 
     private void FixedUpdate()
     {
-       
+        transform.Rotate(Vector3.forward * rotate);
     }
 
-        void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Kiểm tra va chạm với mặt đất
+        if (collision.gameObject.CompareTag("BottomBorder"))
         {
-            // Kiểm tra va chạm với mặt đất
-            if (collision.gameObject.CompareTag("BottomBorder"))
-            {
             countJump++;
             if(countJump == 3)
             {
-                myBody.velocity = new Vector2 (0,0);
+                myBody.velocity = new Vector2(0,0);
+                this.rotate = 0;
             }
             else
             {
-            myBody.AddForce(Vector2.up * (jumpForce -=1), ForceMode2D.Impulse);
-            }
-            }
+                myBody.AddForce(Vector2.up * (jumpForce -=1), ForceMode2D.Impulse);
+            } 
         }
+
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D target)
+    {
+        if (target.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
