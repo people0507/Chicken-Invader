@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - BottomBorder
+  - Bullet
+  - RedChicken
+  - Egg
   layers:
   - Default
   - TransparentFX

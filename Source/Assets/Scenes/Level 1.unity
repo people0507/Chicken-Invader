@@ -610,7 +610,7 @@ GameObject:
   - component: {fileID: 1748028317}
   m_Layer: 0
   m_Name: ship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -703,7 +703,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1748028313
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -714,7 +714,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.020291507, y: 1.8668003}
@@ -740,7 +740,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.00000047683716, y: -1.7247612}
@@ -780,3 +780,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65dc385abd4eebc4f871801a0664dd81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 5970442190925620509, guid: 4c5d44c5e8514d341a3fcc7a1b21ef81, type: 3}
+  explosion: {fileID: 569267197445203444, guid: 9c70425e18eaba84585bbface9d8f199, type: 3}

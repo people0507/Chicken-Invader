@@ -10,6 +10,8 @@ public class RedChicken : MonoBehaviour
     [SerializeField] private float changeDirectionInterval = 3f;
     private float timer;
     [SerializeField] private GameObject egg;
+    [SerializeField] private GameObject chickenleg;
+    public float aliveTimeChicken;
 
     void Awake()
     {
@@ -18,6 +20,7 @@ public class RedChicken : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject,aliveTimeChicken);
         timer = changeDirectionInterval;
         GetRandomDirection();
         StartCoroutine(EnemyShoot());
@@ -40,21 +43,26 @@ public class RedChicken : MonoBehaviour
     }
     IEnumerator EnemyShoot()
     {
-        yield return new WaitForSeconds(Random.Range(1f, 4f));
-
-        //AudioSource audioSource = GetComponent<AudioSource>();
-
-        //// Kiểm tra nếu AudioSource tồn tại và có AudioClip
-        //if (audioSource != null && audioSource.clip != null)
-        //{
-        //    // Phát âm thanh
-        //    audioSource.Play();
-        //}
+        yield return new WaitForSeconds(Random.Range(2f, 6f));
 
         Vector3 temp = transform.position;
         temp.y -= 0.6f;
         Instantiate(egg, temp, Quaternion.identity);
-        StartCoroutine(EnemyShoot());
 
+        StartCoroutine(EnemyShoot());
+         AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource != null && audioSource.clip != null)
+        {
+            audioSource.Play();
+        }
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            Instantiate(chickenleg, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 }
