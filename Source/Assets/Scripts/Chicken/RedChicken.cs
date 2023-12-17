@@ -11,6 +11,11 @@ public class RedChicken : MonoBehaviour
     private float timer;
     [SerializeField] private GameObject egg;
     [SerializeField] private GameObject chickenleg;
+    [SerializeField] private GameObject present;
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
+
     public float aliveTimeChicken;
 
     void Awake()
@@ -23,6 +28,11 @@ public class RedChicken : MonoBehaviour
         Destroy(gameObject,aliveTimeChicken);
         timer = changeDirectionInterval;
         GetRandomDirection();
+
+        audioSource = GetComponent<AudioSource>(); // Lấy thành phần AudioSource từ GameObject hiện tại
+        audioSource.clip = audioClip; // Gắn audio clip vào AudioSource
+        audioSource.Play(); // Phát âm thanh
+
         StartCoroutine(EnemyShoot());
     }
 
@@ -41,27 +51,32 @@ public class RedChicken : MonoBehaviour
     {
         myBody.velocity = new Vector2(Random.Range(-1f, 1f), -speed);
     }
+
     IEnumerator EnemyShoot()
     {
-        yield return new WaitForSeconds(Random.Range(2f, 6f));
-
-        Vector3 temp = transform.position;
-        temp.y -= 0.6f;
-        Instantiate(egg, temp, Quaternion.identity);
-
-        StartCoroutine(EnemyShoot());
-         AudioSource audioSource = GetComponent<AudioSource>();
-        if (audioSource != null && audioSource.clip != null)
+        while (true)
         {
-            audioSource.Play();
+            yield return new WaitForSeconds(Random.Range(0.5f, 3f));
+            Instantiate(egg, transform.position - new Vector3(0, 0.6f, 0), Quaternion.identity);
+            
+            AudioSource audioSource = GetComponent<AudioSource>();
+            if (audioSource != null && audioSource.clip != null)
+            {
+                audioSource.Play();
+            }
         }
-
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
         {
             Instantiate(chickenleg, transform.position, transform.rotation);
+
+            int random = Random.Range(1, 5);
+            if(random == 3)
+                Instantiate(present, transform.position, transform.rotation);
+
             Destroy(gameObject);
         }
     }

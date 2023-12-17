@@ -780,5 +780,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65dc385abd4eebc4f871801a0664dd81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5970442190925620509, guid: 4c5d44c5e8514d341a3fcc7a1b21ef81, type: 3}
   explosion: {fileID: 569267197445203444, guid: 9c70425e18eaba84585bbface9d8f199, type: 3}
+  bulletList:
+  - {fileID: 5835703306144427422, guid: d38cba9686dc23845b7fed94af41e6a9, type: 3}
+  - {fileID: 5210849025949049797, guid: 3916709005a98cb4aa03778f2a190389, type: 3}
+  - {fileID: 8461641921393125315, guid: e14cc5b6457080a4b83222210cd8c75d, type: 3}
+  - {fileID: 6299518094184556133, guid: 664a73e042278e9428c070574cfccb89, type: 3}
+  - {fileID: 4182340961740746823, guid: 19f2348e0807770409b3b17d358ab451, type: 3}
+  - {fileID: 7758229461161152445, guid: 7621d6db37524dd46ae198e9316b286b, type: 3}
+  currenTierBullet: 0
+  timeFire: 0.3

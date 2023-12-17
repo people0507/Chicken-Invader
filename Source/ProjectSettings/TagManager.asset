@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - RedChicken
   - Egg
+  - Present
   layers:
   - Default
   - TransparentFX
