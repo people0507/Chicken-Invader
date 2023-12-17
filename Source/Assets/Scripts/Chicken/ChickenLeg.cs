@@ -22,7 +22,7 @@ public class ChickenLeg : MonoBehaviour
 
     private void FixedUpdate()
     {
-        myBody.velocity = new Vector2(0f, -speed);
+       
     }
 
         void OnCollisionEnter2D(Collision2D collision)

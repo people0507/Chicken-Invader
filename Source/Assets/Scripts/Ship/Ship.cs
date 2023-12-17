@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
     private Rigidbody2D myBody;
-    [SerializeField]
-    private GameObject bullet;
+    [SerializeField] private GameObject bullet;
     private bool canShoot = true;
+    [SerializeField] private GameObject explosion;
 
     private void Awake()
     {
@@ -50,4 +51,20 @@ public class Ship : MonoBehaviour
         Instantiate(bullet, temp, Quaternion.identity);
         canShoot = true;
     }
+
+    private void OnTriggerExit2D(Collider2D target)
+    {
+        if (target.tag == "RedChicken" || target.tag == "Egg")
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Egg")
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
+        }
+    }
+
 }

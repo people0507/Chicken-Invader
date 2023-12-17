@@ -43,34 +43,26 @@ public class RedChicken : MonoBehaviour
     }
     IEnumerator EnemyShoot()
     {
-        yield return new WaitForSeconds(Random.Range(1f, 4f));
-
-        AudioSource audioSource = GetComponent<AudioSource>();
-
-        //Kiểm tra nếu AudioSource tồn tại và có AudioClip
-        if (audioSource != null && audioSource.clip != null)
-        {
-            //Phát âm thanh
-            audioSource.Play();
-        }
+        yield return new WaitForSeconds(Random.Range(2f, 6f));
 
         Vector3 temp = transform.position;
         temp.y -= 0.6f;
         Instantiate(egg, temp, Quaternion.identity);
-        StartCoroutine(EnemyShoot());
 
-    }
-    private void OnTriggerExit2D(Collider2D target)
-    {
-        if(target.tag == "Player")
+        StartCoroutine(EnemyShoot());
+         AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource != null && audioSource.clip != null)
         {
-            Destroy(target.gameObject);
+            audioSource.Play();
         }
 
-        if (target.tag == "Bullet")
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
         {
             Instantiate(chickenleg, transform.position, transform.rotation);
-            Destroy(target.gameObject);
+            Destroy(gameObject);
         }
     }
 }
