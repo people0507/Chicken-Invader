@@ -31,10 +31,10 @@ public class YellowBullet1 : MonoBehaviour
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.gameObject.tag == "RedChicken")
     {
+    if (collision.gameObject.tag == "RedChicken")
+        {
         Instantiate(fog, transform.position, transform.rotation);
+        }
     }
-}
 }
