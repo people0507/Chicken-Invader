@@ -291,9 +291,10 @@ GameObject:
   - component: {fileID: 235589859}
   - component: {fileID: 235589858}
   - component: {fileID: 235589860}
+  - component: {fileID: 235589861}
   m_Layer: 0
   m_Name: ProtectShield
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,6 +400,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldTime: 10
+--- !u!58 &235589861
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235589856}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.08678198, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.3939464
 --- !u!1 &381730337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,6 +1509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 569267197445203444, guid: 9c70425e18eaba84585bbface9d8f199, type: 3}
+  shield: {fileID: 235589856}
   bulletList:
   - {fileID: 5835703306144427422, guid: d38cba9686dc23845b7fed94af41e6a9, type: 3}
   - {fileID: 5210849025949049797, guid: 3916709005a98cb4aa03778f2a190389, type: 3}
