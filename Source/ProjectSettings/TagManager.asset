@@ -9,6 +9,7 @@ TagManager:
   - RedChicken
   - Egg
   - Present
+  - AudioManager
   layers:
   - Default
   - TransparentFX

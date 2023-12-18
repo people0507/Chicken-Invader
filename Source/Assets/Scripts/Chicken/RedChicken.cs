@@ -9,18 +9,18 @@ public class RedChicken : MonoBehaviour
     private Rigidbody2D myBody;
     [SerializeField] private float changeDirectionInterval = 3f;
     private float timer;
+
     [SerializeField] private GameObject egg;
     [SerializeField] private GameObject chickenleg;
     [SerializeField] private GameObject present;
 
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip audioClip;
-
+    private AudioManager audioManager;
     public float aliveTimeChicken;
 
     void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
     // Start is called before the first frame update
     void Start()
@@ -28,11 +28,6 @@ public class RedChicken : MonoBehaviour
         Destroy(gameObject,aliveTimeChicken);
         timer = changeDirectionInterval;
         GetRandomDirection();
-
-        audioSource = GetComponent<AudioSource>(); // Lấy thành phần AudioSource từ GameObject hiện tại
-        audioSource.clip = audioClip; // Gắn audio clip vào AudioSource
-        audioSource.Play(); // Phát âm thanh
-
         StartCoroutine(EnemyShoot());
     }
 
@@ -58,12 +53,7 @@ public class RedChicken : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(0.5f, 3f));
             Instantiate(egg, transform.position - new Vector3(0, 0.6f, 0), Quaternion.identity);
-            
-            AudioSource audioSource = GetComponent<AudioSource>();
-            if (audioSource != null && audioSource.clip != null)
-            {
-                audioSource.Play();
-            }
+            audioManager.PlayEgg(audioManager.eggClip);
         }
     }
 
@@ -73,6 +63,7 @@ public class RedChicken : MonoBehaviour
         {
             Instantiate(chickenleg, transform.position, transform.rotation);
 
+            audioManager.PlayChickenDeath(audioManager.chickenDeathAudioClip);
             int random = Random.Range(1, 5);
             if(random == 3)
                 Instantiate(present, transform.position, transform.rotation);
