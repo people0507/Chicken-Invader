@@ -6,8 +6,10 @@ using UnityEngine;
 public class Ship : MonoBehaviour
 {
     private Rigidbody2D myBody;
-    
+
     [SerializeField] private GameObject explosion;
+    [SerializeField] private GameObject shield;
+
 
     //fire
     [SerializeField] private GameObject[] bulletList;
@@ -26,7 +28,7 @@ public class Ship : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -58,11 +60,7 @@ public class Ship : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D target)
     {
-        if (target.tag == "RedChicken" || target.tag == "Egg")
-        {
-            Destroy(gameObject);
-            audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
-        }
+
         if(target.tag == "Present" && currenTierBullet < 5)
         {
             audioManager.PlayLevelUp(audioManager.levelUpAudioClip);
@@ -72,8 +70,10 @@ public class Ship : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Egg")
+        if ( shield == null && (collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Egg"))
         {
+            Destroy(gameObject);
+            audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
             Instantiate(explosion, transform.position, transform.rotation);
         }
     }

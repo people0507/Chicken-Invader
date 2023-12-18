@@ -36,5 +36,11 @@ public class Egg : MonoBehaviour
             audioManager.PlayEggBreak(audioManager.eggBreakClip);
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Shield")
+        {
+            audioManager.PlayEggBreak(audioManager.eggBreakClip);
+            Destroy(gameObject);
+        }
+
     }
 }
