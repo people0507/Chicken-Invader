@@ -11,15 +11,19 @@ public class ChickenLeg : MonoBehaviour
     private float countJump;
     private float rotate;
 
+    private AudioManager audioManager;
+    
+    private void Awake()
+    {
+        myBody = GetComponent<Rigidbody2D>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+    }
     private void Start()
     {
         Destroy(gameObject,aliveTimeChickenLeg);
         rotate = Random.Range(-10, 10);
     }
-    private void Awake()
-    {
-        myBody = GetComponent<Rigidbody2D>();
-    }
+    
 
     private void FixedUpdate()
     {
@@ -50,6 +54,7 @@ public class ChickenLeg : MonoBehaviour
     {
         if (target.tag == "Player")
         {
+            audioManager.PlayEat(audioManager.eatClip);
             Destroy(gameObject);
         }
     }

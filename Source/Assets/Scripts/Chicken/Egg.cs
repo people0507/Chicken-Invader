@@ -11,9 +11,11 @@ public class Egg : MonoBehaviour
     [SerializeField] private GameObject eggBreak;
     public float aliveTimeEgg;
 
+    private AudioManager audioManager;
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     // Start is called before the first frame update
@@ -31,6 +33,7 @@ public class Egg : MonoBehaviour
         if (collision.gameObject.tag == "BottomBorder")
         {
             Instantiate(eggBreak, transform.position, transform.rotation);
+            audioManager.PlayEggBreak(audioManager.eggBreakClip);
             Destroy(gameObject);
         }
     }
