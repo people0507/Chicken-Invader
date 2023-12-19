@@ -149,3 +149,4 @@ MonoBehaviour:
   speed: 2
   aliveTimeChickenLeg: 10
   jumpForce: 4
+  score: 200

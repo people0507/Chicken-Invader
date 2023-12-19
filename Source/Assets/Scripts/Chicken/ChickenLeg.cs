@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class ChickenLeg : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ChickenLeg : MonoBehaviour
     public float jumpForce;
     private float countJump;
     private float rotate;
+    [SerializeField] private int score;
 
     private AudioManager audioManager;
     
@@ -55,6 +57,7 @@ public class ChickenLeg : MonoBehaviour
         if (target.tag == "Player")
         {
             audioManager.PlayEat(audioManager.eatClip);
+            ScoreController.instance.getScore(score);
             Destroy(gameObject);
         }
     }

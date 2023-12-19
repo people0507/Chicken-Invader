@@ -13,6 +13,8 @@ public class RedChicken : MonoBehaviour
     [SerializeField] private GameObject egg;
     [SerializeField] private GameObject chickenleg;
     [SerializeField] private GameObject present;
+    [SerializeField] private int score;
+
 
     private AudioManager audioManager;
     public float aliveTimeChicken;
@@ -67,7 +69,7 @@ public class RedChicken : MonoBehaviour
             int random = Random.Range(1, 5);
             if(random == 3)
                 Instantiate(present, transform.position, transform.rotation);
-
+            ScoreController.instance.getScore(score);
             Destroy(gameObject);
         }
     }
