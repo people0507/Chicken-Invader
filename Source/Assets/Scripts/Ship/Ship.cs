@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Ship : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Ship : MonoBehaviour
 
     [SerializeField] private GameObject explosion;
     [SerializeField] private GameObject shield;
+    [SerializeField] private int score;
 
 
     //fire
@@ -66,6 +68,8 @@ public class Ship : MonoBehaviour
             audioManager.PlayLevelUp(audioManager.levelUpAudioClip);
             this.currenTierBullet += 1;
             this.timeFire -= 0.01f;
+            ScoreController.instance.getScore(score);
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
