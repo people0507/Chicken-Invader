@@ -10,7 +10,6 @@ public class Ship : MonoBehaviour
 
     [SerializeField] private GameObject explosion;
     [SerializeField] private GameObject shield;
-    [SerializeField] private int score;
 
 
     //fire
@@ -68,7 +67,6 @@ public class Ship : MonoBehaviour
             audioManager.PlayLevelUp(audioManager.levelUpAudioClip);
             this.currenTierBullet += 1;
             this.timeFire -= 0.01f;
-            ScoreController.instance.getScore(score);
 
         }
     }
