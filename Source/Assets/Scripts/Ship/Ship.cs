@@ -17,20 +17,23 @@ public class Ship : MonoBehaviour
     //fire
     [SerializeField] private GameObject[] bulletList;
     [SerializeField] private int currenTierBullet;
-    private bool checkPresent;
     [SerializeField, Range(0, 1)] private float timeFire;
 
     private float nextTimeFire = 0f;
 
     private AudioManager audioManager;
-    private int health;
+    [SerializeField] private int health;
+
+    public float blinkInterval = 0.2f; // Khoảng thời gian giữa các nhấp nháy
+    private SpriteRenderer spriteRenderer;
+    private bool isBlinking = false;
 
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
-        this.checkPresent = false;
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         this.health = 3;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     // Start is called before the first frame update
     void Start()
@@ -82,20 +85,54 @@ public class Ship : MonoBehaviour
             if (health > 0)
             {
                 this.health--;
-                Destroy(gameObject);
+                //Destroy(gameObject);
                 Instantiate(explosion, transform.position, transform.rotation);
-                ShipController.instance.SpawnShip();
-                GetComponent<BlinkingObject>().StartBlinking();
+                //ShipController.instance.SpawnShip();
+                HeathController.instance.getHeath(health);
+                StartBlinking();
+                Invoke("StopBlinking", 3f);
                 audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
             }
             else
             {
                 Destroy(gameObject);
                 audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
-                audioManager.PlayGameOver(audioManager.gameOverClip);
+                audioManager.PlayBackground(audioManager.gameOverClip);
                 Time.timeScale = 0.1f;
                 Instantiate(explosion, transform.position, transform.rotation);
             }
         }
+    }
+
+
+    public void StartBlinking()
+    {
+        if (!isBlinking)
+        {
+            isBlinking = true;
+            StartCoroutine(Blink());
+        }
+    }
+
+    public void StopBlinking()
+    {
+        if (isBlinking)
+        {
+            isBlinking = false;
+            StopCoroutine(Blink());
+            spriteRenderer.enabled = true; // Đảm bảo đối tượng được hiển thị khi dừng nhấp nháy
+        }
+    }
+
+    private IEnumerator Blink()
+    {
+        float elapsedTime = 0f; // Thời gian đã trôi qua
+        while (isBlinking && elapsedTime < 3f)
+        {
+            spriteRenderer.enabled = !spriteRenderer.enabled;
+            yield return new WaitForSeconds(blinkInterval);
+            elapsedTime += blinkInterval;
+        }
+        spriteRenderer.enabled = true; // Đảm bảo đối tượng được hiển thị khi kết thúc nhấp nháy
     }
 }
