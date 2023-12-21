@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         backgroundAudioSource.clip = backgroundClip;
-        //backgroundAudioSource.Play();
+        backgroundAudioSource.Play();
     }
 
     public void PlayFire(AudioClip clip)
