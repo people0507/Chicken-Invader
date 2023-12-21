@@ -13,8 +13,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource eggAudioSource;
     [SerializeField] private AudioSource eggBreakAudioSource;
     [SerializeField] private AudioSource eatAudioSource;
-    [SerializeField] private AudioSource gameWinAudioSource;
-    [SerializeField] private AudioSource gameOverAudioSource;
 
 
     public AudioClip backgroundClip;
@@ -33,6 +31,12 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         backgroundAudioSource.clip = backgroundClip;
+        backgroundAudioSource.Play();
+    }
+
+    public void PlayBackground(AudioClip clip)
+    {
+        backgroundAudioSource.clip = clip;
         backgroundAudioSource.Play();
     }
 
@@ -82,16 +86,5 @@ public class AudioManager : MonoBehaviour
     {
         eatAudioSource.clip = clip;
         eatAudioSource.PlayOneShot(clip);
-    }
-
-    public void PlayGameWin(AudioClip clip)
-    {
-        gameWinAudioSource.clip = clip;
-        gameWinAudioSource.Play();
-    }
-    public void PlayGameOver(AudioClip clip)
-    {
-        gameOverAudioSource.clip = clip;
-        gameOverAudioSource.Play();
     }
 }
