@@ -13,7 +13,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource eggAudioSource;
     [SerializeField] private AudioSource eggBreakAudioSource;
     [SerializeField] private AudioSource eatAudioSource;
-    
+    [SerializeField] private AudioSource gameWinAudioSource;
+    [SerializeField] private AudioSource gameOverAudioSource;
+
 
     public AudioClip backgroundClip;
     public AudioClip fireClip;
@@ -24,6 +26,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip eggClip;
     public AudioClip eggBreakClip;
     public AudioClip eatClip;
+    public AudioClip gameWinClip;
+    public AudioClip gameOverClip;
     
     // Start is called before the first frame update
     void Start()
@@ -78,5 +82,16 @@ public class AudioManager : MonoBehaviour
     {
         eatAudioSource.clip = clip;
         eatAudioSource.PlayOneShot(clip);
+    }
+
+    public void PlayGameWin(AudioClip clip)
+    {
+        gameWinAudioSource.clip = clip;
+        gameWinAudioSource.Play();
+    }
+    public void PlayGameOver(AudioClip clip)
+    {
+        gameOverAudioSource.clip = clip;
+        gameOverAudioSource.Play();
     }
 }

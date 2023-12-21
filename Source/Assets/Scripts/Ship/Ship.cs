@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -20,11 +21,13 @@ public class Ship : MonoBehaviour
     private float nextTimeFire = 0f;
 
     private AudioManager audioManager;
+    private int health;
 
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        this.health = 3;
     }
     // Start is called before the first frame update
     void Start()
@@ -74,10 +77,19 @@ public class Ship : MonoBehaviour
     {
         if ( shield == null && (collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Egg"))
         {
-            Destroy(gameObject);
-            audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
-            Instantiate(explosion, transform.position, transform.rotation);
+            if (health > 0)
+            {
+                this.health--;
+                audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
+            }
+            else
+            {
+                Destroy(gameObject);
+                audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
+                audioManager.PlayGameOver(audioManager.gameOverClip);
+                Time.timeScale = 0.1f;
+                Instantiate(explosion, transform.position, transform.rotation);
+            }
         }
     }
-
 }
