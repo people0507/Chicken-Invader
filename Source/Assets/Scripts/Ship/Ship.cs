@@ -36,22 +36,15 @@ public class Ship : MonoBehaviour
         this.health = 3;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Fire();
-    }
     void FixedUpdate()
     {
         ShipMovement();
         hasIncreasedTier = false;
+        Fire();
 
     }
+
     void ShipMovement()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -62,16 +55,30 @@ public class Ship : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && Time.time >= nextTimeFire)
         {
-            Instantiate(bulletList[currenTierBullet], transform.position, Quaternion.identity);
             nextTimeFire = Time.time + timeFire;
             audioManager.PlayFire(audioManager.fireClip);
+
+            if (currenTierBullet == 0 || currenTierBullet == 1 || currenTierBullet == 4 || currenTierBullet == 5)
+                Instantiate(bulletList[currenTierBullet], transform.position, Quaternion.identity);
+            else if (currenTierBullet == 2 || currenTierBullet == 3)
+            {
+                Instantiate(bulletList[currenTierBullet], transform.position, Quaternion.identity);
+                Instantiate(bulletList[0], transform.position, Quaternion.Euler(0, 0, 10f));
+                Instantiate(bulletList[0], transform.position, Quaternion.Euler(0, 0, -10f));
+            }
+            else
+            {
+                Instantiate(bulletList[currenTierBullet], transform.position, Quaternion.identity);
+                Instantiate(bulletList[4], transform.position, Quaternion.Euler(0, 0, 10f));
+                Instantiate(bulletList[4], transform.position, Quaternion.Euler(0, 0, -10f));
+            }
         }
 
     }
 
     private void OnTriggerExit2D(Collider2D target)
     {
-        if(target.tag == "Present" && currenTierBullet < 5 && !hasIncreasedTier)
+        if(target.tag == "Present" && currenTierBullet < 7 && !hasIncreasedTier)
         {
             audioManager.PlayLevelUp(audioManager.levelUpAudioClip);
             this.currenTierBullet += 1;
