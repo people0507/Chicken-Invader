@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using static UnityEngine.GraphicsBuffer;
 
 public class ChickenLeg : MonoBehaviour
 {
@@ -48,13 +49,11 @@ public class ChickenLeg : MonoBehaviour
                 myBody.AddForce(Vector2.up * (jumpForce -=1), ForceMode2D.Impulse);
             } 
         }
-
-        
     }
 
-    private void OnTriggerExit2D(Collider2D target)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (target.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             audioManager.PlayEat(audioManager.eatClip);
             ScoreController.instance.getScore(score);
