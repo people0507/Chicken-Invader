@@ -7,6 +7,10 @@ TagManager:
   - BottomBorder
   - Bullet
   - RedChicken
+  - Egg
+  - Present
+  - AudioManager
+  - Shield
   layers:
   - Default
   - TransparentFX

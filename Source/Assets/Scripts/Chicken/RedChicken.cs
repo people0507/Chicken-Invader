@@ -9,15 +9,25 @@ public class RedChicken : MonoBehaviour
     private Rigidbody2D myBody;
     [SerializeField] private float changeDirectionInterval = 3f;
     private float timer;
+
     [SerializeField] private GameObject egg;
+    [SerializeField] private GameObject chickenleg;
+    [SerializeField] private GameObject present;
+    [SerializeField] private int score;
+
+
+    private AudioManager audioManager;
+    public float aliveTimeChicken;
 
     void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject,aliveTimeChicken);
         timer = changeDirectionInterval;
         GetRandomDirection();
         StartCoroutine(EnemyShoot());
@@ -38,31 +48,29 @@ public class RedChicken : MonoBehaviour
     {
         myBody.velocity = new Vector2(Random.Range(-1f, 1f), -speed);
     }
+
     IEnumerator EnemyShoot()
     {
-        yield return new WaitForSeconds(Random.Range(1f, 4f));
-
-        AudioSource audioSource = GetComponent<AudioSource>();
-
-        //Kiểm tra nếu AudioSource tồn tại và có AudioClip
-        if (audioSource != null && audioSource.clip != null)
+        while (true)
         {
-            //Phát âm thanh
-            audioSource.Play();
+            yield return new WaitForSeconds(Random.Range(0.5f, 3f));
+            Instantiate(egg, transform.position - new Vector3(0, 0.6f, 0), Quaternion.identity);
+            audioManager.PlayEgg(audioManager.eggClip);
         }
-
-        Vector3 temp = transform.position;
-        temp.y -= 0.6f;
-        Instantiate(egg, temp, Quaternion.identity);
-        StartCoroutine(EnemyShoot());
-
     }
-    private void OnTriggerExit2D(Collider2D target)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (target.tag == "Bullet")
+        if (collision.CompareTag("Bullet"))
         {
-            //Instantiate(food, transform.position, transform.rotation);
-            Destroy(target.gameObject);
+            Instantiate(chickenleg, transform.position, transform.rotation);
+
+            audioManager.PlayChickenDeath(audioManager.chickenDeathAudioClip);
+            int random = Random.Range(1, 5);
+            if(random == 3)
+                Instantiate(present, transform.position, transform.rotation);
+            ScoreController.instance.getScore(score);
+            Destroy(gameObject);
         }
     }
 }
