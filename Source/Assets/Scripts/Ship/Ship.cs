@@ -22,7 +22,7 @@ public class Ship : MonoBehaviour
     private float nextTimeFire = 0f;
 
     private AudioManager audioManager;
-    [SerializeField] private int health;
+    private int health;
 
     public float blinkInterval = 0.2f; // Khoảng thời gian giữa các nhấp nháy
     private SpriteRenderer spriteRenderer;
