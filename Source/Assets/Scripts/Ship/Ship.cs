@@ -11,7 +11,7 @@ public class Ship : MonoBehaviour
     private Rigidbody2D myBody;
 
     [SerializeField] private GameObject explosion;
-    [SerializeField] private GameObject shield;
+    [SerializeField] private Shield shield;
     private bool hasIncreasedTier = false;
 
     //fire
@@ -32,6 +32,7 @@ public class Ship : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody2D>();
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        shield = GameObject.FindGameObjectWithTag("Shield").GetComponent<Shield>();
         this.health = 3;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -80,14 +81,13 @@ public class Ship : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ( shield == null && (collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Egg"))
+        if ( !shield.isShield && (collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Egg"))
         {
             if (health > 0)
             {
                 this.health--;
-                //Destroy(gameObject);
                 Instantiate(explosion, transform.position, transform.rotation);
-                //ShipController.instance.SpawnShip();
+                shield.Show();
                 HeathController.instance.getHeath(health);
                 StartBlinking();
                 Invoke("StopBlinking", 3f);
