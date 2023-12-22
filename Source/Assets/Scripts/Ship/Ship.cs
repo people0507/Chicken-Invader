@@ -11,7 +11,7 @@ public class Ship : MonoBehaviour
     private Rigidbody2D myBody;
 
     [SerializeField] private GameObject explosion;
-    [SerializeField] private GameObject shield;
+    [SerializeField] private Shield shield;
     private bool hasIncreasedTier = false;
 
     //fire
@@ -32,25 +32,19 @@ public class Ship : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody2D>();
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        shield = GameObject.FindGameObjectWithTag("Shield").GetComponent<Shield>();
         this.health = 3;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Fire();
-    }
     void FixedUpdate()
     {
         ShipMovement();
         hasIncreasedTier = false;
+        Fire();
 
     }
+
     void ShipMovement()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -61,16 +55,30 @@ public class Ship : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && Time.time >= nextTimeFire)
         {
-            Instantiate(bulletList[currenTierBullet], transform.position, Quaternion.identity);
             nextTimeFire = Time.time + timeFire;
             audioManager.PlayFire(audioManager.fireClip);
+
+            if (currenTierBullet == 0 || currenTierBullet == 1 || currenTierBullet == 4 || currenTierBullet == 5)
+                Instantiate(bulletList[currenTierBullet], transform.position, Quaternion.identity);
+            else if (currenTierBullet == 2 || currenTierBullet == 3)
+            {
+                Instantiate(bulletList[currenTierBullet], transform.position, Quaternion.identity);
+                Instantiate(bulletList[0], transform.position, Quaternion.Euler(0, 0, 10f));
+                Instantiate(bulletList[0], transform.position, Quaternion.Euler(0, 0, -10f));
+            }
+            else
+            {
+                Instantiate(bulletList[currenTierBullet], transform.position, Quaternion.identity);
+                Instantiate(bulletList[4], transform.position, Quaternion.Euler(0, 0, 10f));
+                Instantiate(bulletList[4], transform.position, Quaternion.Euler(0, 0, -10f));
+            }
         }
 
     }
 
     private void OnTriggerExit2D(Collider2D target)
     {
-        if(target.tag == "Present" && currenTierBullet < 5 && !hasIncreasedTier)
+        if(target.tag == "Present" && currenTierBullet < 7 && !hasIncreasedTier)
         {
             audioManager.PlayLevelUp(audioManager.levelUpAudioClip);
             this.currenTierBullet += 1;
@@ -80,14 +88,13 @@ public class Ship : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ( shield == null && (collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Egg"))
+        if ( !shield.isShield && (collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Egg"))
         {
             if (health > 0)
             {
                 this.health--;
-                //Destroy(gameObject);
                 Instantiate(explosion, transform.position, transform.rotation);
-                //ShipController.instance.SpawnShip();
+                shield.Show();
                 HeathController.instance.getHeath(health);
                 StartBlinking();
                 Invoke("StopBlinking", 3f);
