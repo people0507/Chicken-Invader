@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1416133189759047535}
   m_Layer: 0
   m_Name: bossRed
-  m_TagString: Untagged
+  m_TagString: RedChicken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,9 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  changeDirectionInterval: 3
   egg: {fileID: 6078868767272616198, guid: 73712c7bf975c9d4b8b26d72b379f5b9, type: 3}
   chickenleg: {fileID: 4026529917271576798, guid: 84d5c4e1fc8639640a0040f5f6d16e64, type: 3}
   present: {fileID: 4169244519788552512, guid: 42fbf8e335ae6c641b36093263c9497a, type: 3}
   score: 100
-  aliveTimeChicken: 15
+  hp: 0
