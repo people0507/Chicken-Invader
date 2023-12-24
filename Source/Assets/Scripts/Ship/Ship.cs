@@ -48,6 +48,8 @@ public class Ship : MonoBehaviour
     void ShipMovement()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.x = Mathf.Clamp(mousePosition.x, Camera.main.ViewportToWorldPoint(Vector2.zero).x, Camera.main.ViewportToWorldPoint(Vector2.one).x);
+        mousePosition.y = Mathf.Clamp(mousePosition.y, Camera.main.ViewportToWorldPoint(Vector2.zero).y, Camera.main.ViewportToWorldPoint(Vector2.one).y);
         transform.position = new Vector2(mousePosition.x, mousePosition.y);
     }
 
@@ -73,12 +75,11 @@ public class Ship : MonoBehaviour
                 Instantiate(bulletList[4], transform.position, Quaternion.Euler(0, 0, -10f));
             }
         }
-
     }
 
-    private void OnTriggerExit2D(Collider2D target)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if(target.tag == "Present" && currenTierBullet < 7 && !hasIncreasedTier)
+        if (collision.gameObject.tag == "Present" && currenTierBullet < 7 && !hasIncreasedTier)
         {
             audioManager.PlayLevelUp(audioManager.levelUpAudioClip);
             this.currenTierBullet += 1;
@@ -86,9 +87,10 @@ public class Ship : MonoBehaviour
             hasIncreasedTier = true;
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ( !shield.isShield && (collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Egg"))
+        if ( !shield.isShield && (collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Egg" || collision.gameObject.tag == "Rock"))
         {
             if (health > 0)
             {
@@ -110,7 +112,6 @@ public class Ship : MonoBehaviour
             }
         }
     }
-
 
     public void StartBlinking()
     {
