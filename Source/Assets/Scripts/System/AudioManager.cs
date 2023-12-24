@@ -4,34 +4,43 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    //background
     [SerializeField] private AudioSource backgroundAudioSource;
+    //ship
     [SerializeField] private AudioSource fireAudioSource;
     [SerializeField] private AudioSource levelUpAudioSource;
     [SerializeField] private AudioSource shipDeadAudioSource;
+    //enemy
     [SerializeField] private AudioSource chickenHurtAudioSource;
     [SerializeField] private AudioSource chickenDeathAudioSource;
     [SerializeField] private AudioSource eggAudioSource;
     [SerializeField] private AudioSource eggBreakAudioSource;
+    [SerializeField] private AudioSource rockHurtAudioSource;
+    [SerializeField] private AudioSource rockDeathAudioSource;
     [SerializeField] private AudioSource eatAudioSource;
 
-
+    //ackground
     public AudioClip backgroundClip;
+    public AudioClip gameWinClip;
+    public AudioClip gameOverClip;
+    //ship
     public AudioClip fireClip;
     public AudioClip levelUpAudioClip;
     public AudioClip shipDeadAudioClip;
+    //enemy
     public AudioClip chickenHurtAudioClip;
     public AudioClip chickenDeathAudioClip;
     public AudioClip eggClip;
     public AudioClip eggBreakClip;
+    public AudioClip rockHurtAudioClip;
+    public AudioClip rockDeathAudioClip;
     public AudioClip eatClip;
-    public AudioClip gameWinClip;
-    public AudioClip gameOverClip;
+    
     
     // Start is called before the first frame update
     void Start()
     {
-        backgroundAudioSource.clip = backgroundClip;
-        backgroundAudioSource.Play();
+        PlayBackground(backgroundClip);
     }
 
     public void PlayBackground(AudioClip clip)
@@ -86,5 +95,17 @@ public class AudioManager : MonoBehaviour
     {
         eatAudioSource.clip = clip;
         eatAudioSource.PlayOneShot(clip);
+    }
+    
+    public void PlayRockHurt(AudioClip clip)
+    {
+        rockHurtAudioSource.clip = clip;
+        rockHurtAudioSource.PlayOneShot(clip);
+    }
+    
+    public void PlayRockDeath(AudioClip clip)
+    {
+        rockDeathAudioSource.clip = clip;
+        rockDeathAudioSource.PlayOneShot(clip);
     }
 }
