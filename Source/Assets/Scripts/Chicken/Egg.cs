@@ -28,6 +28,7 @@ public class Egg : MonoBehaviour
     {
         myBody.velocity = new Vector2(0f, -speed);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "BottomBorder")
@@ -41,6 +42,5 @@ public class Egg : MonoBehaviour
             audioManager.PlayEggBreak(audioManager.eggBreakClip);
             Destroy(gameObject);
         }
-
     }
 }

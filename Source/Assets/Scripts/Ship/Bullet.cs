@@ -6,29 +6,30 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed;
     private float yMax;
-    private BoxCollider2D box;
+    [SerializeField] private float dameBullet;
     void Start()
     {
-        yMax = Camera.main.ViewportToWorldPoint(new Vector2(0, 1)).y;
+        yMax = Camera.main.ViewportToWorldPoint(Vector2.one).y;
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.up * Time.deltaTime * speed);
-        OnDestroy();
-    }
-    private void OnDestroy()
-    {
         if (transform.position.y > yMax)
             Destroy(gameObject);
     }
 
-    private void OnTriggerExit2D(Collider2D target)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (target.tag == "RedChicken")
+        if(collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Rock")
         {
             Destroy(gameObject);
         }
+    }
+
+    public float getDameBullet()
+    {
+        return dameBullet;
     }
 }

@@ -13,24 +13,25 @@ public class Wave
 public class WaveSpawner : MonoBehaviour
 {
     public Wave[] waves;
-    public Transform[] spawnPlace;
     private Wave currentWave;
     private int currentWaveNumber;
     private bool canSpawn = true;
     private float nextSpawnTime;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
         currentWave = waves[currentWaveNumber];
         SpawnWave();
-        GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("RedChicken");
-        if(totalEnemies.Length == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length){
+
+        GameObject[] totalChickens = GameObject.FindGameObjectsWithTag("RedChicken");
+        GameObject[] totalRocks = GameObject.FindGameObjectsWithTag("RedChicken");
+
+        GameObject[] totalEnemies = new GameObject[totalChickens.Length + totalRocks.Length];
+        totalChickens.CopyTo(totalEnemies, 0);
+        totalRocks.CopyTo(totalEnemies, 0);
+
+        if (totalEnemies.Length == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length){
             currentWaveNumber++;
             canSpawn = true;
         }
@@ -38,13 +39,18 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnWave()
     {
-        if (canSpawn && nextSpawnTime <Time.time) { 
-        GameObject enemy = currentWave.enemy;
-        Transform randomPlaceSpawn = spawnPlace[Random.Range(0, spawnPlace.Length)];
-        Instantiate(enemy, randomPlaceSpawn.position,Quaternion.identity);
+        if (canSpawn && nextSpawnTime <Time.time) 
+        { 
+            GameObject enemy = currentWave.enemy;
+            float x = Camera.main.ViewportToWorldPoint(Vector2.one).x;
+            float y = Camera.main.ViewportToWorldPoint(Vector2.one).y;
+            if (enemy.CompareTag("Rock"))
+                Instantiate(enemy, new Vector3(Random.Range(-x/1.25f, x/1.25f) - x, y, 0), Quaternion.identity);
+            else 
+                Instantiate(enemy, new Vector3(Random.Range(-x / 2, x / 2), y, 0), Quaternion.identity);
             currentWave.numEnemy--;
             nextSpawnTime = Time.time + currentWave.timeSpawnEnemy;
-        if(currentWave.numEnemy == 0)
+            if(currentWave.numEnemy == 0)
             {
                 canSpawn = false;
             }

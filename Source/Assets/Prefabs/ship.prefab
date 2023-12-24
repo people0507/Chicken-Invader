@@ -151,7 +151,6 @@ GameObject:
   - component: {fileID: 3113398333755781525}
   - component: {fileID: 3113398333755781522}
   - component: {fileID: -496991523921790063}
-  - component: {fileID: 3113398333755781521}
   - component: {fileID: 3113398333755781520}
   m_Layer: 0
   m_Name: ship
@@ -1253,18 +1252,6 @@ CompositeCollider2D:
       - {x: 0.2524545, y: -0.121227205}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
---- !u!114 &3113398333755781521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3113398333755781528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a552354c68374c4faae6fb1e4a8d3cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3113398333755781520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,5 +1277,4 @@ MonoBehaviour:
   - {fileID: 7758229461161152445, guid: 7621d6db37524dd46ae198e9316b286b, type: 3}
   currenTierBullet: 0
   timeFire: 0.3
-  health: 0
   blinkInterval: 0.2

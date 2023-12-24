@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TopBorder : MonoBehaviour
 {
+    private BoxCollider2D box;
     private void Awake()
     {
         box = GetComponent<BoxCollider2D>();
@@ -11,17 +12,5 @@ public class TopBorder : MonoBehaviour
         float yMax = Camera.main.ViewportToWorldPoint(new Vector2(1, 1)).y;
         box.transform.position = new Vector2(0, yMax);
         box.size = new Vector2(cameraWidth, 0.5f);
-    }
-    private BoxCollider2D box;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - Present
   - AudioManager
   - Shield
+  - Rock
   layers:
   - Default
   - TransparentFX
