@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4668850598893376923}
   - component: {fileID: 2433879015432677037}
   - component: {fileID: 479806583359284467}
-  - component: {fileID: -1416133189759047535}
+  - component: {fileID: 7571505422934490577}
   m_Layer: 0
   m_Name: bossRed
   m_TagString: BossChicken
@@ -156,7 +156,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-1416133189759047535
+--- !u!114 &7571505422934490577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,13 +165,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4668850598893376918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6f27abe15f556542bae02b41a8ff973, type: 3}
+  m_Script: {fileID: 11500000, guid: 522debadb261939499d0140d7503da2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   egg: {fileID: 6078868767272616198, guid: 73712c7bf975c9d4b8b26d72b379f5b9, type: 3}
   chickenleg: {fileID: 4026529917271576798, guid: 84d5c4e1fc8639640a0040f5f6d16e64, type: 3}
-  present: {fileID: 4169244519788552512, guid: 42fbf8e335ae6c641b36093263c9497a, type: 3}
+  present: {fileID: 0}
   fog: {fileID: 831047883632518319, guid: 27e138f7aafcbf54d8d9d6e0bf267b6b, type: 3}
-  score: 100
-  hp: 100
+  score: 10000
+  hp: 10
+  xMove: 4
