@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2510174948908320838}
   - component: {fileID: 2510174948908320839}
+  - component: {fileID: 4585654200645755728}
   - component: {fileID: 2510174948908320836}
   - component: {fileID: 3705750365902527620}
   - component: {fileID: 2510174948908320837}
-  - component: {fileID: 2510174948908320834}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Rock
@@ -88,6 +88,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4585654200645755728
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510174948908320835}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 500c2201c81f06e43a8fdb1545067ecf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &2510174948908320836
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,26 +168,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5462e54f6a8f44a8f07fb89d8bf73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 4
   hp: 5
---- !u!95 &2510174948908320834
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2510174948908320835}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 500c2201c81f06e43a8fdb1545067ecf, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Rock")
+        if(collision.gameObject.tag == "Chicken" || collision.gameObject.tag == "Rock" || collision.gameObject.tag == "BossChicken")
         {
             Destroy(gameObject);
         }
