@@ -54,7 +54,7 @@ public class Chicken : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(0.5f, 3f));
+            yield return new WaitForSeconds(Random.Range(2f, 5f));
             Instantiate(egg, transform.position - new Vector3(0, 0.6f, 0), Quaternion.identity);
             audioManager.PlayEgg(audioManager.eggClip);
         }
