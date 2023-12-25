@@ -18,6 +18,15 @@ public class WaveSpawner : MonoBehaviour
     private bool canSpawn = true;
     private float nextSpawnTime;
 
+    private Vector3 posChicken;
+    private float grid = 2;
+
+    private void Awake()
+    {
+        float x = Camera.main.ViewportToWorldPoint(Vector2.one).x;
+        float y = Camera.main.ViewportToWorldPoint(Vector2.one).y;
+        this.posChicken = new Vector3(x - 1, y - 1);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -25,7 +34,7 @@ public class WaveSpawner : MonoBehaviour
         SpawnWave();
 
         GameObject[] totalChickens = GameObject.FindGameObjectsWithTag("RedChicken");
-        GameObject[] totalRocks = GameObject.FindGameObjectsWithTag("RedChicken");
+        GameObject[] totalRocks = GameObject.FindGameObjectsWithTag("Rock");
 
         GameObject[] totalEnemies = new GameObject[totalChickens.Length + totalRocks.Length];
         totalChickens.CopyTo(totalEnemies, 0);
@@ -46,8 +55,18 @@ public class WaveSpawner : MonoBehaviour
             float y = Camera.main.ViewportToWorldPoint(Vector2.one).y;
             if (enemy.CompareTag("Rock"))
                 Instantiate(enemy, new Vector3(Random.Range(-x/1.25f, x/1.25f) - x, y, 0), Quaternion.identity);
-            else 
-                Instantiate(enemy, new Vector3(Random.Range(-x / 2, x / 2), y, 0), Quaternion.identity);
+            else if (enemy.CompareTag("RedChicken"))
+            {
+                RedChicken chicken = Instantiate(enemy, new Vector3(Random.Range(-x / 2, x / 2), y, 0), Quaternion.identity).GetComponent<RedChicken>();
+                chicken.Move(posChicken.x, posChicken.y);
+                posChicken.x -= grid;
+                if(posChicken.x <= -x)
+                {
+                    posChicken.x = x-1;
+                    posChicken.y-=grid;
+                }
+            }
+                
             currentWave.numEnemy--;
             nextSpawnTime = Time.time + currentWave.timeSpawnEnemy;
             if(currentWave.numEnemy == 0)
@@ -56,4 +75,5 @@ public class WaveSpawner : MonoBehaviour
             }
         }
     }
+
 }

@@ -6,48 +6,47 @@ using UnityEngine;
 public class RedChicken : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private Rigidbody2D myBody;
-    [SerializeField] private float changeDirectionInterval = 2f;
 
     [SerializeField] private GameObject egg;
     [SerializeField] private GameObject chickenleg;
     [SerializeField] private GameObject present;
     [SerializeField] private int score;
     [SerializeField] private float hp;
+
+    private float x, y;
     
     private AudioManager audioManager;
 
     void Awake()
     {
-        myBody = GetComponent<Rigidbody2D>();
+        x = transform.position.x;
+        y= transform.position.y;
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        GetRandomDirection();
         StartCoroutine(EnemyShoot());
     }
 
     void FixedUpdate()
     {
-        if (Time.time >= changeDirectionInterval)
-        {
-            GetRandomDirection();
-            changeDirectionInterval += changeDirectionInterval;
-        }
         Vector3 checkPos = transform.position;
         checkPos.x = Mathf.Clamp(checkPos.x, Camera.main.ViewportToWorldPoint(Vector3.zero).x, Camera.main.ViewportToWorldPoint(Vector3.one).x);
         transform.position = checkPos;
+
+        Move(x, y);
 
         float yMin = Camera.main.ViewportToWorldPoint(Vector3.zero).y;
         if (transform.position.y <= yMin)
             Destroy(gameObject, 1f);
     }
 
-    private void GetRandomDirection()
+    public void Move(float posX, float posY)
     {
-        myBody.velocity = new Vector2(Random.Range(-1f, 1f), -speed);
+        this.x = posX;
+        this.y = posY;
+        transform.Translate(new Vector3(x - transform.position.x, y - transform.position.y) * Time.deltaTime * speed);
     }
 
     IEnumerator EnemyShoot()
