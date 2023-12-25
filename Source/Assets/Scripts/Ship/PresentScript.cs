@@ -19,8 +19,8 @@ public class PresentScript : MonoBehaviour
     {
         if( collision.tag == "Player")
         {
-            ScoreController.instance.getScore(score);
             Destroy(gameObject);
+            ScoreController.instance.getScore(score);
         }
     }
 }

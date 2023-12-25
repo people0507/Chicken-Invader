@@ -11,12 +11,12 @@ public class Ship : MonoBehaviour
     private Rigidbody2D myBody;
 
     [SerializeField] private GameObject explosion;
-    [SerializeField] private Shield shield;
-    private bool hasIncreasedTier = false;
+    private Shield shield;
 
     //fire
     [SerializeField] private GameObject[] bulletList;
     [SerializeField] private int currenTierBullet;
+    private bool checkPresent = false;
     [SerializeField, Range(0, 1)] private float timeFire;
 
     private float nextTimeFire = 0f;
@@ -26,7 +26,7 @@ public class Ship : MonoBehaviour
 
     public float blinkInterval = 0.2f; // Khoảng thời gian giữa các nhấp nháy
     private SpriteRenderer spriteRenderer;
-    private bool isBlinking = false;
+    [SerializeField] private float blinkTime;
 
     private void Awake()
     {
@@ -37,10 +37,10 @@ public class Ship : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         ShipMovement();
-        hasIncreasedTier = false;
+        checkPresent = false;
         Fire();
 
     }
@@ -79,12 +79,12 @@ public class Ship : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Present" && currenTierBullet < 7 && !hasIncreasedTier)
+        if (collision.gameObject.tag == "Present" && currenTierBullet < 7 && !checkPresent)
         {
+            checkPresent = true;
             audioManager.PlayLevelUp(audioManager.levelUpAudioClip);
             this.currenTierBullet += 1;
             this.timeFire -= 0.01f;
-            hasIncreasedTier = true;
         }
     }
 
@@ -95,11 +95,10 @@ public class Ship : MonoBehaviour
             if (health > 0)
             {
                 this.health--;
-                Instantiate(explosion, transform.position, transform.rotation);
-                shield.Show();
                 HeathController.instance.getHeath(health);
+                shield.Show();
                 StartBlinking();
-                Invoke("StopBlinking", 3f);
+                Invoke("StopBlinking", blinkTime);
                 audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
             }
             else
@@ -107,40 +106,39 @@ public class Ship : MonoBehaviour
                 Destroy(gameObject);
                 audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
                 audioManager.PlayBackground(audioManager.gameOverClip);
-                Time.timeScale = 0.1f;
-                Instantiate(explosion, transform.position, transform.rotation);
+                
             }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (gameObject.scene.isLoaded)
+        {
+            var expl = Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(expl, 0.3f);
         }
     }
 
     public void StartBlinking()
     {
-        if (!isBlinking)
-        {
-            isBlinking = true;
-            StartCoroutine(Blink());
-        }
+        StartCoroutine(Blink());
     }
 
     public void StopBlinking()
     {
-        if (isBlinking)
-        {
-            isBlinking = false;
-            StopCoroutine(Blink());
-            spriteRenderer.enabled = true; // Đảm bảo đối tượng được hiển thị khi dừng nhấp nháy
-        }
+        StopCoroutine(Blink());
+        spriteRenderer.enabled = true;
     }
 
     private IEnumerator Blink()
     {
-        float elapsedTime = 0f; // Thời gian đã trôi qua
-        while (isBlinking && elapsedTime < 3f)
+        float elapsedTime = 0f;
+        while (elapsedTime < blinkTime)
         {
             spriteRenderer.enabled = !spriteRenderer.enabled;
             yield return new WaitForSeconds(blinkInterval);
             elapsedTime += blinkInterval;
         }
-        spriteRenderer.enabled = true; // Đảm bảo đối tượng được hiển thị khi kết thúc nhấp nháy
     }
 }

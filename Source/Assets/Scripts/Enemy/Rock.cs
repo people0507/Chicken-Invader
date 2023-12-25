@@ -16,7 +16,7 @@ public class Rock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos =new Vector3(1, -1, 0) * Time.deltaTime;
+        Vector3 pos =new Vector3(1, -1, 0) * Time.deltaTime * speed;
         transform.position += pos;
 
         float yMin = Camera.main.ViewportToWorldPoint(Vector2.zero).y;

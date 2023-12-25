@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class RedChicken : MonoBehaviour
+public class Chicken : MonoBehaviour
 {
     [SerializeField] private float speed;
 
     [SerializeField] private GameObject egg;
     [SerializeField] private GameObject chickenleg;
     [SerializeField] private GameObject present;
+    [SerializeField] private GameObject fog;
     [SerializeField] private int score;
     [SerializeField] private float hp;
 
@@ -20,7 +21,7 @@ public class RedChicken : MonoBehaviour
     void Awake()
     {
         x = transform.position.x;
-        y= transform.position.y;
+        y = transform.position.y;
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
     // Start is called before the first frame update
@@ -35,14 +36,14 @@ public class RedChicken : MonoBehaviour
         checkPos.x = Mathf.Clamp(checkPos.x, Camera.main.ViewportToWorldPoint(Vector3.zero).x, Camera.main.ViewportToWorldPoint(Vector3.one).x);
         transform.position = checkPos;
 
-        Move(x, y);
+        MoveToPos(x, y);
 
         float yMin = Camera.main.ViewportToWorldPoint(Vector3.zero).y;
         if (transform.position.y <= yMin)
             Destroy(gameObject, 1f);
     }
 
-    public void Move(float posX, float posY)
+    public void MoveToPos(float posX, float posY)
     {
         this.x = posX;
         this.y = posY;
@@ -72,7 +73,7 @@ public class RedChicken : MonoBehaviour
             if(hp <= 0)
             {
                 Instantiate(chickenleg, transform.position, transform.rotation);
-
+                
                 audioManager.PlayChickenDeath(audioManager.chickenDeathAudioClip);
                 int random = Random.Range(1, 5);
                 if(random == 3)
@@ -80,6 +81,15 @@ public class RedChicken : MonoBehaviour
                 ScoreController.instance.getScore(score);
                 Destroy(gameObject);
             }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (gameObject.scene.isLoaded)
+        {
+            var Fog = Instantiate(fog, transform.position, transform.rotation);
+            Destroy(Fog, 0.2f);
         }
     }
 }

@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5624f1d4ce399814dbd452cd7bd55aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldTime: 3
+  shieldTime: 10
   isShield: 0
 --- !u!58 &3113398332046994152
 CircleCollider2D:
@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 569267197445203444, guid: 9c70425e18eaba84585bbface9d8f199, type: 3}
-  shield: {fileID: 3113398332046994157}
+  shield: {fileID: 0}
   bulletList:
   - {fileID: 5835703306144427422, guid: d38cba9686dc23845b7fed94af41e6a9, type: 3}
   - {fileID: 5210849025949049797, guid: 3916709005a98cb4aa03778f2a190389, type: 3}
@@ -1278,3 +1278,4 @@ MonoBehaviour:
   currenTierBullet: 0
   timeFire: 0.3
   blinkInterval: 0.2
+  blinkTime: 3
