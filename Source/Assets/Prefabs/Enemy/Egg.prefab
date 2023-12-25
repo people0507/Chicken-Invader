@@ -136,6 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c29b318b01ce741b55a48f381765eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4
   eggBreak: {fileID: 4739016596559470710, guid: 0944e5943513d914cbfbb35d78f03365, type: 3}
   aliveTimeEgg: 10
