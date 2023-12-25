@@ -19,13 +19,11 @@ public class WaveSpawner : MonoBehaviour
     private float nextSpawnTime;
 
     private Vector3 posChicken;
-    private float grid = 2;
+    [SerializeField] private float grid = 2;
 
     private void Awake()
     {
-        float x = Camera.main.ViewportToWorldPoint(Vector2.one).x;
-        float y = Camera.main.ViewportToWorldPoint(Vector2.one).y;
-        this.posChicken = new Vector3(x - 1, y - 1);
+        PosChicken();
     }
     // Update is called once per frame
     void Update()
@@ -33,7 +31,7 @@ public class WaveSpawner : MonoBehaviour
         currentWave = waves[currentWaveNumber];
         SpawnWave();
 
-        GameObject[] totalChickens = GameObject.FindGameObjectsWithTag("RedChicken");
+        GameObject[] totalChickens = GameObject.FindGameObjectsWithTag("Chicken");
         GameObject[] totalRocks = GameObject.FindGameObjectsWithTag("Rock");
 
         GameObject[] totalEnemies = new GameObject[totalChickens.Length + totalRocks.Length];
@@ -43,6 +41,7 @@ public class WaveSpawner : MonoBehaviour
         if (totalEnemies.Length == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length){
             currentWaveNumber++;
             canSpawn = true;
+            PosChicken();
         }
     }
 
@@ -55,10 +54,10 @@ public class WaveSpawner : MonoBehaviour
             float y = Camera.main.ViewportToWorldPoint(Vector2.one).y;
             if (enemy.CompareTag("Rock"))
                 Instantiate(enemy, new Vector3(Random.Range(-x/1.25f, x/1.25f) - x, y, 0), Quaternion.identity);
-            else if (enemy.CompareTag("RedChicken"))
+            else if (enemy.CompareTag("Chicken"))
             {
-                RedChicken chicken = Instantiate(enemy, new Vector3(Random.Range(-x / 2, x / 2), y, 0), Quaternion.identity).GetComponent<RedChicken>();
-                chicken.Move(posChicken.x, posChicken.y);
+                Chicken chicken = Instantiate(enemy, new Vector3(Random.Range(-x / 2, x / 2), y, 0), Quaternion.identity).GetComponent<Chicken>();
+                chicken.MoveToPos(posChicken.x, posChicken.y);
                 posChicken.x -= grid;
                 if(posChicken.x <= -x)
                 {
@@ -66,7 +65,12 @@ public class WaveSpawner : MonoBehaviour
                     posChicken.y-=grid;
                 }
             }
-                
+            else if (enemy.CompareTag("BossChicken"))
+            {
+                Chicken chicken = Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity).GetComponent<Chicken>();
+                chicken.MoveToPos(0, y - 2);
+            }
+
             currentWave.numEnemy--;
             nextSpawnTime = Time.time + currentWave.timeSpawnEnemy;
             if(currentWave.numEnemy == 0)
@@ -74,6 +78,13 @@ public class WaveSpawner : MonoBehaviour
                 canSpawn = false;
             }
         }
+    }
+
+    private void PosChicken()
+    {
+        float x = Camera.main.ViewportToWorldPoint(Vector2.one).x;
+        float y = Camera.main.ViewportToWorldPoint(Vector2.one).y;
+        this.posChicken = new Vector3(x - 1, y - 1);
     }
 
 }
