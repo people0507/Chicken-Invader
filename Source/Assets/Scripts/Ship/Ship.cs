@@ -106,7 +106,7 @@ public class Ship : MonoBehaviour
                 Destroy(gameObject);
                 audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
                 audioManager.PlayBackground(audioManager.gameOverClip);
-                
+
             }
         }
     }

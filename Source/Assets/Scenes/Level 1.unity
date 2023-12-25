@@ -209,11 +209,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - waveName: Chicken
-    numEnemy: 9
+    numEnemy: 1
     enemy: {fileID: 3649736277693881950, guid: b426ea8e7ed09d0498b6c057c6719879, type: 3}
     timeSpawnEnemy: 0.5
   - waveName: Rock
-    numEnemy: 20
+    numEnemy: 1
     enemy: {fileID: 2510174948908320835, guid: 1a74d35151772ac49bcb03b565beea22, type: 3}
     timeSpawnEnemy: 0.5
   - waveName: Boss
@@ -2050,7 +2050,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
