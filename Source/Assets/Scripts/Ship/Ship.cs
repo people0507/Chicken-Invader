@@ -11,22 +11,22 @@ public class Ship : MonoBehaviour
     private Rigidbody2D myBody;
 
     [SerializeField] private GameObject explosion;
-    [SerializeField] private Shield shield;
-    private bool hasIncreasedTier = false;
+    private Shield shield;
 
     //fire
     [SerializeField] private GameObject[] bulletList;
     [SerializeField] private int currenTierBullet;
+    private bool checkPresent = false;
     [SerializeField, Range(0, 1)] private float timeFire;
 
     private float nextTimeFire = 0f;
 
     private AudioManager audioManager;
-    [SerializeField] private int health;
+    private int health;
 
     public float blinkInterval = 0.2f; // Khoảng thời gian giữa các nhấp nháy
     private SpriteRenderer spriteRenderer;
-    private bool isBlinking = false;
+    [SerializeField] private float blinkTime;
 
     private void Awake()
     {
@@ -37,10 +37,10 @@ public class Ship : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         ShipMovement();
-        hasIncreasedTier = false;
+        checkPresent = false;
         Fire();
 
     }
@@ -48,6 +48,8 @@ public class Ship : MonoBehaviour
     void ShipMovement()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.x = Mathf.Clamp(mousePosition.x, Camera.main.ViewportToWorldPoint(Vector2.zero).x, Camera.main.ViewportToWorldPoint(Vector2.one).x);
+        mousePosition.y = Mathf.Clamp(mousePosition.y, Camera.main.ViewportToWorldPoint(Vector2.zero).y, Camera.main.ViewportToWorldPoint(Vector2.one).y);
         transform.position = new Vector2(mousePosition.x, mousePosition.y);
     }
 
@@ -73,31 +75,30 @@ public class Ship : MonoBehaviour
                 Instantiate(bulletList[4], transform.position, Quaternion.Euler(0, 0, -10f));
             }
         }
-
     }
 
-    private void OnTriggerExit2D(Collider2D target)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if(target.tag == "Present" && currenTierBullet < 7 && !hasIncreasedTier)
+        if (collision.gameObject.tag == "Present" && currenTierBullet < 7 && !checkPresent)
         {
+            checkPresent = true;
             audioManager.PlayLevelUp(audioManager.levelUpAudioClip);
             this.currenTierBullet += 1;
             this.timeFire -= 0.01f;
-            hasIncreasedTier = true;
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ( !shield.isShield && (collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Egg"))
+        if ( !shield.isShield && (collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Egg" || collision.gameObject.tag == "Rock"))
         {
             if (health > 0)
             {
                 this.health--;
-                Instantiate(explosion, transform.position, transform.rotation);
-                shield.Show();
                 HeathController.instance.getHeath(health);
+                shield.Show();
                 StartBlinking();
-                Invoke("StopBlinking", 3f);
+                Invoke("StopBlinking", blinkTime);
                 audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
             }
             else
@@ -105,41 +106,39 @@ public class Ship : MonoBehaviour
                 Destroy(gameObject);
                 audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
                 audioManager.PlayBackground(audioManager.gameOverClip);
-                Time.timeScale = 0.1f;
-                Instantiate(explosion, transform.position, transform.rotation);
+                
             }
         }
     }
 
+    private void OnDestroy()
+    {
+        if (gameObject.scene.isLoaded)
+        {
+            var expl = Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(expl, 0.3f);
+        }
+    }
 
     public void StartBlinking()
     {
-        if (!isBlinking)
-        {
-            isBlinking = true;
-            StartCoroutine(Blink());
-        }
+        StartCoroutine(Blink());
     }
 
     public void StopBlinking()
     {
-        if (isBlinking)
-        {
-            isBlinking = false;
-            StopCoroutine(Blink());
-            spriteRenderer.enabled = true; // Đảm bảo đối tượng được hiển thị khi dừng nhấp nháy
-        }
+        StopCoroutine(Blink());
+        spriteRenderer.enabled = true;
     }
 
     private IEnumerator Blink()
     {
-        float elapsedTime = 0f; // Thời gian đã trôi qua
-        while (isBlinking && elapsedTime < 3f)
+        float elapsedTime = 0f;
+        while (elapsedTime < blinkTime)
         {
             spriteRenderer.enabled = !spriteRenderer.enabled;
             yield return new WaitForSeconds(blinkInterval);
             elapsedTime += blinkInterval;
         }
-        spriteRenderer.enabled = true; // Đảm bảo đối tượng được hiển thị khi kết thúc nhấp nháy
     }
 }

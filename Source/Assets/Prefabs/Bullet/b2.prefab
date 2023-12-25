@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  dameBullet: 3
 --- !u!61 &-6194348151800015624
 BoxCollider2D:
   m_ObjectHideFlags: 0
