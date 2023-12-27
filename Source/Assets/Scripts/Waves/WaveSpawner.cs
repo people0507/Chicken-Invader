@@ -70,6 +70,10 @@ public class WaveSpawner : MonoBehaviour
                 ChickenBoss chickenBoss = Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity).GetComponent<ChickenBoss>();
                 chickenBoss.MoveToPos(0, y - 2);
             }
+            else if (enemy.CompareTag("BigEgg"))
+            {
+                BigEgg bigEgg = Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity).GetComponent<BigEgg>();
+            }
 
             currentWave.numEnemy--;
             nextSpawnTime = Time.time + currentWave.timeSpawnEnemy;

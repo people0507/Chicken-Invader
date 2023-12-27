@@ -216,6 +216,10 @@ MonoBehaviour:
     numEnemy: 1
     enemy: {fileID: 2510174948908320835, guid: 1a74d35151772ac49bcb03b565beea22, type: 3}
     timeSpawnEnemy: 0.5
+  - waveName: BigEgg
+    numEnemy: 10
+    enemy: {fileID: 2007866619647712540, guid: 7372a0a0564860a4d989c1e5082a419c, type: 3}
+    timeSpawnEnemy: 1
   - waveName: Boss
     numEnemy: 1
     enemy: {fileID: 4668850598893376918, guid: 17a520f411669d54fa9c9b9b3c428ba4, type: 3}
@@ -1901,6 +1905,10 @@ PrefabInstance:
     - target: {fileID: 3113398333755781530, guid: 9489e78ce9034764e8af2c6f255c358e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113398333755781531, guid: 9489e78ce9034764e8af2c6f255c358e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9489e78ce9034764e8af2c6f255c358e, type: 3}

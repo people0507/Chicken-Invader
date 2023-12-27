@@ -140,5 +140,6 @@ public class Ship : MonoBehaviour
             yield return new WaitForSeconds(blinkInterval);
             elapsedTime += blinkInterval;
         }
+        spriteRenderer.enabled = true;
     }
 }

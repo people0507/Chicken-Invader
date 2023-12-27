@@ -12,6 +12,9 @@ TagManager:
   - AudioManager
   - Shield
   - Rock
+  - Chicken
+  - BossChicken
+  - BigEgg
   layers:
   - Default
   - TransparentFX

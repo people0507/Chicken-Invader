@@ -174,5 +174,5 @@ MonoBehaviour:
   present: {fileID: 0}
   fog: {fileID: 831047883632518319, guid: 27e138f7aafcbf54d8d9d6e0bf267b6b, type: 3}
   score: 10000
-  hp: 10
+  hp: 50
   xMove: 4
