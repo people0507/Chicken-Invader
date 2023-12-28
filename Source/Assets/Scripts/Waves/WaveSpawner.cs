@@ -33,10 +33,12 @@ public class WaveSpawner : MonoBehaviour
 
         GameObject[] totalChickens = GameObject.FindGameObjectsWithTag("Chicken");
         GameObject[] totalRocks = GameObject.FindGameObjectsWithTag("Rock");
+        GameObject[] totalBigEggs = GameObject.FindGameObjectsWithTag("BigEgg");
 
-        GameObject[] totalEnemies = new GameObject[totalChickens.Length + totalRocks.Length];
+        GameObject[] totalEnemies = new GameObject[totalChickens.Length + totalRocks.Length + totalBigEggs.Length];
         totalChickens.CopyTo(totalEnemies, 0);
         totalRocks.CopyTo(totalEnemies, 0);
+        totalBigEggs.CopyTo(totalEnemies, 0);
 
         if (totalEnemies.Length == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length){
             currentWaveNumber++;
@@ -47,11 +49,11 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnWave()
     {
+        float x = Camera.main.ViewportToWorldPoint(Vector2.one).x;
+        float y = Camera.main.ViewportToWorldPoint(Vector2.one).y;
         if (canSpawn && nextSpawnTime <Time.time)
         {
             GameObject enemy = currentWave.enemy;
-            float x = Camera.main.ViewportToWorldPoint(Vector2.one).x;
-            float y = Camera.main.ViewportToWorldPoint(Vector2.one).y;
             if (enemy.CompareTag("Rock"))
                 Instantiate(enemy, new Vector3(Random.Range(-x/1.25f, x/1.25f) - x, y, 0), Quaternion.identity);
             else if (enemy.CompareTag("Chicken"))
@@ -71,7 +73,7 @@ public class WaveSpawner : MonoBehaviour
             }
             else if (enemy.CompareTag("BigEgg"))
             {
-                BigEgg bigEgg = Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity).GetComponent<BigEgg>();
+                Instantiate(enemy, new Vector3(Random.Range(-x + 1, x - 1), y, 0), Quaternion.identity).GetComponent<BigEgg>();
             }
 
             currentWave.numEnemy--;
@@ -89,5 +91,4 @@ public class WaveSpawner : MonoBehaviour
         float y = Camera.main.ViewportToWorldPoint(Vector2.one).y;
         this.posChicken = new Vector3(x - 1, y - 1);
     }
-
 }

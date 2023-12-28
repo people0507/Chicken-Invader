@@ -32,7 +32,6 @@ public class Egg : MonoBehaviour
         }
         if (collision.gameObject.tag == "Shield" || collision.gameObject.tag == "Player")
         {
-            audioManager.PlayEggBreak(audioManager.eggBreakClip);
             Destroy(gameObject);
         }
     }

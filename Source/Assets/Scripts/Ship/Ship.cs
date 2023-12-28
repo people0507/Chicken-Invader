@@ -110,8 +110,9 @@ public class Ship : MonoBehaviour
             else
             {
                 Destroy(gameObject);
-                
-
+                audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
+                audioManager.PlayBackground(audioManager.gameOverClip);
+                Time.timeScale = 0.2f;
             }
         }
     }
@@ -123,10 +124,6 @@ public class Ship : MonoBehaviour
             var expl = Instantiate(explosion, transform.position, transform.rotation);
             Destroy(expl, 0.3f);
         }
-
-        audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
-        audioManager.PlayBackground(audioManager.gameOverClip);
-        Time.timeScale = 0.2f;
     }
 
     public void StartBlinking()
