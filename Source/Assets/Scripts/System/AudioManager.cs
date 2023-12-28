@@ -35,8 +35,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip rockHurtAudioClip;
     public AudioClip rockDeathAudioClip;
     public AudioClip eatClip;
-    
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,16 +96,26 @@ public class AudioManager : MonoBehaviour
         eatAudioSource.clip = clip;
         eatAudioSource.PlayOneShot(clip);
     }
-    
+
     public void PlayRockHurt(AudioClip clip)
     {
         rockHurtAudioSource.clip = clip;
         rockHurtAudioSource.PlayOneShot(clip);
     }
-    
+
     public void PlayRockDeath(AudioClip clip)
     {
         rockDeathAudioSource.clip = clip;
         rockDeathAudioSource.PlayOneShot(clip);
+    }
+
+    public void StopBackgroundAudio()
+    {
+        backgroundAudioSource.Stop();
+    }
+
+    public void ContinueBackgroundAudio()
+    {
+        backgroundAudioSource.UnPause();
     }
 }

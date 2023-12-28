@@ -106,7 +106,7 @@ public class Ship : MonoBehaviour
                 Destroy(gameObject);
                 audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
                 audioManager.PlayBackground(audioManager.gameOverClip);
-                
+
             }
         }
     }
@@ -140,5 +140,6 @@ public class Ship : MonoBehaviour
             yield return new WaitForSeconds(blinkInterval);
             elapsedTime += blinkInterval;
         }
+        spriteRenderer.enabled = true;
     }
 }

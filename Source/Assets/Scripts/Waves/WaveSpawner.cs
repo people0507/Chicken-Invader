@@ -47,8 +47,8 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnWave()
     {
-        if (canSpawn && nextSpawnTime <Time.time) 
-        { 
+        if (canSpawn && nextSpawnTime <Time.time)
+        {
             GameObject enemy = currentWave.enemy;
             float x = Camera.main.ViewportToWorldPoint(Vector2.one).x;
             float y = Camera.main.ViewportToWorldPoint(Vector2.one).y;
@@ -67,8 +67,12 @@ public class WaveSpawner : MonoBehaviour
             }
             else if (enemy.CompareTag("BossChicken"))
             {
-                Chicken chicken = Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity).GetComponent<Chicken>();
-                chicken.MoveToPos(0, y - 2);
+                ChickenBoss chickenBoss = Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity).GetComponent<ChickenBoss>();
+                chickenBoss.MoveToPos(0, y - 2);
+            }
+            else if (enemy.CompareTag("BigEgg"))
+            {
+                BigEgg bigEgg = Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity).GetComponent<BigEgg>();
             }
 
             currentWave.numEnemy--;
