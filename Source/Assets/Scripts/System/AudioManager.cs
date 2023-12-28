@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    private AudioSource[] allAudioSources;
     //background
     [SerializeField] private AudioSource backgroundAudioSource;
     //ship
@@ -41,6 +42,20 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         PlayBackground(backgroundClip);
+        allAudioSources = new AudioSource[]
+        {
+            backgroundAudioSource,
+            fireAudioSource,
+            levelUpAudioSource,
+            shipDeadAudioSource,
+            chickenHurtAudioSource,
+            chickenDeathAudioSource,
+            eggAudioSource,
+            eggBreakAudioSource,
+            rockHurtAudioSource,
+            rockDeathAudioSource,
+            eatAudioSource
+        };
     }
 
     public void PlayBackground(AudioClip clip)
@@ -109,13 +124,14 @@ public class AudioManager : MonoBehaviour
         rockDeathAudioSource.PlayOneShot(clip);
     }
 
-    public void StopBackgroundAudio()
+    public void StopAllAudioSources()
     {
-        backgroundAudioSource.Stop();
+        foreach(AudioSource audio in allAudioSources)
+            audio.Pause();
     }
-
-    public void ContinueBackgroundAudio()
+    public void ResumeAllAudiioSources()
     {
-        backgroundAudioSource.UnPause();
+        foreach (AudioSource audio in allAudioSources)
+            audio.UnPause();
     }
 }

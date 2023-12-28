@@ -3270,7 +3270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3247b155600f7814e8e5ed70c957be39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasExit: {fileID: 384738911}
 --- !u!1 &2024298497
 GameObject:
   m_ObjectHideFlags: 0

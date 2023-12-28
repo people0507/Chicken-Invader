@@ -13,24 +13,20 @@ public class ChickenBoss : MonoBehaviour
     [SerializeField] private GameObject fog;
     [SerializeField] private int score;
     [SerializeField] private float hp;
-    [SerializeField] private float xMove;
-    private float xPos;
 
-    private float x, y;
+    //private float x, y;
 
     private AudioManager audioManager;
 
     void Awake()
     {
-        x = transform.position.x;
-        y = transform.position.y;
-        this.xPos = 1;
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(EnemyShoot());
+        StartCoroutine(MoveBossToRandom());
     }
 
     void FixedUpdate()
@@ -39,23 +35,36 @@ public class ChickenBoss : MonoBehaviour
         checkPos.x = Mathf.Clamp(checkPos.x, Camera.main.ViewportToWorldPoint(Vector3.zero).x, Camera.main.ViewportToWorldPoint(Vector3.one).x);
         transform.position = checkPos;
 
-        MoveToPos(x, y);
-
-        float yMin = Camera.main.ViewportToWorldPoint(Vector3.zero).y;
-        if (transform.position.y <= yMin)
-            Destroy(gameObject, 1f);
-
-        transform.Translate(new Vector3(xPos, 0, 0) * Time.deltaTime * speed);
-        if (transform.position.x <= -xMove || transform.position.x >= xMove)
-            xPos = -xPos;
+        //x = transform.position.x;
+        //y = transform.position.y;
+        //MoveToPos(x, y);
     }
 
-    public void MoveToPos(float posX,float posY)
+    private IEnumerator MoveBossToRandom()
     {
-        this.x = posX;
-        this.y = posY;
-        transform.Translate(new Vector3(0, y - transform.position.y) * Time.deltaTime * speed);
+        Vector3 point = getRandomPoint();
+        while (transform.position != point)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, point, speed * Time.deltaTime * 4);
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
+        }
+        StartCoroutine(MoveBossToRandom());
     }
+
+    private Vector3 getRandomPoint()
+    {
+        Vector3 posRandom = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0f, 1f), Random.Range(0.5f, 1f)));
+        posRandom.z = 0;
+        return posRandom;
+    }
+
+    //public void MoveToPos(float posX, float posY)
+    //{
+    //    this.x = posX;
+    //    this.y = posY;
+    //    transform.Translate(new Vector3(0, y - transform.position.y) * Time.deltaTime * speed);
+    //}
+
 
     IEnumerator EnemyShoot()
     {

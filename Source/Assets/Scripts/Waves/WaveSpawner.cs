@@ -67,8 +67,7 @@ public class WaveSpawner : MonoBehaviour
             }
             else if (enemy.CompareTag("BossChicken"))
             {
-                ChickenBoss chickenBoss = Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity).GetComponent<ChickenBoss>();
-                chickenBoss.MoveToPos(0, y - 2);
+                Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity).GetComponent<ChickenBoss>();
             }
             else if (enemy.CompareTag("BigEgg"))
             {
