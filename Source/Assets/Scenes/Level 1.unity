@@ -2292,9 +2292,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1961331794}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: CanvasContinues
+      - m_Target: {fileID: 120805091}
+        m_TargetAssemblyTypeName: ExitButton, Assembly-CSharp
+        m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3270,7 +3270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3247b155600f7814e8e5ed70c957be39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasExit: {fileID: 384738911}
 --- !u!1 &2024298497
 GameObject:
   m_ObjectHideFlags: 0
@@ -3490,7 +3489,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &2145260315
 GameObject:
