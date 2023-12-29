@@ -7,6 +7,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class BigEgg : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private GameObject spawnChicken;
     private Rigidbody2D myBody;
 
     private void Awake()
@@ -27,6 +28,7 @@ public class BigEgg : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             Destroy(gameObject);
+            Instantiate(spawnChicken, transform.position, Quaternion.identity);
         }
     }
 }

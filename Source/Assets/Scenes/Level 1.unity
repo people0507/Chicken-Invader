@@ -209,11 +209,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - waveName: Chicken
-    numEnemy: 1
+    numEnemy: 20
     enemy: {fileID: 3649736277693881950, guid: b426ea8e7ed09d0498b6c057c6719879, type: 3}
     timeSpawnEnemy: 0.5
   - waveName: Rock
-    numEnemy: 1
+    numEnemy: 10
     enemy: {fileID: 2510174948908320835, guid: 1a74d35151772ac49bcb03b565beea22, type: 3}
     timeSpawnEnemy: 0.5
   - waveName: BigEgg
