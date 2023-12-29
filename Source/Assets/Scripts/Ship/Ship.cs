@@ -12,7 +12,7 @@ public class Ship : MonoBehaviour
 
     [SerializeField] private GameObject explosion;
     private Shield shield;
-    private bool isMoving = true;
+    private bool isControl = true;
 
     //fire
     [SerializeField] private GameObject[] bulletList;
@@ -30,20 +30,26 @@ public class Ship : MonoBehaviour
     private float blinkInterval = 0.2f;
     [SerializeField] private float blinkTime;
 
+    private Canvas canvasOver;
+    [SerializeField] private float timeShowCanvas;
+
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         shield = GameObject.FindGameObjectWithTag("Shield").GetComponent<Shield>();
         this.health = 3;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        canvasOver = GameObject.Find("GameOver").GetComponent<Canvas>();
     }
 
     void Update()
     {
-        if (isMoving) 
+        if (isControl)
+        {
             ShipMovement();
+            Fire();
+        }
         checkPresent = false;
-        Fire();
     }
 
     void ShipMovement()
@@ -54,9 +60,9 @@ public class Ship : MonoBehaviour
         transform.position = new Vector2(mousePosition.x, mousePosition.y);
     }
 
-    public void setMove(bool isMove)
+    public void setControl(bool control)
     {
-        this.isMoving = isMove;
+        this.isControl = control;
     }
 
     void Fire()
@@ -96,6 +102,8 @@ public class Ship : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!isControl)
+            return;
         if ( !shield.isShield && (collision.gameObject.tag == "Chicken" || collision.gameObject.tag == "Egg" || collision.gameObject.tag == "Rock" || collision.gameObject.tag == "BossChicken"))
         {
             if (health > 0)
@@ -109,21 +117,26 @@ public class Ship : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                var expl = Instantiate(explosion, transform.position, transform.rotation);
+                Destroy(expl, 0.3f);
+
+                Renderer renderer = GetComponent<Renderer>();
+                renderer.sortingOrder = -10;
+                setControl(false);
+
                 audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
                 audioManager.PlayBackground(audioManager.gameOverClip);
                 Time.timeScale = 0.2f;
+
+                Invoke("DestroyShip", timeShowCanvas);
             }
         }
     }
 
-    private void OnDestroy()
+    private void DestroyShip()
     {
-        if (gameObject.scene.isLoaded)
-        {
-            var expl = Instantiate(explosion, transform.position, transform.rotation);
-            Destroy(expl, 0.3f);
-        }
+        canvasOver.setActiveTrue();
+        Destroy(gameObject);
     }
 
     public void StartBlinking()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitButton : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class ExitButton : MonoBehaviour
                 isPanelActive = true;
                 Time.timeScale = 0f;
                 canvasExit.SetActive(true);
-                ship.setMove(false);
+                ship.setControl(false);
             }
             else
                 Continue();
@@ -38,6 +39,12 @@ public class ExitButton : MonoBehaviour
         isPanelActive = false;
         Time.timeScale = 1f;
         canvasExit.SetActive(false);
-        ship.setMove(true);
+        ship.setControl(true);
+    }
+    public void PlayAgain()
+    {
+        int currenScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currenScene);
+        Time.timeScale = 1f;
     }
 }
