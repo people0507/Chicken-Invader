@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using static UnityEngine.GraphicsBuffer;
 
 public class Ship : MonoBehaviour
 {
-    private Rigidbody2D myBody;
 
     [SerializeField] private GameObject explosion;
     private Shield shield;
+    private bool isMoving = true;
 
     //fire
     [SerializeField] private GameObject[] bulletList;
@@ -22,15 +23,15 @@ public class Ship : MonoBehaviour
     private float nextTimeFire = 0f;
 
     private AudioManager audioManager;
+    private SpriteRenderer spriteRenderer;
+
     private int health;
 
-    public float blinkInterval = 0.2f; // Khoảng thời gian giữa các nhấp nháy
-    private SpriteRenderer spriteRenderer;
+    private float blinkInterval = 0.2f;
     [SerializeField] private float blinkTime;
 
     private void Awake()
     {
-        myBody = GetComponent<Rigidbody2D>();
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         shield = GameObject.FindGameObjectWithTag("Shield").GetComponent<Shield>();
         this.health = 3;
@@ -39,10 +40,10 @@ public class Ship : MonoBehaviour
 
     void Update()
     {
-        ShipMovement();
+        if (isMoving) 
+            ShipMovement();
         checkPresent = false;
         Fire();
-
     }
 
     void ShipMovement()
@@ -51,6 +52,11 @@ public class Ship : MonoBehaviour
         mousePosition.x = Mathf.Clamp(mousePosition.x, Camera.main.ViewportToWorldPoint(Vector2.zero).x, Camera.main.ViewportToWorldPoint(Vector2.one).x);
         mousePosition.y = Mathf.Clamp(mousePosition.y, Camera.main.ViewportToWorldPoint(Vector2.zero).y, Camera.main.ViewportToWorldPoint(Vector2.one).y);
         transform.position = new Vector2(mousePosition.x, mousePosition.y);
+    }
+
+    public void setMove(bool isMove)
+    {
+        this.isMoving = isMove;
     }
 
     void Fire()
@@ -90,7 +96,7 @@ public class Ship : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ( !shield.isShield && (collision.gameObject.tag == "RedChicken" || collision.gameObject.tag == "Egg" || collision.gameObject.tag == "Rock"))
+        if ( !shield.isShield && (collision.gameObject.tag == "Chicken" || collision.gameObject.tag == "Egg" || collision.gameObject.tag == "Rock" || collision.gameObject.tag == "BossChicken"))
         {
             if (health > 0)
             {
@@ -106,7 +112,7 @@ public class Ship : MonoBehaviour
                 Destroy(gameObject);
                 audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
                 audioManager.PlayBackground(audioManager.gameOverClip);
-
+                Time.timeScale = 0.2f;
             }
         }
     }
