@@ -119,4 +119,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6326cc5e3eb152a48b2b17bdf6160b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aliveTimeEggBreak: 0.8
+  aliveTimeEggBreak: 0.4
