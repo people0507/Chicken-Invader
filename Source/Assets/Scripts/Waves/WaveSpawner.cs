@@ -21,9 +21,13 @@ public class WaveSpawner : MonoBehaviour
     private Vector3 posChicken;
     [SerializeField] private float grid = 2;
 
+    private Canvas canvas;
+    [SerializeField] private float timeShowCanvas;
+
     private void Awake()
     {
         PosChicken();
+        canvas = GameObject.Find("GameWin").GetComponent<Canvas>();
     }
     // Update is called once per frame
     void Update()
@@ -34,16 +38,23 @@ public class WaveSpawner : MonoBehaviour
         GameObject[] totalChickens = GameObject.FindGameObjectsWithTag("Chicken");
         GameObject[] totalRocks = GameObject.FindGameObjectsWithTag("Rock");
         GameObject[] totalBigEggs = GameObject.FindGameObjectsWithTag("BigEgg");
+        GameObject[] totalBoss = GameObject.FindGameObjectsWithTag("BossChicken");
 
-        GameObject[] totalEnemies = new GameObject[totalChickens.Length + totalRocks.Length + totalBigEggs.Length];
+        GameObject[] totalEnemies = new GameObject[totalChickens.Length + totalRocks.Length + totalBigEggs.Length + totalBoss.Length];
         totalChickens.CopyTo(totalEnemies, 0);
         totalRocks.CopyTo(totalEnemies, 0);
         totalBigEggs.CopyTo(totalEnemies, 0);
+        totalBoss.CopyTo(totalEnemies, 0);
 
-        if (totalEnemies.Length == 0 && !canSpawn && currentWaveNumber + 1 != waves.Length){
-            currentWaveNumber++;
-            canSpawn = true;
-            PosChicken();
+        if (totalEnemies.Length == 0 && !canSpawn){
+            if(currentWaveNumber + 1 != waves.Length)
+            {
+                currentWaveNumber++;
+                canSpawn = true;
+                PosChicken();
+            }
+            else
+                Invoke("ShowCanvas", timeShowCanvas);
         }
     }
 
@@ -90,5 +101,12 @@ public class WaveSpawner : MonoBehaviour
         float x = Camera.main.ViewportToWorldPoint(Vector2.one).x;
         float y = Camera.main.ViewportToWorldPoint(Vector2.one).y;
         this.posChicken = new Vector3(x - 1, y - 1);
+    }
+
+    private void ShowCanvas()
+    {
+        canvas.setActiveTrue();
+        Ship ship = GameObject.FindGameObjectWithTag("Player").GetComponent<Ship>();
+        ship.setControl(false);
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2007866619647712736}
   - component: {fileID: 2007866619647712737}
   m_Layer: 0
-  m_Name: bigEgg
+  m_Name: BigEgg
   m_TagString: BigEgg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
