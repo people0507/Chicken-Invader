@@ -26,7 +26,8 @@ public class Egg : MonoBehaviour
     {
         if (collision.gameObject.tag == "BottomBorder")
         {
-            Instantiate(eggBreak, transform.position, transform.rotation);
+            var eggBr = Instantiate(eggBreak, transform.position, transform.rotation);
+            Destroy(eggBr, 0.3f);
             audioManager.PlayEggBreak(audioManager.eggBreakClip);
             Destroy(gameObject);
         }
