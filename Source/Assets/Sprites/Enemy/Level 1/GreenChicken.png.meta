@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a7c839b2e4ddfb41b44d4b6591586a8
+guid: 5cc7f7c8f23cfae4d9a8628cc6cd133b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RedChicken 2_0
+      name: GreenChicken_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 40
-        height: 35
+        width: 188.8
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89a622f75e5396f46aaee9ae54eadc1a
-      internalID: 668532438
+      spriteID: 4590874d904e65a4ea3501d35d5a9a70
+      internalID: -138778546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken 2_1
+      name: GreenChicken_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 188
         y: 0
-        width: 40
-        height: 35
+        width: 188.8
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4362442abeed0a4fbf447c2791df203
-      internalID: -779618964
+      spriteID: ec2321156310fbf47a36086816836fba
+      internalID: 1378883162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken 2_2
+      name: GreenChicken_2
       rect:
         serializedVersion: 2
-        x: 80
+        x: 376
         y: 0
-        width: 40
-        height: 35
+        width: 188.8
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3635ebaebc0e5947bb83fd7df43a67f
-      internalID: -652850158
+      spriteID: 84e3a1245b992574b90b7ff3fa2c9107
+      internalID: -1511887531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken 2_3
+      name: GreenChicken_3
       rect:
         serializedVersion: 2
-        x: 120
+        x: 564
         y: 0
-        width: 40
-        height: 35
+        width: 188.8
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10da90d36ba0291408365795403c495f
-      internalID: -537796489
+      spriteID: 510e55de73a6a1b4b87e81bb1c272655
+      internalID: -2140740128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken 2_4
+      name: GreenChicken_4
       rect:
         serializedVersion: 2
-        x: 160
+        x: 752
         y: 0
-        width: 40
-        height: 35
+        width: 188.8
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be9afb8f587658742bb25c7c8b34f3fe
-      internalID: 298111144
+      spriteID: 9954eb0180c86204bbb6ae084201993c
+      internalID: -309885042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken 2_5
+      name: GreenChicken_5
       rect:
         serializedVersion: 2
-        x: 200
+        x: 940
         y: 0
-        width: 40
-        height: 35
+        width: 188.8
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f40d0ef757e4d7849a4ab8d044d8106c
-      internalID: 1141216047
+      spriteID: b355c3f39142fce40b984de4258821c6
+      internalID: -1357893548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken 2_6
+      name: GreenChicken_6
       rect:
         serializedVersion: 2
-        x: 240
+        x: 1128
         y: 0
-        width: 40
-        height: 35
+        width: 188.8
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 198b124e80054264695f8c1cec9a5729
-      internalID: -910408107
+      spriteID: 231a82abbcaa2cc41852ac2998a8b686
+      internalID: -1183279019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken 2_7
+      name: GreenChicken_7
       rect:
         serializedVersion: 2
-        x: 280
+        x: 1316
         y: 0
-        width: 40
-        height: 35
+        width: 188.8
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5394d13dda610b7489795056722ee00c
-      internalID: -1979295037
+      spriteID: f09f3112b32aa73409425b046c213362
+      internalID: -851151826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken 2_8
+      name: GreenChicken_8
       rect:
         serializedVersion: 2
-        x: 320
+        x: 1504
         y: 0
-        width: 40
-        height: 35
+        width: 188.8
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d56c899d6b886aa4fa6070762edc1aa2
-      internalID: -1660629602
+      spriteID: 81e56b79353a9584896ad4156a090488
+      internalID: -669731027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedChicken 2_9
+      name: GreenChicken_9
       rect:
         serializedVersion: 2
-        x: 360
+        x: 1692
         y: 0
-        width: 40
-        height: 35
+        width: 188.8
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e307b9e455cccc64d9ef2b8368e4a320
-      internalID: 70817732
+      spriteID: ce08d0f2f7ea8784483fd9133dc39011
+      internalID: -1740114668
       vertices: []
       indices: 
       edges: []
@@ -325,16 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RedChicken 2_0: 668532438
-      RedChicken 2_1: -779618964
-      RedChicken 2_2: -652850158
-      RedChicken 2_3: -537796489
-      RedChicken 2_4: 298111144
-      RedChicken 2_5: 1141216047
-      RedChicken 2_6: -910408107
-      RedChicken 2_7: -1979295037
-      RedChicken 2_8: -1660629602
-      RedChicken 2_9: 70817732
+      GreenChicken_0: -138778546
+      GreenChicken_1: 1378883162
+      GreenChicken_2: -1511887531
+      GreenChicken_3: -2140740128
+      GreenChicken_4: -309885042
+      GreenChicken_5: -1357893548
+      GreenChicken_6: -1183279019
+      GreenChicken_7: -851151826
+      GreenChicken_8: -669731027
+      GreenChicken_9: -1740114668
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
