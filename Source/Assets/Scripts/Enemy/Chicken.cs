@@ -15,19 +15,23 @@ public class Chicken : MonoBehaviour
     [SerializeField] private float hp;
 
     private float x, y;
+    private bool checkInputPos = false;
+    private bool isMoving = false;
     
     private AudioManager audioManager;
 
     void Awake()
     {
-        x = transform.position.x;
-        y = transform.position.y;
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(EnemyShoot());
+        if (isMoving)
+        {
+            StartCoroutine(MoveChickenToRandom());
+        }
     }
 
     void FixedUpdate()
@@ -36,15 +40,41 @@ public class Chicken : MonoBehaviour
         checkPos.x = Mathf.Clamp(checkPos.x, Camera.main.ViewportToWorldPoint(Vector3.zero).x, Camera.main.ViewportToWorldPoint(Vector3.one).x);
         transform.position = checkPos;
 
-        MoveToPos(x, y);
-
+        if(checkInputPos)
+        {
+            MoveToPos(x, y);
+        }
         float yMin = Camera.main.ViewportToWorldPoint(Vector3.zero).y;
         if (transform.position.y <= yMin)
             Destroy(gameObject, 1f);
     }
 
+    public void setIsMoving(bool move)
+    {
+        this.isMoving = move;
+    }
+
+    private IEnumerator MoveChickenToRandom()
+    {
+        Vector3 point = getRandomPoint();
+        while (transform.position != point)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, point, speed * Time.deltaTime * 4);
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
+        }
+        StartCoroutine(MoveChickenToRandom());
+    }
+
+    private Vector3 getRandomPoint()
+    {
+        Vector3 posRandom = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0f, 1f), Random.Range(0.5f, 1f)));
+        posRandom.z = 0;
+        return posRandom;
+    }
+
     public void MoveToPos(float posX, float posY)
     {
+        checkInputPos = true;
         this.x = posX;
         this.y = posY;
         transform.Translate(new Vector3(x - transform.position.x, y - transform.position.y) * Time.deltaTime * speed);

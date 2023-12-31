@@ -213,7 +213,7 @@ MonoBehaviour:
     enemy: {fileID: 3649736277693881950, guid: b426ea8e7ed09d0498b6c057c6719879, type: 3}
     timeSpawnEnemy: 0.5
   - waveName: Rock
-    numEnemy: 20
+    numEnemy: 15
     enemy: {fileID: 2510174948908320835, guid: 1a74d35151772ac49bcb03b565beea22, type: 3}
     timeSpawnEnemy: 0.5
   - waveName: BigEgg
@@ -225,7 +225,7 @@ MonoBehaviour:
     enemy: {fileID: 4668850598893376918, guid: 17a520f411669d54fa9c9b9b3c428ba4, type: 3}
     timeSpawnEnemy: 1
   grid: 2
-  timeShowCanvas: 2
+  timeShowCanvas: 3
 --- !u!1 &69936078
 GameObject:
   m_ObjectHideFlags: 0
