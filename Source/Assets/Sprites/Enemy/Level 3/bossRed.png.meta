@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c1285cab1ccdf494abd297323e656567
+guid: 4a95fe901620be8409af921d5b63327c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bossUFO_0
+      name: bossRed_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 399.2
-        height: 320
+        width: 400
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45f911eac3bbcd346a3ee37248f92354
-      internalID: -1377181150
+      spriteID: 1569e87379f3f5d45b8cf4179c304bb3
+      internalID: -206633086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bossUFO_1
+      name: bossRed_1
       rect:
         serializedVersion: 2
-        x: 399
+        x: 400
         y: 0
-        width: 399.2
-        height: 320
+        width: 400
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6f0ce6b5ababbf4d82aa86a889a2072
-      internalID: 707348570
+      spriteID: ddaf8a4849f973b449990ab2e2197c6a
+      internalID: 1802662935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bossUFO_2
+      name: bossRed_2
       rect:
         serializedVersion: 2
-        x: 798
+        x: 800
         y: 0
-        width: 399.2
-        height: 320
+        width: 400
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,83 +161,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 882cf8f9036be0741b70e95d5c08e262
-      internalID: 2093935856
+      spriteID: 29bfe004425033b4f84111e268ab3b09
+      internalID: 2102954275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bossUFO_3
+      name: bossRed_3
       rect:
         serializedVersion: 2
-        x: 1197
+        x: 1200
         y: 0
-        width: 399.2
-        height: 320
+        width: 400
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 3, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80c2a3231291b56409725c97a26eaabb
-      internalID: -2093976885
+      spriteID: 4a2a6c3e1c3aa2c439df0ef381aabed8
+      internalID: -944479614
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bossUFO_4
+      name: bossRed_4
       rect:
         serializedVersion: 2
-        x: 1596
+        x: 1600
         y: 0
-        width: 399.2
-        height: 320
+        width: 400
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 4, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5f15f8c9b281a543a9f4fc0cf67646a
-      internalID: 1047716117
+      spriteID: bab40b2ff22532049ac79c40096d3f9a
+      internalID: -1354941819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bossUFO_5
+      name: bossRed_5
       rect:
         serializedVersion: 2
-        x: 1995
+        x: 2000
         y: 0
-        width: 399.2
-        height: 320
+        width: 400
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 5, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3751396bca0c0524da06e6ae0b17c44b
-      internalID: 801329114
+      spriteID: f51e4161ffd290a48b9723a58bd5ff99
+      internalID: 1375958412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bossUFO_6
+      name: bossRed_6
       rect:
         serializedVersion: 2
         x: 2400
         y: 0
-        width: 393
-        height: 320
+        width: 400
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9946e02010a1f642862ae12e59a74b5
-      internalID: -602189786
+      spriteID: 2125888196ec8ee4ea68a85268d4a3d8
+      internalID: 1082740211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bossUFO_7
+      name: bossRed_7
       rect:
         serializedVersion: 2
         x: 2800
         y: 0
-        width: 393
-        height: 320
+        width: 400
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc719fb60dc6abb4b80c8fb44db1bab8
-      internalID: -1403295233
+      spriteID: faf9e79e9fb888e408530326dcb1c114
+      internalID: -1529108761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bossUFO_8
+      name: bossRed_8
       rect:
         serializedVersion: 2
-        x: 3195
+        x: 3200
         y: 0
-        width: 396
-        height: 320
+        width: 400
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72a1a3a427d459d4c8b10af9207753b2
-      internalID: 964471207
+      spriteID: 5c3558fb2ad24314cbe06df071c14845
+      internalID: 1833006632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bossUFO_9
+      name: bossRed_9
       rect:
         serializedVersion: 2
-        x: 3594
+        x: 3600
         y: 0
-        width: 397
-        height: 320
+        width: 400
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1787769bbfe0e5b4cb84afcf881b4028
-      internalID: -1393130110
+      spriteID: 63a1ffdbf1856f744b3ffc00d6c5e8a0
+      internalID: 79466408
       vertices: []
       indices: 
       edges: []
@@ -325,16 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bossUFO_0: -1377181150
-      bossUFO_1: 707348570
-      bossUFO_2: 2093935856
-      bossUFO_3: -2093976885
-      bossUFO_4: 1047716117
-      bossUFO_5: 801329114
-      bossUFO_6: -602189786
-      bossUFO_7: -1403295233
-      bossUFO_8: 964471207
-      bossUFO_9: -1393130110
+      bossRed_0: -206633086
+      bossRed_1: 1802662935
+      bossRed_2: 2102954275
+      bossRed_3: -944479614
+      bossRed_4: -1354941819
+      bossRed_5: 1375958412
+      bossRed_6: 1082740211
+      bossRed_7: -1529108761
+      bossRed_8: 1833006632
+      bossRed_9: 79466408
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

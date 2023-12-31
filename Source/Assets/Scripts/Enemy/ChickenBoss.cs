@@ -9,20 +9,15 @@ public class ChickenBoss : MonoBehaviour
 
     [SerializeField] private GameObject egg;
     [SerializeField] private GameObject chickenleg;
-    [SerializeField] private GameObject present;
     [SerializeField] private GameObject fog;
     [SerializeField] private int score;
     [SerializeField] private float hp;
 
     private AudioManager audioManager;
-    private Canvas canvas;
-    [SerializeField] private float timeShowCanvas;
-    private bool isControl = true;
 
     void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
-        canvas = GameObject.Find("GameWin").GetComponent<Canvas>();
     }
     // Start is called before the first frame update
     void Start()
@@ -36,10 +31,6 @@ public class ChickenBoss : MonoBehaviour
         Vector3 checkPos = transform.position;
         checkPos.x = Mathf.Clamp(checkPos.x, Camera.main.ViewportToWorldPoint(Vector3.zero).x, Camera.main.ViewportToWorldPoint(Vector3.one).x);
         transform.position = checkPos;
-        if (!isControl)
-        {
-            StopAllCoroutines();
-        }
     }
 
     private IEnumerator MoveBossToRandom()
@@ -75,8 +66,6 @@ public class ChickenBoss : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!isControl)
-            return;
         if (collision.CompareTag("Bullet"))
         {
             Bullet bullet = collision.GetComponent<Bullet>();
@@ -94,24 +83,12 @@ public class ChickenBoss : MonoBehaviour
                 for(int i=0; i<ranLeg; i++){
                     Instantiate(chickenleg, transform.position, transform.rotation);
                 }
-                
+
+                Destroy(gameObject);
                 audioManager.PlayChickenDeath(audioManager.chickenDeathAudioClip);
                 audioManager.PlayBackground(audioManager.gameWinClip);
                 ScoreController.instance.getScore(score);
-                
-                Renderer renderer = GetComponent<Renderer>();
-                renderer.sortingOrder = -10;
-                this.isControl = false;
-                Invoke("DestroyChickenBoss", timeShowCanvas);
             }
         }
-    }
-
-    private void DestroyChickenBoss()
-    {
-        canvas.setActiveTrue();
-        Ship ship = GameObject.FindGameObjectWithTag("Player").GetComponent<Ship>();
-        ship.setControl(false);
-        Destroy(gameObject);
     }
 }
