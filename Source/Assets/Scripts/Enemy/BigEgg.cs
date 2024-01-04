@@ -28,8 +28,8 @@ public class BigEgg : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             Destroy(gameObject);
-            Chicken redChicken = Instantiate(spawnChicken, transform.position, Quaternion.identity).GetComponent<Chicken>();
-            redChicken.setIsMoving(true);
+            Chicken chicken = Instantiate(spawnChicken, transform.position, Quaternion.identity).GetComponent<Chicken>();
+            chicken.setIsMoving(true);
         }
     }
 }

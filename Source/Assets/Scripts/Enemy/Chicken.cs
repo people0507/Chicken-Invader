@@ -59,7 +59,7 @@ public class Chicken : MonoBehaviour
         Vector3 point = getRandomPoint();
         while (transform.position != point)
         {
-            transform.position = Vector3.MoveTowards(transform.position, point, speed * Time.deltaTime * 4);
+            transform.position = Vector3.MoveTowards(transform.position, point, speed * Time.deltaTime);
             yield return new WaitForSeconds(Time.fixedDeltaTime);
         }
         StartCoroutine(MoveChickenToRandom());
