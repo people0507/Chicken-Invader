@@ -39,12 +39,14 @@ public class WaveSpawner : MonoBehaviour
         GameObject[] totalRocks = GameObject.FindGameObjectsWithTag("Rock");
         GameObject[] totalBigEggs = GameObject.FindGameObjectsWithTag("BigEgg");
         GameObject[] totalBoss = GameObject.FindGameObjectsWithTag("BossChicken");
+        GameObject[] totalRocket = GameObject.FindGameObjectsWithTag("Rocket");
 
-        GameObject[] totalEnemies = new GameObject[totalChickens.Length + totalRocks.Length + totalBigEggs.Length + totalBoss.Length];
+        GameObject[] totalEnemies = new GameObject[totalChickens.Length + totalRocks.Length + totalBigEggs.Length + totalBoss.Length + totalRocket.Length];
         totalChickens.CopyTo(totalEnemies, 0);
         totalRocks.CopyTo(totalEnemies, 0);
         totalBigEggs.CopyTo(totalEnemies, 0);
         totalBoss.CopyTo(totalEnemies, 0);
+        totalRocket.CopyTo(totalEnemies, 0);
 
         if (totalEnemies.Length == 0 && !canSpawn){
             if(currentWaveNumber + 1 != waves.Length)
@@ -66,16 +68,16 @@ public class WaveSpawner : MonoBehaviour
         {
             GameObject enemy = currentWave.enemy;
             if (enemy.CompareTag("Rock"))
-                Instantiate(enemy, new Vector3(Random.Range(-x/1.25f, x/1.25f) - x, y, 0), Quaternion.identity);
+                Instantiate(enemy, new Vector3(Random.Range(-x / 1.25f, x * 2) - x, y, 0), Quaternion.identity);
             else if (enemy.CompareTag("Chicken"))
             {
                 Chicken chicken = Instantiate(enemy, new Vector3(Random.Range(-x / 2, x / 2), y, 0), Quaternion.identity).GetComponent<Chicken>();
                 chicken.MoveToPos(posChicken.x, posChicken.y);
                 posChicken.x -= grid;
-                if(posChicken.x <= -x)
+                if (posChicken.x <= -x)
                 {
-                    posChicken.x = x-1;
-                    posChicken.y-=grid;
+                    posChicken.x = x - 1;
+                    posChicken.y -= grid;
                 }
             }
             else if (enemy.CompareTag("BossChicken"))
@@ -86,7 +88,8 @@ public class WaveSpawner : MonoBehaviour
             {
                 Instantiate(enemy, new Vector3(Random.Range(-x + 1, x - 1), y, 0), Quaternion.identity).GetComponent<BigEgg>();
             }
-
+            else
+                Instantiate(enemy, new Vector3(Random.Range(-x + 1, x - 1), -y, 0), Quaternion.identity);
             currentWave.numEnemy--;
             nextSpawnTime = Time.time + currentWave.timeSpawnEnemy;
             if(currentWave.numEnemy == 0)
