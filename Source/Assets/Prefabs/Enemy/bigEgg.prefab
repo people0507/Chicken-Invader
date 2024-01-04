@@ -267,4 +267,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  spawnChicken: {fileID: 3649736277693881950, guid: b426ea8e7ed09d0498b6c057c6719879, type: 3}
+  spawnChicken: {fileID: 7862214581734926672, guid: 296935ab1aaebd04e8176240dd5708ed, type: 3}
