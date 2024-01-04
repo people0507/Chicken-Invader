@@ -4952,7 +4952,7 @@ MonoBehaviour:
   waves:
   - waveName: BigEgg
     numEnemy: 10
-    enemy: {fileID: 2054945272470818905, guid: 6b152fa0d6ea5c44a9daeb0627ca389c, type: 3}
+    enemy: {fileID: 6075851434379810531, guid: 9229e405f5404e94a91b6874b9dd7d32, type: 3}
     timeSpawnEnemy: 0.5
   grid: 2
   timeShowCanvas: 3

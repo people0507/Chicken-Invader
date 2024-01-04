@@ -214,7 +214,7 @@ MonoBehaviour:
     timeSpawnEnemy: 0.5
   - waveName: Rock
     numEnemy: 15
-    enemy: {fileID: 2510174948908320835, guid: 1a74d35151772ac49bcb03b565beea22, type: 3}
+    enemy: {fileID: 2054945272470818905, guid: 6b152fa0d6ea5c44a9daeb0627ca389c, type: 3}
     timeSpawnEnemy: 0.5
   - waveName: BigEgg
     numEnemy: 10
