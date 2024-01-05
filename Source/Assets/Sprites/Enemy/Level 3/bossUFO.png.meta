@@ -110,17 +110,17 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 100
-        height: 80
+        width: 399.2
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 708e2b85bbb84c5478877a67be8cfef2
-      internalID: 296109136
+      spriteID: 45f911eac3bbcd346a3ee37248f92354
+      internalID: -1377181150
       vertices: []
       indices: 
       edges: []
@@ -129,19 +129,19 @@ TextureImporter:
       name: bossUFO_1
       rect:
         serializedVersion: 2
-        x: 99
+        x: 399
         y: 0
-        width: 100
-        height: 80
+        width: 399.2
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 565f8099c0eedac4daf2f67183d0dbc2
-      internalID: 1979310252
+      spriteID: e6f0ce6b5ababbf4d82aa86a889a2072
+      internalID: 707348570
       vertices: []
       indices: 
       edges: []
@@ -150,19 +150,19 @@ TextureImporter:
       name: bossUFO_2
       rect:
         serializedVersion: 2
-        x: 198
+        x: 798
         y: 0
-        width: 99.8
-        height: 80
+        width: 399.2
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea1f2ffd14957c443865f636fe56b538
-      internalID: -1879594393
+      spriteID: 882cf8f9036be0741b70e95d5c08e262
+      internalID: 2093935856
       vertices: []
       indices: 
       edges: []
@@ -171,19 +171,19 @@ TextureImporter:
       name: bossUFO_3
       rect:
         serializedVersion: 2
-        x: 300
+        x: 1197
         y: 0
-        width: 100
-        height: 80
+        width: 399.2
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 3, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b9e688e99fa619479a3c8e4f68e1a00
-      internalID: -1610386488
+      spriteID: 80c2a3231291b56409725c97a26eaabb
+      internalID: -2093976885
       vertices: []
       indices: 
       edges: []
@@ -192,19 +192,19 @@ TextureImporter:
       name: bossUFO_4
       rect:
         serializedVersion: 2
-        x: 400
+        x: 1596
         y: 0
-        width: 100
-        height: 80
+        width: 399.2
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 4, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b2c4951f07cecc42957974e2149b6a5
-      internalID: -1062257046
+      spriteID: b5f15f8c9b281a543a9f4fc0cf67646a
+      internalID: 1047716117
       vertices: []
       indices: 
       edges: []
@@ -213,19 +213,19 @@ TextureImporter:
       name: bossUFO_5
       rect:
         serializedVersion: 2
-        x: 500
+        x: 1995
         y: 0
-        width: 100
-        height: 80
+        width: 399.2
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 5, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dffb3cc35a2bc5840ad827e2b339945a
-      internalID: -469060025
+      spriteID: 3751396bca0c0524da06e6ae0b17c44b
+      internalID: 801329114
       vertices: []
       indices: 
       edges: []
@@ -234,19 +234,19 @@ TextureImporter:
       name: bossUFO_6
       rect:
         serializedVersion: 2
-        x: 600
+        x: 2400
         y: 0
-        width: 100
-        height: 80
+        width: 393
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2c159efee6f64c43a7efffa95ac72c0
-      internalID: 268426538
+      spriteID: a9946e02010a1f642862ae12e59a74b5
+      internalID: -602189786
       vertices: []
       indices: 
       edges: []
@@ -255,19 +255,19 @@ TextureImporter:
       name: bossUFO_7
       rect:
         serializedVersion: 2
-        x: 699
+        x: 2800
         y: 0
-        width: 100
-        height: 80
+        width: 393
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7823450e2cec664aafec92fd83c5c4f
-      internalID: 1767180183
+      spriteID: cc719fb60dc6abb4b80c8fb44db1bab8
+      internalID: -1403295233
       vertices: []
       indices: 
       edges: []
@@ -276,19 +276,19 @@ TextureImporter:
       name: bossUFO_8
       rect:
         serializedVersion: 2
-        x: 797
+        x: 3195
         y: 0
-        width: 100
-        height: 80
+        width: 396
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38991e6d10c89ac49bde72be2235b050
-      internalID: 1502676681
+      spriteID: 72a1a3a427d459d4c8b10af9207753b2
+      internalID: 964471207
       vertices: []
       indices: 
       edges: []
@@ -297,19 +297,19 @@ TextureImporter:
       name: bossUFO_9
       rect:
         serializedVersion: 2
-        x: 898
+        x: 3594
         y: 0
-        width: 100
-        height: 80
+        width: 397
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d90f224924083f479b327150a21352f
-      internalID: -809702473
+      spriteID: 1787769bbfe0e5b4cb84afcf881b4028
+      internalID: -1393130110
       vertices: []
       indices: 
       edges: []
@@ -325,16 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bossUFO_0: 296109136
-      bossUFO_1: 1979310252
-      bossUFO_2: -1879594393
-      bossUFO_3: -1610386488
-      bossUFO_4: -1062257046
-      bossUFO_5: -469060025
-      bossUFO_6: 268426538
-      bossUFO_7: 1767180183
-      bossUFO_8: 1502676681
-      bossUFO_9: -809702473
+      bossUFO_0: -1377181150
+      bossUFO_1: 707348570
+      bossUFO_2: 2093935856
+      bossUFO_3: -2093976885
+      bossUFO_4: 1047716117
+      bossUFO_5: 801329114
+      bossUFO_6: -602189786
+      bossUFO_7: -1403295233
+      bossUFO_8: 964471207
+      bossUFO_9: -1393130110
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

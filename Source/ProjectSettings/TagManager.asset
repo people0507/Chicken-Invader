@@ -6,12 +6,15 @@ TagManager:
   tags:
   - BottomBorder
   - Bullet
-  - RedChicken
   - Egg
   - Present
   - AudioManager
   - Shield
   - Rock
+  - Chicken
+  - BossChicken
+  - BigEgg
+  - Rocket
   layers:
   - Default
   - TransparentFX

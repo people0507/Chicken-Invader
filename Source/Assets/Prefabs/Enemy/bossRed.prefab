@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 479806583359284467}
   - component: {fileID: 7571505422934490577}
   m_Layer: 0
-  m_Name: bossRed
+  m_Name: BossRed
   m_TagString: BossChicken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,11 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522debadb261939499d0140d7503da2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 4
   egg: {fileID: 6078868767272616198, guid: 73712c7bf975c9d4b8b26d72b379f5b9, type: 3}
   chickenleg: {fileID: 4026529917271576798, guid: 84d5c4e1fc8639640a0040f5f6d16e64, type: 3}
-  present: {fileID: 0}
   fog: {fileID: 831047883632518319, guid: 27e138f7aafcbf54d8d9d6e0bf267b6b, type: 3}
   score: 10000
-  hp: 10
-  xMove: 4
+  hp: 50

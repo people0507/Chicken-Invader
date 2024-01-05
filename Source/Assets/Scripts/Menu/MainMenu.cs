@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject canvasExit;
-
     public void PlayMainMenu()
     {
         SceneManager.LoadScene(0);
@@ -18,14 +16,13 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void PlayLevel2()
+    {
+        SceneManager.LoadScene(2);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-    public void CanvasContinues()
-    {
-        canvasExit.SetActive(false);
-        Time.timeScale = 1f;
     }
 }

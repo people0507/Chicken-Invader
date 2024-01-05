@@ -6,9 +6,9 @@ public class PresentScript : MonoBehaviour
 {
     [SerializeField] private int score;
 
-    private void FixedUpdate()
+    private void Update()
     {
-        float yMin = Camera.main.ViewportToScreenPoint(Vector2.zero).y;
+        float yMin = Camera.main.ViewportToWorldPoint(Vector2.zero).y;
         if(transform.position.y < yMin - 1)
         {
             Destroy(gameObject);
