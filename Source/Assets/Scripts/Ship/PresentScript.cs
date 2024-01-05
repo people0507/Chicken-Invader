@@ -6,13 +6,21 @@ public class PresentScript : MonoBehaviour
 {
     [SerializeField] private int score;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if( collision.tag == "Player")
+        float yMin = Camera.main.ViewportToWorldPoint(Vector2.zero).y;
+        if(transform.position.y < yMin - 1)
         {
-            ScoreController.instance.getScore(score);
             Destroy(gameObject);
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if( collision.tag == "Player")
+        {
+            Destroy(gameObject);
+            ScoreController.instance.getScore(score);
+        }
+    }
 }

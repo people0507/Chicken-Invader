@@ -13,10 +13,4 @@ public class BottomBorder : MonoBehaviour
         box.transform.position = new Vector2(0, yMin);
         box.size = new Vector2(cameraWidth, 0.5f);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
