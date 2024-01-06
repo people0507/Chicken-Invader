@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2344820290981645215}
   - component: {fileID: 9007794104782056207}
   - component: {fileID: 7058375452987820858}
-  - component: {fileID: -8832671101330145009}
+  - component: {fileID: -2500299504508378050}
   m_Layer: 0
   m_Name: eggBullet
   m_TagString: Untagged
@@ -234,7 +234,7 @@ CompositeCollider2D:
       - {x: -0.0199915, y: -0.23}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
---- !u!114 &-8832671101330145009
+--- !u!114 &-2500299504508378050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5478715436602697073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cf95fad945080b4fb3a45796d04ad18, type: 3}
+  m_Script: {fileID: 11500000, guid: fc5df7cdc3352f741bb67d67d5490283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 3
