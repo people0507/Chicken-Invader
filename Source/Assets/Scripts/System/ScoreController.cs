@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour
 {
-    [SerializeField] TMP_Text textScore;
+    [SerializeField] Text textScore;
     private int score;
     public static ScoreController instance;
 
@@ -17,6 +18,6 @@ public class ScoreController : MonoBehaviour
     public void getScore(int score)
     {
         this.score += score;
-        textScore.text = "Score : " + this.score.ToString();
+        textScore.text = this.score.ToString("#,#");
     }
 }
