@@ -5016,6 +5016,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158708923567277340, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: eggBullet
+      value: 
+      objectReference: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
+    - target: {fileID: 158708923567277340, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: bulletCount
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 567961620651914134, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3
@@ -5023,6 +5031,22 @@ PrefabInstance:
     - target: {fileID: 972829512342612287, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
       propertyPath: m_Name
       value: BossEgg
+      objectReference: {fileID: 0}
+    - target: {fileID: 982801976039965540, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: eggBullet
+      value: 
+      objectReference: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
+    - target: {fileID: 982801976039965540, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: bulletCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105809339950320617, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: eggBullet
+      value: 
+      objectReference: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
+    - target: {fileID: 1105809339950320617, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: bulletCount
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1317716107576288658, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
       propertyPath: m_RootOrder
@@ -5076,9 +5100,33 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3556171433646781915, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: eggBullet
+      value: 
+      objectReference: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
+    - target: {fileID: 3556171433646781915, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: bulletCount
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4383576720906644592, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531615120299438837, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: eggBullet
+      value: 
+      objectReference: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
+    - target: {fileID: 4531615120299438837, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: bulletCount
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588656885959114194, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: eggBullet
+      value: 
+      objectReference: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
+    - target: {fileID: 4588656885959114194, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: bulletCount
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5634646643229967921, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5088,9 +5136,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6702586242281946988, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: eggBullet
+      value: 
+      objectReference: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
+    - target: {fileID: 6702586242281946988, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: bulletCount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6969790026488415095, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325595562137630176, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: eggBullet
+      value: 
+      objectReference: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
+    - target: {fileID: 7325595562137630176, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: bulletCount
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8201271179261024895, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5099,6 +5163,14 @@ PrefabInstance:
     - target: {fileID: 8517586063533791204, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756025865978577871, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: eggBullet
+      value: 
+      objectReference: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
+    - target: {fileID: 8756025865978577871, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+      propertyPath: bulletCount
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
