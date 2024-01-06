@@ -11,7 +11,7 @@ public class BossEgg : MonoBehaviour
     [SerializeField] private float currentHP;
     [SerializeField] private float hp;
     [SerializeField] private GameObject[] eggGameObjects;
-    [SerializeField] private GameObject eggBullet;
+    [SerializeField] private GameObject neutronBullet;
     [SerializeField] private float bulletCount;
     [SerializeField] private float timeFire;
     [SerializeField] private float speed;
@@ -162,7 +162,7 @@ public class BossEgg : MonoBehaviour
                 float angle = i * angleIncrement;
                 Vector3 bulletDirection = Quaternion.Euler(0, 0, angle) * Vector3.down;
 
-                Instantiate(eggBullet, transform.position - new Vector3(0, 0.6f, 0), Quaternion.LookRotation(Vector3.forward, bulletDirection));
+                Instantiate(neutronBullet, transform.position - new Vector3(0, 0.6f, 0), Quaternion.LookRotation(Vector3.forward, bulletDirection));
             }
 
             // Thời gian chờ giữa các lần bắn
@@ -175,8 +175,8 @@ public class BossEgg : MonoBehaviour
         while (true)
         {
             Ship ship = GameObject.FindGameObjectWithTag("Player").GetComponent<Ship>();
-            EggBullet egg = Instantiate(eggBullet, transform.position - new Vector3(0, 0.6f, 0), Quaternion.identity).GetComponent<EggBullet>();
-            egg.MoveToPos(ship.getPosShip());
+            NeutronBullet neutron = Instantiate(neutronBullet, transform.position - new Vector3(0, 0.6f, 0), Quaternion.identity).GetComponent<NeutronBullet>();
+            neutron.MoveToPos(ship.getPosShip());
             yield return new WaitForSeconds(timeFire);
         }
     }
