@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using Random = UnityEngine.Random;
 
 public class BossEgg : MonoBehaviour
 {
@@ -12,8 +13,14 @@ public class BossEgg : MonoBehaviour
     [SerializeField] private GameObject[] eggGameObjects;
     [SerializeField] private GameObject eggBullet;
     [SerializeField] private float bulletCount;
+    [SerializeField] private float timeFire;
+    [SerializeField] private float speed;
     private int currentIndex;
     private AudioManager audioManager;
+
+    [SerializeField] private float shake;
+    private bool isShake = false;
+    private Vector3 currentPos;
 
     private void Awake()
     {
@@ -22,13 +29,22 @@ public class BossEgg : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(EnemyShoot());
         currentIndex = Array.IndexOf(eggGameObjects, gameObject);
-        Debug.Log("Vị trí hiện tại của GameObject là: " + currentIndex);
+        if(currentIndex == eggGameObjects.Length - 1)
+        {
+            StartCoroutine(MoveToRandom());
+            StartCoroutine(EnemyShootFinal());
+        }
+        else
+        {
+            StartCoroutine(MoveStart());
+            StartCoroutine(EnemyShoot());
+        }
     }
 
     private void Update()
     {
+        currentPos = transform.position;
         if (currentHP <= hp)
         {
             if (currentIndex + 1 < eggGameObjects.Length)
@@ -36,11 +52,11 @@ public class BossEgg : MonoBehaviour
                 currentIndex += 1;
                 eggGameObjects[currentIndex].SetActive(true);
                 eggGameObjects[currentIndex].GetComponent<BossEgg>().setCurrentHp(currentHP);
+                setPosition(transform.position);
                 gameObject.SetActive(false);
             }
-            else
+            else 
                 Destroy(gameObject);
-
         }
     }
 
@@ -53,6 +69,8 @@ public class BossEgg : MonoBehaviour
             {
                 currentHP -= bullet.getDameBullet();
                 audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
+                if(isShake)
+                    StartCoroutine(Shake1());
             }
             //if (hp <= 0)
             //{
@@ -73,16 +91,69 @@ public class BossEgg : MonoBehaviour
         }
     }
 
+    private IEnumerator MoveStart()
+    {
+        while (transform.position != Vector3.up)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, Vector3.up, speed * Time.deltaTime);
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
+        }
+        isShake = true;
+    }
+
+    private IEnumerator Shake1()
+    {
+        Vector3 pos1 = currentPos + new Vector3(0, shake, 0);
+        Vector3 pos2 = currentPos;
+        while (transform.position.y != pos1.y)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, pos1, Time.deltaTime * 20);
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
+        }
+        StartCoroutine(Shake2(pos2));
+    }
+
+    private IEnumerator Shake2(Vector3 pos2)
+    {
+        while(transform.position.y != pos2.y)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, pos2, Time.deltaTime * 20);
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
+        }
+    }
+
+    private IEnumerator MoveToRandom()
+    {
+        Vector3 point = getRandomPoint();
+        while (transform.position != point)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, point, speed * Time.deltaTime);
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
+        }
+        StartCoroutine(MoveToRandom());
+    }
+
+    private Vector3 getRandomPoint()
+    {
+        Vector3 posRandom = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0f, 1f), Random.Range(0.5f, 1f)));
+        posRandom.z = 0;
+        return posRandom;
+    }
+
     public void setCurrentHp(float hp)
     {
         this.currentHP = hp;
     }
 
-      IEnumerator EnemyShoot()
+    public void setPosition(Vector3 pos)
+    {
+        eggGameObjects[currentIndex].transform.position = pos;
+    }
+
+    private IEnumerator EnemyShoot()
     {
         while (true)
         {
-
             float angleIncrement = 360f / bulletCount;
 
             // Bắn nhiều viên đạn theo các hướng khác nhau
@@ -95,7 +166,18 @@ public class BossEgg : MonoBehaviour
             }
 
             // Thời gian chờ giữa các lần bắn
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(timeFire);
+        }
+    }
+
+    private IEnumerator EnemyShootFinal()
+    {
+        while (true)
+        {
+            Ship ship = GameObject.FindGameObjectWithTag("Player").GetComponent<Ship>();
+            EggBullet egg = Instantiate(eggBullet, transform.position - new Vector3(0, 0.6f, 0), Quaternion.identity).GetComponent<EggBullet>();
+            egg.MoveToPos(ship.getPosShip());
+            yield return new WaitForSeconds(timeFire);
         }
     }
 }
