@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4338445378809985071}
   - component: {fileID: 1086497450436436882}
   - component: {fileID: 2344820290981645215}
-  - component: {fileID: 3868787872684718597}
   - component: {fileID: 9007794104782056207}
   - component: {fileID: 7058375452987820858}
+  - component: {fileID: -8832671101330145009}
   m_Layer: 0
   m_Name: eggBullet
   m_TagString: Untagged
@@ -109,19 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3868787872684718597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5478715436602697073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cf95fad945080b4fb3a45796d04ad18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
 --- !u!60 &9007794104782056207
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -247,3 +234,16 @@ CompositeCollider2D:
       - {x: -0.0199915, y: -0.23}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!114 &-8832671101330145009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5478715436602697073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf95fad945080b4fb3a45796d04ad18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4

@@ -59,6 +59,10 @@ public class Ship : MonoBehaviour
         mousePosition.y = Mathf.Clamp(mousePosition.y, Camera.main.ViewportToWorldPoint(Vector2.zero).y, Camera.main.ViewportToWorldPoint(Vector2.one).y);
         transform.position = new Vector2(mousePosition.x, mousePosition.y);
     }
+    public Vector3 getPosShip()
+    {
+        return transform.position;
+    }
 
     public void setControl(bool control)
     {
@@ -79,128 +83,123 @@ public class Ship : MonoBehaviour
                 switch (currenTierBullet)
                 {
                     case 7:
-                        Instantiate(bulletList[6], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[6], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[6], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[6], transform.position + new Vector3(0.25f, 0, 0) , Quaternion.identity);
                         break;
                     case 8:
-                        Instantiate(bulletList[6], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[6], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[6], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[6], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[6], transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+                        Instantiate(bulletList[6], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
                         break;
                     case 9:
-                        Instantiate(bulletList[6], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[7], new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[6], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[6], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[6], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
                         break;
                     case 10:
-                        Instantiate(bulletList[7], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[7], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
                         break;
                     case 11:
-                        Instantiate(bulletList[7], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[7], new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[7], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
                         break;
                     case 12:
-                        Instantiate(bulletList[6], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[8], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[6], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[6], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[8], transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+                        Instantiate(bulletList[6], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
                         break;
                     case 13:
-                        Instantiate(bulletList[7], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[8], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[7], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[8], transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
                         break;
                     case 14:
-                        Instantiate(bulletList[6], new Vector3(transform.position.x - 0.5f, transform.position.y - 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[7], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[7], new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[7], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[6], new Vector3(transform.position.x + 0.5f, transform.position.y - 0.25f, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[6], transform.position + new Vector3(-0.5f, -0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[6], transform.position + new Vector3(0.5f, -0.25f, 0), Quaternion.identity);
                         break;
                     case 15:
-                        Instantiate(bulletList[6], new Vector3(transform.position.x - 0.5f, transform.position.y - 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[7], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[8], new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[7], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[6], new Vector3(transform.position.x + 0.5f, transform.position.y - 0.25f, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[6], transform.position + new Vector3(-0.5f, -0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[8], transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[6], transform.position + new Vector3(0.5f, -0.25f, 0), Quaternion.identity);
                         break;
                     case 16:
-                        Instantiate(bulletList[8], new Vector3(transform.position.x - 0.5f, transform.position.y - 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[7], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[8], new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[7], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[8], new Vector3(transform.position.x + 0.5f, transform.position.y - 0.25f, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[8], transform.position + new Vector3(-0.5f, -0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[8], transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[7], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[8], transform.position + new Vector3(0.5f, -0.25f, 0), Quaternion.identity);
                         break;
                     case 17:
-                        Instantiate(bulletList[9], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[9], transform.position, Quaternion.identity);
                         break;
                     case 18:
-                        Instantiate(bulletList[10], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position, Quaternion.identity);
                         break;
                     case 19:
-                        Instantiate(bulletList[9], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[9], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[9], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[9], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
                         break;
                     case 20:
-                        Instantiate(bulletList[9], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[10], new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[9], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[9], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[9], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
                         break;
                     case 21:
-                        Instantiate(bulletList[10], new Vector3(transform.position.x - 0.25f, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[9], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[10], new Vector3(transform.position.x + 0.25f, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(-0.25f, 0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[9], transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(0.25f, 0.25f, 0), Quaternion.identity);
                         break;
                     case 22:
-                        Instantiate(bulletList[10], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[10], new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[10], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
                         break;
                     case 23:
-                        Instantiate(bulletList[10], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[10], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[11], transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
                         break;
                     case 24:
-                        Instantiate(bulletList[11], new Vector3(transform.position.x - 0.25f, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[10], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x + 0.25f, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[11], transform.position + new Vector3(-0.25f, 0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[11], transform.position + new Vector3(0.25f, 0.25f, 0), Quaternion.identity);
                         break;
                     case 25:
-                        Instantiate(bulletList[9], new Vector3(transform.position.x - 0.5f, transform.position.y - 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[10], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[10], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[9], new Vector3(transform.position.x + 0.5f, transform.position.y - 0.25f, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[9], transform.position + new Vector3(-0.5f, -0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[11], transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[9], transform.position + new Vector3(0.5f, -0.25f, 0), Quaternion.identity);
                         break;
                     case 26:
-                        Instantiate(bulletList[10], new Vector3(transform.position.x - 0.5f, transform.position.y - 0.1f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[10], new Vector3(transform.position.x - 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[10], new Vector3(transform.position.x + 0.25f, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[10], new Vector3(transform.position.x + 0.5f, transform.position.y - 0.1f, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(-0.5f, -0.1f, 0), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(-0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[11], transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(0.25f, 0, 0), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(0.5f, -0.1f, 0), Quaternion.identity);
                         break;
                     case 27:
-                        Instantiate(bulletList[10], new Vector3(transform.position.x - 0.5f, transform.position.y - 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x - 0.25f, transform.position.y - 0.1f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x + 0.25f, transform.position.y - 0.1f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[10], new Vector3(transform.position.x + 0.5f, transform.position.y - 0.25f, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(-0.5f, -0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[11], transform.position + new Vector3(-0.25f, -0.1f, 0), Quaternion.identity);
+                        Instantiate(bulletList[11], transform.position + new Vector3(0, 0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[11], transform.position + new Vector3(0.25f, -0.1f, 0), Quaternion.identity);
+                        Instantiate(bulletList[10], transform.position + new Vector3(0.5f, -0.25f, 0), Quaternion.identity);
                         break;
                     case 28:
-                        Instantiate(bulletList[11], new Vector3(transform.position.x - 0.5f, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x - 0.25f, transform.position.y - 0.1f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x + 0.25f, transform.position.y - 0.1f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x + 0.5f, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
+                        Instantiate(bulletList[11], transform.position + new Vector3(-0.5f, -0.2f, 0), Quaternion.identity);
+                        Instantiate(bulletList[11], transform.position + new Vector3(-0.25f, -0.1f, 0), Quaternion.identity);
+                        Instantiate(bulletList[11], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
+                        Instantiate(bulletList[11], transform.position + new Vector3(0.25f, -0.1f, 0), Quaternion.identity);
+                        Instantiate(bulletList[11], transform.position + new Vector3(0.5f, -0.2f, 0), Quaternion.identity);
                         break;
                     default:
-                        Instantiate(bulletList[11], new Vector3(transform.position.x - 0.5f, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x - 0.25f, transform.position.y - 0.1f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x + 0.25f, transform.position.y - 0.1f, transform.position.z), Quaternion.identity);
-                        Instantiate(bulletList[11], new Vector3(transform.position.x + 0.5f, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
                         break;
                 }
             }
