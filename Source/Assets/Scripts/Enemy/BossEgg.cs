@@ -10,6 +10,8 @@ public class BossEgg : MonoBehaviour
     [SerializeField] private float currentHP;
     [SerializeField] private float hp;
     [SerializeField] private GameObject[] eggGameObjects;
+    [SerializeField] private GameObject eggBullet;
+    [SerializeField] private float bulletCount;
     private int currentIndex;
     private AudioManager audioManager;
 
@@ -20,6 +22,7 @@ public class BossEgg : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(EnemyShoot());
         currentIndex = Array.IndexOf(eggGameObjects, gameObject);
         Debug.Log("Vị trí hiện tại của GameObject là: " + currentIndex);
     }
@@ -73,5 +76,26 @@ public class BossEgg : MonoBehaviour
     public void setCurrentHp(float hp)
     {
         this.currentHP = hp;
+    }
+
+      IEnumerator EnemyShoot()
+    {
+        while (true)
+        {
+
+            float angleIncrement = 360f / bulletCount;
+
+            // Bắn nhiều viên đạn theo các hướng khác nhau
+            for (int i = 0; i < bulletCount; i++)
+            {
+                float angle = i * angleIncrement;
+                Vector3 bulletDirection = Quaternion.Euler(0, 0, angle) * Vector3.down;
+
+                Instantiate(eggBullet, transform.position - new Vector3(0, 0.6f, 0), Quaternion.LookRotation(Vector3.forward, bulletDirection));
+            }
+
+            // Thời gian chờ giữa các lần bắn
+            yield return new WaitForSeconds(2f);
+        }
     }
 }
