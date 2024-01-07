@@ -21,13 +21,13 @@ public class WaveSpawner : MonoBehaviour
     private Vector3 posChicken;
     [SerializeField] private float grid = 2;
 
-    private Canvas canvas;
+    private Canvas canvasWin;
     [SerializeField] private float timeShowCanvas;
 
     private void Awake()
     {
         PosChicken();
-        canvas = GameObject.Find("GameWin").GetComponent<Canvas>();
+        canvasWin = GameObject.Find("GameWin").GetComponent<Canvas>();
     }
     // Update is called once per frame
     void Update()
@@ -49,7 +49,7 @@ public class WaveSpawner : MonoBehaviour
         totalRocket.CopyTo(totalEnemies, 0);
 
         if (totalEnemies.Length == 0 && !canSpawn){
-            if(currentWaveNumber + 1 != waves.Length)
+            if (currentWaveNumber + 1 != waves.Length)
             {
                 currentWaveNumber++;
                 canSpawn = true;
@@ -108,7 +108,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void ShowCanvas()
     {
-        canvas.setActiveTrue();
+        canvasWin.setActiveTrue();
         Ship ship = GameObject.FindGameObjectWithTag("Player").GetComponent<Ship>();
         ship.setControl(false);
     }

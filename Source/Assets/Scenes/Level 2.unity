@@ -4211,6 +4211,10 @@ PrefabInstance:
       value: ship
       objectReference: {fileID: 0}
     - target: {fileID: 7712392844134984355, guid: 9489e78ce9034764e8af2c6f255c358e, type: 3}
+      propertyPath: timeShowCanvas
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712392844134984355, guid: 9489e78ce9034764e8af2c6f255c358e, type: 3}
       propertyPath: bulletList.Array.size
       value: 12
       objectReference: {fileID: 0}
@@ -4840,8 +4844,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - waveName: BigEgg
-    numEnemy: 1
-    enemy: {fileID: 379679569571842011, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+    numEnemy: 5
+    enemy: {fileID: 6075851434379810531, guid: 9229e405f5404e94a91b6874b9dd7d32, type: 3}
     timeSpawnEnemy: 0.5
   grid: 2
   timeShowCanvas: 3

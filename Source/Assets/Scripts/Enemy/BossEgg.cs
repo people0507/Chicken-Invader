@@ -11,6 +11,7 @@ public class BossEgg : MonoBehaviour
     [SerializeField] private float currentHP;
     [SerializeField] private float hp;
     [SerializeField] private GameObject[] eggGameObjects;
+    [SerializeField] private GameObject eggparent;
     [SerializeField] private GameObject neutronBullet;
     [SerializeField] private float bulletCount;
     [SerializeField] private float timeFire;
@@ -55,8 +56,8 @@ public class BossEgg : MonoBehaviour
                 setPosition(transform.position);
                 gameObject.SetActive(false);
             }
-            else 
-                Destroy(gameObject);
+            else
+                Destroy(eggparent);
         }
     }
 
