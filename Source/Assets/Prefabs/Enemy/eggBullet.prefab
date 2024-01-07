@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -2500299504508378050}
   m_Layer: 0
   m_Name: eggBullet
-  m_TagString: Untagged
+  m_TagString: Egg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
