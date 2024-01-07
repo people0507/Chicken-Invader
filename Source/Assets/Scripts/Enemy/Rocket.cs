@@ -102,10 +102,7 @@ public class Rocket : MonoBehaviour
     {
         return a * Mathf.Pow(x, 2) + b;
     }
-    private float CalculateXMin(float y)
-    {
-        return Mathf.Sqrt((y - b) / a);
-    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
@@ -114,6 +111,11 @@ public class Rocket : MonoBehaviour
             if (bullet != null)
             {
                 hp -= bullet.getDameBullet();
+            }
+            Explosion explosion = collision.GetComponent<Explosion>();
+            if (explosion != null)
+            {
+                hp -= explosion.getDameBullet();
             }
             if (hp <= 0)
             {

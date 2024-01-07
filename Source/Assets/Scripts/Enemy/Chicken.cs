@@ -100,7 +100,13 @@ public class Chicken : MonoBehaviour
                 hp -= bullet.getDameBullet();
                 audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
             }
-            if(hp <= 0)
+            Explosion explosion = collision.GetComponent<Explosion>();
+            if (explosion != null)
+            {
+                hp -= explosion.getDameBullet();
+                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
+            }
+            if (hp <= 0)
             {
                 Instantiate(chickenleg, transform.position, transform.rotation);
                 

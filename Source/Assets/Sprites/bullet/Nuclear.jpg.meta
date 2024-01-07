@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a49bed27fd3e7641865c9969c03f69a
+guid: fc27aea1b48a79046b7dbe6d02674f52
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,232 +105,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fogwhite_0
+      name: Nuclear_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 0
-        width: 64
-        height: 62
+        width: 175
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 615e0d90105e4c54c8f9f96dbb9788ad
-      internalID: -1229850072
+      spriteID: 2a3d0069ff0d3db4480179ff5716dc09
+      internalID: -1837471820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fogwhite_1
+      name: Nuclear_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 190
         y: 0
-        width: 64
-        height: 62
+        width: 171
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96929954b39099e41852a2923043b6d8
-      internalID: -333135832
+      spriteID: 6c7e8b313eab8c44e9821bffab5718c9
+      internalID: -1396738287
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fogwhite_2
+      name: Nuclear_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 371
         y: 0
-        width: 64
-        height: 62
+        width: 172
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1df15da70ed45d64a88dd2c20f769a0e
-      internalID: -910162233
+      spriteID: f613ffae3577ee547b4c841f43be7218
+      internalID: 826916591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fogwhite_3
+      name: Nuclear_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 554
         y: 0
-        width: 64
-        height: 62
+        width: 160
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94fcdbe3c8ab8c143bf82066a9cab4bd
-      internalID: -1107703612
+      spriteID: 772490839acf1f0409481c728a5c18f6
+      internalID: 75461258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fogwhite_4
+      name: Nuclear_4
       rect:
         serializedVersion: 2
-        x: 256
+        x: 738
         y: 0
-        width: 64
-        height: 62
+        width: 150
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34430255358eeb74e9617063e06e9f2b
-      internalID: -1863487876
+      spriteID: 657e81866d5762b4abf41f420d9aa62d
+      internalID: 886469370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fogwhite_5
+      name: Nuclear_5
       rect:
         serializedVersion: 2
-        x: 320
+        x: 920
         y: 0
-        width: 64
-        height: 62
+        width: 127
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fa153c006ae273458a8e67629e1921f
-      internalID: 1390066666
+      spriteID: 69b3b914d229b2b4b9adb7ad17c374f0
+      internalID: -1059847443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fogwhite_6
+      name: Nuclear_6
       rect:
         serializedVersion: 2
-        x: 384
+        x: 1105
         y: 0
-        width: 64
-        height: 62
+        width: 139
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3d43a212648cb74993c9e378994286f
-      internalID: 76660344
+      spriteID: 42f148f13e4d7c24cbc23bd447f43940
+      internalID: 871253375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fogwhite_7
+      name: Nuclear_7
       rect:
         serializedVersion: 2
-        x: 448
+        x: 1290
         y: 0
-        width: 64
-        height: 62
+        width: 153
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f307cfa81fa8294788b02562dca6ff6
-      internalID: 502809361
+      spriteID: c30f4c76184e2f048b96a067cf578fd1
+      internalID: 1658740129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fogwhite_8
+      name: Nuclear_8
       rect:
         serializedVersion: 2
-        x: 512
+        x: 1473
         y: 0
-        width: 64
-        height: 62
+        width: 167
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 626d754f3051c654fba802b8bce1d9d2
-      internalID: -1715657867
+      spriteID: 28713ad4e7ded2b43b7d9b6916912978
+      internalID: -115187686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fogwhite_9
+      name: Nuclear_9
       rect:
         serializedVersion: 2
-        x: 576
+        x: 1651
         y: 0
-        width: 64
-        height: 62
+        width: 178
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bf4db8b91a14da4e992149563dcb6ec
-      internalID: 894682135
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fogwhite_10
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 64
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f6688d5c1eab0748958b385b45937b2
-      internalID: -156763445
+      spriteID: 1dec8b090da243747a41dd761cc5a6a4
+      internalID: 1255203127
       vertices: []
       indices: 
       edges: []
@@ -346,17 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fogwhite_0: -1229850072
-      fogwhite_1: -333135832
-      fogwhite_10: -156763445
-      fogwhite_2: -910162233
-      fogwhite_3: -1107703612
-      fogwhite_4: -1863487876
-      fogwhite_5: 1390066666
-      fogwhite_6: 76660344
-      fogwhite_7: 502809361
-      fogwhite_8: -1715657867
-      fogwhite_9: 894682135
+      Nuclear_0: -1837471820
+      Nuclear_1: -1396738287
+      Nuclear_2: 826916591
+      Nuclear_3: 75461258
+      Nuclear_4: 886469370
+      Nuclear_5: -1059847443
+      Nuclear_6: 871253375
+      Nuclear_7: 1658740129
+      Nuclear_8: -115187686
+      Nuclear_9: 1255203127
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
