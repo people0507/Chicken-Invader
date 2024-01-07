@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EggBullet : MonoBehaviour
+public class NeutronBullet : MonoBehaviour
 {
     [SerializeField] private float speed;
 

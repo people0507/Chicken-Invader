@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeathController : MonoBehaviour
 {
-    [SerializeField] TMP_Text textHeath;
+    [SerializeField] Text textHeath;
     public static HeathController instance;
 
     private void Awake()
