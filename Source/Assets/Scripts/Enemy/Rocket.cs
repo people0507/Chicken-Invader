@@ -11,8 +11,12 @@ public class Rocket : MonoBehaviour
     private float rotation = 0;
     [SerializeField] private float speed;
     [SerializeField] private GameObject egg;
+    [SerializeField] private GameObject chickenleg;
+    [SerializeField] private GameObject present;
     private AudioManager audioManager;
-    
+    [SerializeField] private int score;
+    [SerializeField] private float hp;
+
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
@@ -101,5 +105,25 @@ public class Rocket : MonoBehaviour
     private float CalculateXMin(float y)
     {
         return Mathf.Sqrt((y - b) / a);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            Bullet bullet = collision.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                hp -= bullet.getDameBullet();
+            }
+            if (hp <= 0)
+            {
+                Instantiate(chickenleg, transform.position, transform.rotation);
+                int random = Random.Range(1, 5);
+                if (random == 3)
+                Instantiate(present, transform.position, transform.rotation);
+                ScoreController.instance.getScore(score);
+                Destroy(gameObject);
+            }
+        }
     }
 }

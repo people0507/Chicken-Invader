@@ -4840,8 +4840,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - waveName: BigEgg
-    numEnemy: 1
-    enemy: {fileID: 379679569571842011, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
+    numEnemy: 5
+    enemy: {fileID: 6075851434379810531, guid: 9229e405f5404e94a91b6874b9dd7d32, type: 3}
     timeSpawnEnemy: 0.5
   grid: 2
   timeShowCanvas: 3
