@@ -269,6 +269,7 @@ MonoBehaviour:
   - {fileID: 379679570548932313}
   - {fileID: 379679569831663106}
   - {fileID: 379679571374773904}
+  eggParent: {fileID: 379679569571842011}
   eggBullet: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
   bulletCount: 7
   timeFire: 2
@@ -588,6 +589,7 @@ MonoBehaviour:
   - {fileID: 379679570548932313}
   - {fileID: 379679569831663106}
   - {fileID: 379679571374773904}
+  eggParent: {fileID: 379679569571842011}
   eggBullet: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
   bulletCount: 6
   timeFire: 2
@@ -856,6 +858,7 @@ MonoBehaviour:
   - {fileID: 379679570548932313}
   - {fileID: 379679569831663106}
   - {fileID: 379679571374773904}
+  eggParent: {fileID: 379679569571842011}
   eggBullet: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
   bulletCount: 5
   timeFire: 2
@@ -1138,6 +1141,7 @@ MonoBehaviour:
   - {fileID: 379679570548932313}
   - {fileID: 379679569831663106}
   - {fileID: 379679571374773904}
+  eggParent: {fileID: 379679569571842011}
   eggBullet: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
   bulletCount: 12
   timeFire: 2
@@ -1493,6 +1497,7 @@ MonoBehaviour:
   - {fileID: 379679570548932313}
   - {fileID: 379679569831663106}
   - {fileID: 379679571374773904}
+  eggParent: {fileID: 379679569571842011}
   eggBullet: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
   bulletCount: 4
   timeFire: 2
@@ -1763,6 +1768,7 @@ MonoBehaviour:
   - {fileID: 379679570548932313}
   - {fileID: 379679569831663106}
   - {fileID: 379679571374773904}
+  eggParent: {fileID: 379679569571842011}
   eggBullet: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
   bulletCount: 11
   timeFire: 2
@@ -2042,6 +2048,7 @@ MonoBehaviour:
   - {fileID: 379679570548932313}
   - {fileID: 379679569831663106}
   - {fileID: 379679571374773904}
+  eggParent: {fileID: 379679569571842011}
   eggBullet: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
   bulletCount: 9
   timeFire: 2
@@ -2316,6 +2323,7 @@ MonoBehaviour:
   - {fileID: 379679570548932313}
   - {fileID: 379679569831663106}
   - {fileID: 379679571374773904}
+  eggParent: {fileID: 379679569571842011}
   eggBullet: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
   bulletCount: 8
   timeFire: 2
@@ -2598,6 +2606,7 @@ MonoBehaviour:
   - {fileID: 379679570548932313}
   - {fileID: 379679569831663106}
   - {fileID: 379679571374773904}
+  eggParent: {fileID: 379679569571842011}
   eggBullet: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
   bulletCount: 12
   timeFire: 0.5
@@ -2866,6 +2875,7 @@ MonoBehaviour:
   - {fileID: 379679570548932313}
   - {fileID: 379679569831663106}
   - {fileID: 379679571374773904}
+  eggParent: {fileID: 379679569571842011}
   eggBullet: {fileID: 5478715436602697073, guid: 69e0fd075aac2cb41bd2340a4e616e3e, type: 3}
   bulletCount: 10
   timeFire: 2
