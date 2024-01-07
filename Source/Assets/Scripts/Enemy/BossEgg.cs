@@ -56,7 +56,7 @@ public class BossEgg : MonoBehaviour
                 gameObject.SetActive(false);
             }
             else 
-                Destroy(gameObject);
+                Destroy(eggParent);
         }
     }
 
