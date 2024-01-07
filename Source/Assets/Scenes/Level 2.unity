@@ -3275,7 +3275,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 89.899994, y: -12.799988}
+  m_AnchoredPosition: {x: 90, y: -12.5}
   m_SizeDelta: {x: 180, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1103801260
@@ -4844,8 +4844,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - waveName: BigEgg
-    numEnemy: 5
-    enemy: {fileID: 6075851434379810531, guid: 9229e405f5404e94a91b6874b9dd7d32, type: 3}
+    numEnemy: 1
+    enemy: {fileID: 379679569571842011, guid: 61f7c410ceeb30b4ba23513259f13eb6, type: 3}
     timeSpawnEnemy: 0.5
   grid: 2
   timeShowCanvas: 3
