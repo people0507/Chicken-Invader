@@ -19,6 +19,8 @@ public class Ship : MonoBehaviour
     [SerializeField] private int currenTierBullet;
     private bool checkPresent = false;
     [SerializeField, Range(0, 1)] private float timeFire;
+    [SerializeField] private GameObject nuclear;
+    [SerializeField] private int countNuclear;
 
     private float nextTimeFire = 0f;
 
@@ -71,6 +73,12 @@ public class Ship : MonoBehaviour
 
     void Fire()
     {
+        if (Input.GetMouseButtonDown(1) && countNuclear > 0)
+        {
+            Instantiate(nuclear, transform.position, Quaternion.identity);
+            countNuclear--;
+        }
+            
         if (Input.GetMouseButton(0) && Time.time >= nextTimeFire)
         {
             nextTimeFire = Time.time + timeFire;

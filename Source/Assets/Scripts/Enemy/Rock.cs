@@ -36,6 +36,12 @@ public class Rock : MonoBehaviour
                 hp -= bullet.getDameBullet();
                 audioManager.PlayRockHurt(audioManager.rockHurtAudioClip);
             }
+            Explosion explosion = collision.GetComponent<Explosion>();
+            if (explosion != null)
+            {
+                hp -= explosion.getDameBullet();
+                audioManager.PlayRockHurt(audioManager.rockHurtAudioClip);
+            }
             if (hp <= 0)
             {
                 int random = Random.Range(1, 5);

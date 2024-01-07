@@ -4211,6 +4211,14 @@ PrefabInstance:
       value: ship
       objectReference: {fileID: 0}
     - target: {fileID: 7712392844134984355, guid: 9489e78ce9034764e8af2c6f255c358e, type: 3}
+      propertyPath: nuclear
+      value: 
+      objectReference: {fileID: 5623112089981049823, guid: 08c195337b47bed4b9f7688f7ebfad25, type: 3}
+    - target: {fileID: 7712392844134984355, guid: 9489e78ce9034764e8af2c6f255c358e, type: 3}
+      propertyPath: countNuclear
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712392844134984355, guid: 9489e78ce9034764e8af2c6f255c358e, type: 3}
       propertyPath: timeShowCanvas
       value: 1
       objectReference: {fileID: 0}
