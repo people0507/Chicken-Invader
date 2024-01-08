@@ -121,6 +121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   smoke: {fileID: 800967470080327856, guid: 0292886880f93ed448cf8bed69ecc6b0, type: 3}
-  explosion: {fileID: 6410055882422957071, guid: d07766ecfebd62a42a1d567c29a33fa9, type: 3}
+  atomic: {fileID: 6410055882422957071, guid: d07766ecfebd62a42a1d567c29a33fa9, type: 3}
   timeSpawnSmoke: 0.2
   timeExitSmoke: 1

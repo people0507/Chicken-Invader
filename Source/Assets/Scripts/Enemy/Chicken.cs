@@ -17,7 +17,7 @@ public class Chicken : MonoBehaviour
     private float x, y;
     private bool checkInputPos = false;
     private bool isMoving = false;
-    
+
     private AudioManager audioManager;
 
     void Awake()
@@ -95,21 +95,21 @@ public class Chicken : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             Bullet bullet = collision.GetComponent<Bullet>();
-            if(bullet != null) 
+            if(bullet != null)
             {
                 hp -= bullet.getDameBullet();
                 audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
             }
-            Explosion explosion = collision.GetComponent<Explosion>();
-            if (explosion != null)
+            Atomic atomic = collision.GetComponent<Atomic>();
+            if (atomic != null)
             {
-                hp -= explosion.getDameBullet();
+                hp -= atomic.getDameBullet();
                 audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
             }
             if (hp <= 0)
             {
                 Instantiate(chickenleg, transform.position, transform.rotation);
-                
+
                 audioManager.PlayChickenDeath(audioManager.chickenDeathAudioClip);
                 int random = Random.Range(1, 5);
                 if(random == 3)

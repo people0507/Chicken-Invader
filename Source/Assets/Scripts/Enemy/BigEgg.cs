@@ -34,8 +34,8 @@ public class BigEgg : MonoBehaviour
                 Chicken chicken = Instantiate(spawnChicken, transform.position, Quaternion.identity).GetComponent<Chicken>();
                 chicken.setIsMoving(true);
             }
-            Explosion explosion = collision.GetComponent<Explosion>();
-            if (explosion != null)
+            Atomic atomic = collision.GetComponent<Atomic>();
+            if (atomic != null)
             {
                 Destroy(gameObject);
                 Chicken chicken = Instantiate(spawnChicken, transform.position, Quaternion.identity).GetComponent<Chicken>();

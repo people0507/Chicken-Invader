@@ -36,10 +36,10 @@ public class Rock : MonoBehaviour
                 hp -= bullet.getDameBullet();
                 audioManager.PlayRockHurt(audioManager.rockHurtAudioClip);
             }
-            Explosion explosion = collision.GetComponent<Explosion>();
-            if (explosion != null)
+            Atomic atomic = collision.GetComponent<Atomic>();
+            if (atomic != null)
             {
-                hp -= explosion.getDameBullet();
+                hp -= atomic.getDameBullet();
                 audioManager.PlayRockHurt(audioManager.rockHurtAudioClip);
             }
             if (hp <= 0)
