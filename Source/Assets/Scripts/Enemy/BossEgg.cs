@@ -73,6 +73,14 @@ public class BossEgg : MonoBehaviour
                 if(isShake)
                     StartCoroutine(Shake1());
             }
+            Explosion explosion = collision.GetComponent<Explosion>();
+            if (explosion != null)
+            {
+                currentHP -= explosion.getDameBullet();
+                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
+                if (isShake)
+                    StartCoroutine(Shake1());
+            }
             //if (hp <= 0)
             //{
             //    var Fog = Instantiate(fog, transform.position, transform.rotation);
