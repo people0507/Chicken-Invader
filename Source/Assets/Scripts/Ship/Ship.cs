@@ -251,7 +251,6 @@ public class Ship : MonoBehaviour
 
                 audioManager.PlayShipDead(audioManager.shipDeadAudioClip);
                 audioManager.PlayBackground(audioManager.gameOverClip);
-                Time.timeScale = 0.2f;
 
                 Invoke("DestroyShip", timeShowCanvas);
             }
