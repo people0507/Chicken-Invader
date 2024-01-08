@@ -73,10 +73,10 @@ public class BossEgg : MonoBehaviour
                 if(isShake)
                     StartCoroutine(Shake1());
             }
-            Explosion explosion = collision.GetComponent<Explosion>();
-            if (explosion != null)
+            Atomic atomic = collision.GetComponent<Atomic>();
+            if (atomic != null)
             {
-                currentHP -= explosion.getDameBullet();
+                currentHP -= atomic.getDameBullet();
                 audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
                 if (isShake)
                     StartCoroutine(Shake1());

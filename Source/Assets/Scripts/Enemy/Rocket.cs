@@ -112,10 +112,10 @@ public class Rocket : MonoBehaviour
             {
                 hp -= bullet.getDameBullet();
             }
-            Explosion explosion = collision.GetComponent<Explosion>();
-            if (explosion != null)
+            Atomic atomic = collision.GetComponent<Atomic>();
+            if (atomic != null)
             {
-                hp -= explosion.getDameBullet();
+                hp -= atomic.getDameBullet();
             }
             if (hp <= 0)
             {

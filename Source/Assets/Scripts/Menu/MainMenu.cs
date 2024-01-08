@@ -14,11 +14,13 @@ public class MainMenu : MonoBehaviour
     public void PlayNewGame()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
     }
 
     public void PlayLevel2()
     {
         SceneManager.LoadScene(2);
+        Time.timeScale = 1f;
     }
 
     public void QuitGame()
