@@ -74,10 +74,10 @@ public class ChickenBoss : MonoBehaviour
                 hp -= bullet.getDameBullet();
                 audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
             }
-            Explosion explosion = collision.GetComponent<Explosion>();
-            if(explosion != null)
+            Atomic atomic = collision.GetComponent<Atomic>();
+            if(atomic != null)
             {
-                hp -= explosion.getDameBullet();
+                hp -= atomic.getDameBullet();
                 audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
             }
             if (hp <= 0)
@@ -85,7 +85,7 @@ public class ChickenBoss : MonoBehaviour
                 var Fog = Instantiate(fog, transform.position, transform.rotation);
                 Destroy(Fog, 0.2f);
                 int ranLeg = Random.Range(10, 15);
-                
+
                 for(int i=0; i<ranLeg; i++){
                     Instantiate(chickenleg, transform.position, transform.rotation);
                 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour
+public class Atomic : MonoBehaviour
 {
     [SerializeField] private float dameBullet;
     // Start is called before the first frame update
