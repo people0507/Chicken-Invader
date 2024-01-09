@@ -6,7 +6,7 @@ public class Nuclear : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private GameObject smoke;
-    [SerializeField] private GameObject explosion;
+    [SerializeField] private GameObject atomic;
     [SerializeField] private float timeSpawnSmoke;
     [SerializeField] private float timeExitSmoke;
     // Start is called before the first frame update
@@ -27,9 +27,9 @@ public class Nuclear : MonoBehaviour
         if(transform.position == Vector3.zero)
         {
             Destroy(gameObject);
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            Instantiate(atomic, transform.position, Quaternion.identity);
         }
-            
+
     }
     private IEnumerator SpawnSmoke()
     {

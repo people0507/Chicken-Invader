@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BlueChicken_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 258.2
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d3d9b0372dede745b35bc8f41437747
+      internalID: -953078926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueChicken_1
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 0
+        width: 258.2
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adadcf34b36b03844ac1fdba93a5c7bb
+      internalID: -1376033084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueChicken_2
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 0
+        width: 258.2
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a149ad3d83e9e384792fb1962a655923
+      internalID: 270266707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueChicken_3
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 0
+        width: 258.2
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7551099aa4b4aa4aa53169400bdc18c
+      internalID: -15240605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueChicken_4
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 0
+        width: 258.2
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6604c907e0de7a246b8c1e384e51d944
+      internalID: -1982220294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueChicken_5
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 0
+        width: 258.2
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f03fcd4193ce7a9498e49f3d4231f9a6
+      internalID: 1664775643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueChicken_6
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 0
+        width: 258.2
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2dbed991982a004483e13cdec8e153c
+      internalID: 394844148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueChicken_7
+      rect:
+        serializedVersion: 2
+        x: 1806
+        y: 0
+        width: 258.2
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec1728f2bd8616947b231a492a0a755f
+      internalID: -241441980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueChicken_8
+      rect:
+        serializedVersion: 2
+        x: 2064
+        y: 0
+        width: 258.2
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86eb7d226c6db56478ba8d09d68f2e14
+      internalID: 1592787984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueChicken_9
+      rect:
+        serializedVersion: 2
+        x: 2322
+        y: 0
+        width: 258.2
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef05ca7e090512a418abf8cb3dbdf022
+      internalID: -793232864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +324,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueChicken_0: -953078926
+      BlueChicken_1: -1376033084
+      BlueChicken_2: 270266707
+      BlueChicken_3: -15240605
+      BlueChicken_4: -1982220294
+      BlueChicken_5: 1664775643
+      BlueChicken_6: 394844148
+      BlueChicken_7: -241441980
+      BlueChicken_8: 1592787984
+      BlueChicken_9: -793232864
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
