@@ -10,8 +10,6 @@ public class ChickenBoss : MonoBehaviour
     [SerializeField] private GameObject egg;
     [SerializeField] private GameObject chickenleg;
     [SerializeField] private GameObject fog;
-    [SerializeField] private int score;
-    [SerializeField] private float hp;
 
     private AudioManager audioManager;
 
@@ -64,37 +62,16 @@ public class ChickenBoss : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnDestroy()
     {
-        if (collision.CompareTag("Bullet"))
+        //audioManager.PlayBackground(audioManager.gameWinClip);
+        var Fog = Instantiate(fog, transform.position, transform.rotation);
+        Destroy(Fog, 0.2f);
+        int ranLeg = Random.Range(10, 15);
+
+        for (int i = 0; i < ranLeg; i++)
         {
-            Bullet bullet = collision.GetComponent<Bullet>();
-            if (bullet != null)
-            {
-                hp -= bullet.getDameBullet();
-                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
-            }
-            Atomic atomic = collision.GetComponent<Atomic>();
-            if(atomic != null)
-            {
-                hp -= atomic.getDameBullet();
-                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
-            }
-            if (hp <= 0)
-            {
-                var Fog = Instantiate(fog, transform.position, transform.rotation);
-                Destroy(Fog, 0.2f);
-                int ranLeg = Random.Range(10, 15);
-
-                for(int i=0; i<ranLeg; i++){
-                    Instantiate(chickenleg, transform.position, transform.rotation);
-                }
-
-                Destroy(gameObject);
-                audioManager.PlayChickenDeath(audioManager.chickenDeathAudioClip);
-                audioManager.PlayBackground(audioManager.gameWinClip);
-                ScoreController.instance.getScore(score);
-            }
+            Instantiate(chickenleg, transform.position, transform.rotation);
         }
     }
 }
