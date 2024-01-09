@@ -2658,6 +2658,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2751762984395886038, guid: 9489e78ce9034764e8af2c6f255c358e, type: 3}
+      propertyPath: currenTierBullet
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4213596796051086992, guid: 9489e78ce9034764e8af2c6f255c358e, type: 3}
       propertyPath: m_Name
       value: ship

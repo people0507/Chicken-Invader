@@ -11,8 +11,6 @@ public class Chicken : MonoBehaviour
     [SerializeField] private GameObject chickenleg;
     [SerializeField] private GameObject present;
     [SerializeField] private GameObject fog;
-    [SerializeField] private int score;
-    [SerializeField] private float hp;
 
     private float x, y;
     private bool checkInputPos = false;
@@ -90,40 +88,14 @@ public class Chicken : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Bullet"))
-        {
-            Bullet bullet = collision.GetComponent<Bullet>();
-            if(bullet != null)
-            {
-                hp -= bullet.getDameBullet();
-                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
-            }
-            Atomic atomic = collision.GetComponent<Atomic>();
-            if (atomic != null)
-            {
-                hp -= atomic.getDameBullet();
-                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
-            }
-            if (hp <= 0)
-            {
-                Instantiate(chickenleg, transform.position, transform.rotation);
-
-                audioManager.PlayChickenDeath(audioManager.chickenDeathAudioClip);
-                int random = Random.Range(1, 5);
-                if(random == 3)
-                    Instantiate(present, transform.position, transform.rotation);
-                ScoreController.instance.getScore(score);
-                Destroy(gameObject);
-            }
-        }
-    }
-
     private void OnDestroy()
     {
         if (gameObject.scene.isLoaded)
         {
+            Instantiate(chickenleg, transform.position, transform.rotation);
+            int random = Random.Range(1, 5);
+            if (random == 3)
+                Instantiate(present, transform.position, transform.rotation);
             var Fog = Instantiate(fog, transform.position, transform.rotation);
             Destroy(Fog, 0.2f);
         }

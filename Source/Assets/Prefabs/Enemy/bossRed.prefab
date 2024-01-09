@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 2433879015432677037}
   - component: {fileID: 479806583359284467}
   - component: {fileID: 7571505422934490577}
+  - component: {fileID: -747479004336774076}
   m_Layer: 0
-  m_Name: BossRed
+  m_Name: bossRed
   m_TagString: BossChicken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,5 +173,18 @@ MonoBehaviour:
   egg: {fileID: 6078868767272616198, guid: 73712c7bf975c9d4b8b26d72b379f5b9, type: 3}
   chickenleg: {fileID: 4026529917271576798, guid: 84d5c4e1fc8639640a0040f5f6d16e64, type: 3}
   fog: {fileID: 831047883632518319, guid: 27e138f7aafcbf54d8d9d6e0bf267b6b, type: 3}
+--- !u!114 &-747479004336774076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4668850598893376918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd8c257d7b24af4f8e4fbc9981b7375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   score: 10000
   hp: 50
+  useAudio: 1

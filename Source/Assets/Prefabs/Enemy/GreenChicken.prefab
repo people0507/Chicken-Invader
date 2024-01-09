@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8037943232456510300}
   - component: {fileID: -6753772874176124092}
   - component: {fileID: -3079288711555354274}
+  - component: {fileID: -8406969919311303145}
   m_Layer: 0
   m_Name: GreenChicken
   m_TagString: Chicken
@@ -173,5 +174,18 @@ MonoBehaviour:
   chickenleg: {fileID: 4026529917271576798, guid: 84d5c4e1fc8639640a0040f5f6d16e64, type: 3}
   present: {fileID: 4169244519788552512, guid: 42fbf8e335ae6c641b36093263c9497a, type: 3}
   fog: {fileID: 831047883632518319, guid: 27e138f7aafcbf54d8d9d6e0bf267b6b, type: 3}
+--- !u!114 &-8406969919311303145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862214581734926672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd8c257d7b24af4f8e4fbc9981b7375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   score: 100
   hp: 1
+  useAudio: 1
