@@ -19,12 +19,11 @@ public class BigEgg : MonoBehaviour
     {
         myBody.velocity = new Vector2(0f, -speed);
         float yMin = Camera.main.ViewportToWorldPoint(Vector3.zero).y;
-        if (transform.position.y < yMin - 2)
+        if (transform.position.y < yMin)
         {
             destroyed = false;
             Destroy(gameObject);
         }
-            
     }
 
     private void OnDestroy()
@@ -32,7 +31,8 @@ public class BigEgg : MonoBehaviour
         if (destroyed)
         {
             Chicken chicken = Instantiate(spawnChicken, transform.position, Quaternion.identity).GetComponent<Chicken>();
-            chicken.setIsMoving(true);
+            chicken.setMoveRandom();
+            //chicken.setMoveLemniscate(0, 0);
         }
     }
 }

@@ -33,14 +33,12 @@ public class OnTrigger : MonoBehaviour
                     audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
             }
             if (hp <= 0)
+            {
                 Destroy(gameObject);
+                if (useAudio)
+                    audioManager.PlayChickenDeath(audioManager.chickenDeathAudioClip);
+                ScoreController.instance.getScore(score);
+            } 
         }
-    }
-
-    private void OnDestroy()
-    {
-        if(useAudio)
-            audioManager.PlayChickenDeath(audioManager.chickenDeathAudioClip);
-        ScoreController.instance.getScore(score);
     }
 }
