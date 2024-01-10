@@ -24,10 +24,14 @@ public class WaveSpawner : MonoBehaviour
     private Canvas canvasWin;
     [SerializeField] private float timeShowCanvas;
 
+    private AudioManager audioManager;
+    private bool gameWin = true;
+
     private void Awake()
     {
         PosChicken();
         canvasWin = GameObject.Find("GameWin").GetComponent<Canvas>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
     // Update is called once per frame
     void Update()
@@ -56,7 +60,15 @@ public class WaveSpawner : MonoBehaviour
                 PosChicken();
             }
             else
-                Invoke("ShowCanvas", timeShowCanvas);
+            {
+                if (gameWin)
+                {
+                    audioManager.PlayBackground(audioManager.gameWinClip);
+                    Invoke("ShowCanvas", timeShowCanvas);
+                    gameWin = false;
+                }
+                
+            }
         }
     }
 
@@ -72,7 +84,7 @@ public class WaveSpawner : MonoBehaviour
             else if (enemy.CompareTag("Chicken"))
             {
                 Chicken chicken = Instantiate(enemy, new Vector3(Random.Range(-x / 2, x / 2), y, 0), Quaternion.identity).GetComponent<Chicken>();
-                chicken.MoveToPos(posChicken.x, posChicken.y);
+                chicken.setMoveToPos(posChicken.x, posChicken.y);
                 posChicken.x -= grid;
                 if (posChicken.x <= -x)
                 {

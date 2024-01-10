@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2007866619647712743}
   - component: {fileID: 2007866619647712736}
   - component: {fileID: 2007866619647712737}
+  - component: {fileID: 8141076135946182508}
   m_Layer: 0
   m_Name: BigEgg
   m_TagString: BigEgg
@@ -268,3 +269,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   spawnChicken: {fileID: 7862214581734926672, guid: 296935ab1aaebd04e8176240dd5708ed, type: 3}
+--- !u!114 &8141076135946182508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007866619647712540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd8c257d7b24af4f8e4fbc9981b7375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 100
+  hp: 1
+  audio: 0

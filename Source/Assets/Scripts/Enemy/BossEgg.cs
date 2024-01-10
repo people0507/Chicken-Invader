@@ -69,7 +69,7 @@ public class BossEgg : MonoBehaviour
             if (bullet != null)
             {
                 currentHP -= bullet.getDameBullet();
-                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
+                //audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
                 if(isShake)
                     StartCoroutine(Shake1());
             }
@@ -77,26 +77,9 @@ public class BossEgg : MonoBehaviour
             if (atomic != null)
             {
                 currentHP -= atomic.getDameBullet();
-                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
                 if (isShake)
                     StartCoroutine(Shake1());
             }
-            //if (hp <= 0)
-            //{
-            //    var Fog = Instantiate(fog, transform.position, transform.rotation);
-            //    Destroy(Fog, 0.2f);
-            //    int ranLeg = Random.Range(10, 15);
-
-            //    for (int i = 0; i < ranLeg; i++)
-            //    {
-            //        Instantiate(chickenleg, transform.position, transform.rotation);
-            //    }
-
-            //    Destroy(gameObject);
-            //    audioManager.PlayChickenDeath(audioManager.chickenDeathAudioClip);
-            //    audioManager.PlayBackground(audioManager.gameWinClip);
-            //    ScoreController.instance.getScore(score);
-            //}
         }
     }
 
