@@ -77,6 +77,8 @@ public class Ship : MonoBehaviour
         {
             Instantiate(nuclear, transform.position, Quaternion.identity);
             countNuclear--;
+            Debug.Log(countNuclear);
+            NuclearController.instance.getNuclear(countNuclear);
         }
             
         if (Input.GetMouseButton(0) && Time.time >= nextTimeFire)
