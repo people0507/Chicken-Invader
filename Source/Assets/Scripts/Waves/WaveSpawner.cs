@@ -1,15 +1,28 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
+using UnityEditor.Tilemaps;
 using UnityEngine;
-[System.Serializable]
 
+public enum MoveOption
+{
+    None,
+    MoveToPos,
+    MoveToLemniscate
+}
+[System.Serializable]
 public class Wave
 {
     public string waveName;
     public int numEnemy;
     public GameObject enemy;
     public float timeSpawnEnemy;
+
+    public MoveOption move;
 }
+
+
 public class WaveSpawner : MonoBehaviour
 {
     public Wave[] waves;
@@ -84,12 +97,20 @@ public class WaveSpawner : MonoBehaviour
             else if (enemy.CompareTag("Chicken"))
             {
                 Chicken chicken = Instantiate(enemy, new Vector3(Random.Range(-x / 2, x / 2), y, 0), Quaternion.identity).GetComponent<Chicken>();
-                chicken.setMoveToPos(posChicken.x, posChicken.y);
-                posChicken.x -= grid;
-                if (posChicken.x <= -x)
+                if(currentWave.move == MoveOption.MoveToLemniscate)
                 {
-                    posChicken.x = x - 1;
-                    posChicken.y -= grid;
+                    chicken.setMoveLemniscate(0, 3);
+                }
+                
+                if (currentWave.move == MoveOption.MoveToPos)
+                {
+                    chicken.setMoveToPos(posChicken.x, posChicken.y);
+                    posChicken.x -= grid;
+                    if (posChicken.x <= -x)
+                    {
+                        posChicken.x = x - 1;
+                        posChicken.y -= grid;
+                    }
                 }
             }
             else if (enemy.CompareTag("BossChicken"))
