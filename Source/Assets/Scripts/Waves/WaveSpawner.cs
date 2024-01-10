@@ -84,7 +84,7 @@ public class WaveSpawner : MonoBehaviour
             else if (enemy.CompareTag("Chicken"))
             {
                 Chicken chicken = Instantiate(enemy, new Vector3(Random.Range(-x / 2, x / 2), y, 0), Quaternion.identity).GetComponent<Chicken>();
-                chicken.MoveToPos(posChicken.x, posChicken.y);
+                chicken.setMoveToPos(posChicken.x, posChicken.y);
                 posChicken.x -= grid;
                 if (posChicken.x <= -x)
                 {
