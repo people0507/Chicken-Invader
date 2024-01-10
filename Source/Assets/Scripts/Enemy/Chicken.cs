@@ -32,10 +32,10 @@ public class Chicken : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 checkPos = transform.position;
-        checkPos.x = Mathf.Clamp(checkPos.x, Camera.main.ViewportToWorldPoint(Vector3.zero).x, Camera.main.ViewportToWorldPoint(Vector3.one).x);
-        checkPos.y = Mathf.Clamp(checkPos.y, Camera.main.ViewportToWorldPoint(Vector3.zero).y + 4f, Camera.main.ViewportToWorldPoint(Vector3.one).y);
-        transform.position = checkPos;
+        //Vector3 checkPos = transform.position;
+        //checkPos.x = Mathf.Clamp(checkPos.x, Camera.main.ViewportToWorldPoint(Vector3.zero).x, Camera.main.ViewportToWorldPoint(Vector3.one).x);
+        //checkPos.y = Mathf.Clamp(checkPos.y, Camera.main.ViewportToWorldPoint(Vector3.zero).y + 4f, Camera.main.ViewportToWorldPoint(Vector3.one).y);
+        //transform.position = checkPos;
     }
 
     //move to position
