@@ -41,4 +41,8 @@ public class OnTrigger : MonoBehaviour
             } 
         }
     }
+    public void setHp(float hpCurrent)
+    {
+        this.hp = hpCurrent;
+    }
 }

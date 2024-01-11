@@ -17,7 +17,8 @@ public class BigEgg : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        myBody.velocity = new Vector2(0f, -speed);
+        //myBody.velocity = new Vector2(0f, -speed);
+        transform.Translate(Vector3.down * speed * Time.deltaTime);
         float yMin = Camera.main.ViewportToWorldPoint(Vector3.zero).y;
         if (transform.position.y < yMin)
         {
