@@ -40,11 +40,6 @@ public class ExitButton : MonoBehaviour
         Time.timeScale = 1f;
         canvasExit.SetActive(false);
         ship.setControl(true);
-    }
-    public void PlayAgain()
-    {
-        int currenScene = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currenScene);
-        Time.timeScale = 1f;
+        Cursor.visible = false;
     }
 }

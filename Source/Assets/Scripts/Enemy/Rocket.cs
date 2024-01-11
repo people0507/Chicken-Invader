@@ -14,8 +14,6 @@ public class Rocket : MonoBehaviour
     [SerializeField] private GameObject chickenleg;
     [SerializeField] private GameObject present;
     private AudioManager audioManager;
-    [SerializeField] private int score;
-    [SerializeField] private float hp;
 
     private void Awake()
     {
@@ -103,29 +101,11 @@ public class Rocket : MonoBehaviour
         return a * Mathf.Pow(x, 2) + b;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnDestroy()
     {
-        if (collision.CompareTag("Bullet"))
-        {
-            Bullet bullet = collision.GetComponent<Bullet>();
-            if (bullet != null)
-            {
-                hp -= bullet.getDameBullet();
-            }
-            Atomic atomic = collision.GetComponent<Atomic>();
-            if (atomic != null)
-            {
-                hp -= atomic.getDameBullet();
-            }
-            if (hp <= 0)
-            {
-                Instantiate(chickenleg, transform.position, transform.rotation);
-                int random = Random.Range(1, 5);
-                if (random == 3)
-                Instantiate(present, transform.position, transform.rotation);
-                ScoreController.instance.getScore(score);
-                Destroy(gameObject);
-            }
-        }
+        Instantiate(chickenleg, transform.position, transform.rotation);
+        int random = Random.Range(1, 5);
+        if (random == 3)
+            Instantiate(present, transform.position, transform.rotation);
     }
 }

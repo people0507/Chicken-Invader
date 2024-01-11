@@ -10,7 +10,7 @@ public class ChickenBoss : MonoBehaviour
     [SerializeField] private GameObject egg;
     [SerializeField] private GameObject chickenleg;
     [SerializeField] private GameObject fog;
-
+    [SerializeField] private bool spawnEgg;
     private AudioManager audioManager;
 
     void Awake()
@@ -20,7 +20,8 @@ public class ChickenBoss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(EnemyShoot());
+        if(spawnEgg)
+            StartCoroutine(EnemyShoot());
         StartCoroutine(MoveBossToRandom());
     }
 
@@ -44,7 +45,7 @@ public class ChickenBoss : MonoBehaviour
 
     private Vector3 getRandomPoint()
     {
-        Vector3 posRandom = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0f, 1f), Random.Range(0.5f, 1f)));
+        Vector3 posRandom = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0f, 1f), Random.Range(0.6f, 1f)));
         posRandom.z = 0;
         return posRandom;
     }
@@ -56,7 +57,7 @@ public class ChickenBoss : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(0.5f, 3f));
             for(int i=-1; i<=1; i++)
             {
-                Instantiate(egg, transform.position - new Vector3(i, 0.6f, 0), Quaternion.identity);
+                Instantiate(egg, transform.position - new Vector3(i, -0.6f, 0), Quaternion.identity);
             }
             audioManager.PlayEgg(audioManager.eggClip);
         }
