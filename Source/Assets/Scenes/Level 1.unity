@@ -211,71 +211,99 @@ MonoBehaviour:
   - waveName: Chicken
     numEnemy: 1
     enemy: {fileID: 3649736277693881950, guid: b426ea8e7ed09d0498b6c057c6719879, type: 3}
-    hp: 3
-    speed: 0
-    timeSpawnEnemy: 1
+    hpEnemy: 9
+    speedStone: 0
+    timeSpawnEnemy: 0.5
     move: 1
   - waveName: Chicken
     numEnemy: 9
     enemy: {fileID: 3649736277693881950, guid: b426ea8e7ed09d0498b6c057c6719879, type: 3}
-    hp: 3
-    speed: 2
+    hpEnemy: 9
+    speedStone: 0
     timeSpawnEnemy: 0.5
     move: 1
   - waveName: Stone
     numEnemy: 10
     enemy: {fileID: 2054945272470818905, guid: 6b152fa0d6ea5c44a9daeb0627ca389c, type: 3}
-    hp: 0
-    speed: 2
+    hpEnemy: 0
+    speedStone: 2
     timeSpawnEnemy: 0.75
     move: 0
   - waveName: BigEgg
     numEnemy: 10
     enemy: {fileID: 2007866619647712540, guid: 7372a0a0564860a4d989c1e5082a419c, type: 3}
-    hp: 3
-    speed: 0
+    hpEnemy: 6
+    speedStone: 0
     timeSpawnEnemy: 1
     move: 0
   - waveName: Boss
     numEnemy: 1
     enemy: {fileID: 4668850598893376918, guid: 17a520f411669d54fa9c9b9b3c428ba4, type: 3}
-    hp: 20
-    speed: 0
+    hpEnemy: 75
+    speedStone: 0
     timeSpawnEnemy: 1
     move: 0
   - waveName: Chicken
     numEnemy: 18
     enemy: {fileID: 3649736277693881950, guid: b426ea8e7ed09d0498b6c057c6719879, type: 3}
-    hp: 6
-    speed: 0
+    hpEnemy: 15
+    speedStone: 0
     timeSpawnEnemy: 1
     move: 1
   - waveName: Stone
     numEnemy: 20
     enemy: {fileID: 2054945272470818905, guid: 6b152fa0d6ea5c44a9daeb0627ca389c, type: 3}
-    hp: 6
-    speed: 0
+    hpEnemy: 0
+    speedStone: 3
     timeSpawnEnemy: 0.5
     move: 0
   - waveName: BigEgg
     numEnemy: 20
     enemy: {fileID: 2007866619647712540, guid: 7372a0a0564860a4d989c1e5082a419c, type: 3}
-    hp: 6
-    speed: 0
-    timeSpawnEnemy: 1
+    hpEnemy: 10
+    speedStone: 0
+    timeSpawnEnemy: 0.75
     move: 0
   - waveName: Boss
     numEnemy: 2
     enemy: {fileID: 4668850598893376918, guid: 17a520f411669d54fa9c9b9b3c428ba4, type: 3}
-    hp: 50
-    speed: 0
+    hpEnemy: 150
+    speedStone: 0
+    timeSpawnEnemy: 1
+    move: 0
+  - waveName: Chicken
+    numEnemy: 27
+    enemy: {fileID: 3649736277693881950, guid: b426ea8e7ed09d0498b6c057c6719879, type: 3}
+    hpEnemy: 15
+    speedStone: 0
+    timeSpawnEnemy: 0.5
+    move: 1
+  - waveName: Stone
+    numEnemy: 27
+    enemy: {fileID: 2054945272470818905, guid: 6b152fa0d6ea5c44a9daeb0627ca389c, type: 3}
+    hpEnemy: 0
+    speedStone: 3.5
+    timeSpawnEnemy: 0.5
+    move: 0
+  - waveName: BigEgg
+    numEnemy: 20
+    enemy: {fileID: 2007866619647712540, guid: 7372a0a0564860a4d989c1e5082a419c, type: 3}
+    hpEnemy: 10
+    speedStone: 0
+    timeSpawnEnemy: 0.5
+    move: 0
+  - waveName: BossRed
+    numEnemy: 3
+    enemy: {fileID: 4668850598893376918, guid: 17a520f411669d54fa9c9b9b3c428ba4, type: 3}
+    hpEnemy: 200
+    speedStone: 0
     timeSpawnEnemy: 2
     move: 0
   - waveName: BossEnd
     numEnemy: 1
     enemy: {fileID: 2721326806658230562, guid: 128d00a0f258f3940928699745e26717, type: 3}
-    hp: 100
-    speed: 0
+    hpEnemy: 500
+    speedStone: 0
     timeSpawnEnemy: 0
     move: 0
   grid: 2
