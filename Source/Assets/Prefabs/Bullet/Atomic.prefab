@@ -151,4 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8572f76af6ac64ea687a351862c0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dameBullet: 3
+  dameBullet: 20
