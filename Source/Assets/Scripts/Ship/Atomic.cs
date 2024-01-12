@@ -15,6 +15,7 @@ public class Atomic : MonoBehaviour
 
     private void Update()
     {
+        //Destroy(gameObject, 0.05f);
         DestroyImmediate(gameObject);
     }
 

@@ -48,6 +48,7 @@ public class BossEgg : MonoBehaviour
         currentPos = transform.position;
         if (currentHP <= hp)
         {
+            audioManager.PlayEggHatch(audioManager.eggHatchClip);
             if (currentIndex + 1 < eggGameObjects.Length)
             {
                 currentIndex += 1;
@@ -69,7 +70,7 @@ public class BossEgg : MonoBehaviour
             if (bullet != null)
             {
                 currentHP -= bullet.getDameBullet();
-                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
+                //audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
                 if(isShake)
                     StartCoroutine(Shake1());
             }
@@ -77,26 +78,9 @@ public class BossEgg : MonoBehaviour
             if (atomic != null)
             {
                 currentHP -= atomic.getDameBullet();
-                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
                 if (isShake)
                     StartCoroutine(Shake1());
             }
-            //if (hp <= 0)
-            //{
-            //    var Fog = Instantiate(fog, transform.position, transform.rotation);
-            //    Destroy(Fog, 0.2f);
-            //    int ranLeg = Random.Range(10, 15);
-
-            //    for (int i = 0; i < ranLeg; i++)
-            //    {
-            //        Instantiate(chickenleg, transform.position, transform.rotation);
-            //    }
-
-            //    Destroy(gameObject);
-            //    audioManager.PlayChickenDeath(audioManager.chickenDeathAudioClip);
-            //    audioManager.PlayBackground(audioManager.gameWinClip);
-            //    ScoreController.instance.getScore(score);
-            //}
         }
     }
 
@@ -185,7 +169,7 @@ public class BossEgg : MonoBehaviour
         {
             Ship ship = GameObject.FindGameObjectWithTag("Player").GetComponent<Ship>();
             NeutronBullet neutron = Instantiate(neutronBullet, transform.position - new Vector3(0, 0.6f, 0), Quaternion.identity).GetComponent<NeutronBullet>();
-            neutron.MoveToPos(ship.getPosShip());
+            neutron.MoveToPos(ship.transform.position);
             yield return new WaitForSeconds(timeFire);
         }
     }

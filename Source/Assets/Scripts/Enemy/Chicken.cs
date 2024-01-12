@@ -11,12 +11,11 @@ public class Chicken : MonoBehaviour
     [SerializeField] private GameObject chickenleg;
     [SerializeField] private GameObject present;
     [SerializeField] private GameObject fog;
-    [SerializeField] private int score;
-    [SerializeField] private float hp;
 
-    private float x, y;
-    private bool checkInputPos = false;
-    private bool isMoving = false;
+    //move with Lemniscate
+    private bool moveLemniscate = false;
+    [SerializeField] private float radius = 1f;
+    private float angle = 0f;
 
     private AudioManager audioManager;
 
@@ -24,37 +23,43 @@ public class Chicken : MonoBehaviour
     {
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
-    // Start is called before the first frame update
+    
     void Start()
     {
         StartCoroutine(EnemyShoot());
-        if (isMoving)
-        {
-            StartCoroutine(MoveChickenToRandom());
-        }
+
     }
 
     void FixedUpdate()
     {
-        Vector3 checkPos = transform.position;
-        checkPos.x = Mathf.Clamp(checkPos.x, Camera.main.ViewportToWorldPoint(Vector3.zero).x, Camera.main.ViewportToWorldPoint(Vector3.one).x);
-        transform.position = checkPos;
-
-        if(checkInputPos)
-        {
-            MoveToPos(x, y);
-        }
-        float yMin = Camera.main.ViewportToWorldPoint(Vector3.zero).y;
-        if (transform.position.y <= yMin)
-            Destroy(gameObject, 1f);
+        //Vector3 checkPos = transform.position;
+        //checkPos.x = Mathf.Clamp(checkPos.x, Camera.main.ViewportToWorldPoint(Vector3.zero).x, Camera.main.ViewportToWorldPoint(Vector3.one).x);
+        //checkPos.y = Mathf.Clamp(checkPos.y, Camera.main.ViewportToWorldPoint(Vector3.zero).y + 4f, Camera.main.ViewportToWorldPoint(Vector3.one).y);
+        //transform.position = checkPos;
     }
 
-    public void setIsMoving(bool move)
+    //move to position
+    public void setMoveToPos(float posX, float posY)
     {
-        this.isMoving = move;
+        StartCoroutine(MoveToPos(posX, posY));
+    }
+    private IEnumerator MoveToPos(float posX, float posY)
+    {
+        while (transform.position != new Vector3(posX, posY, 0))
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(posX, posY, 0), speed * Time.deltaTime);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        if (moveLemniscate)
+            StartCoroutine(MoveLemniscate(posX, posY));
     }
 
-    private IEnumerator MoveChickenToRandom()
+    //move random
+    public void setMoveRandom()
+    {
+        StartCoroutine(MoveToRandom());
+    }
+    private IEnumerator MoveToRandom()
     {
         Vector3 point = getRandomPoint();
         while (transform.position != point)
@@ -62,9 +67,8 @@ public class Chicken : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, point, speed * Time.deltaTime);
             yield return new WaitForSeconds(Time.fixedDeltaTime);
         }
-        StartCoroutine(MoveChickenToRandom());
+        StartCoroutine(MoveToRandom());
     }
-
     private Vector3 getRandomPoint()
     {
         Vector3 posRandom = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0f, 1f), Random.Range(0.5f, 1f)));
@@ -72,12 +76,25 @@ public class Chicken : MonoBehaviour
         return posRandom;
     }
 
-    public void MoveToPos(float posX, float posY)
+    //move with Lemniscate
+    public void setMoveLemniscate(float posX, float posY)
     {
-        checkInputPos = true;
-        this.x = posX;
-        this.y = posY;
-        transform.Translate(new Vector3(x - transform.position.x, y - transform.position.y) * Time.deltaTime * speed);
+        this.moveLemniscate = true;
+        StartCoroutine(MoveToPos(posX, posY));
+    }
+
+    private IEnumerator MoveLemniscate(float posX, float posY)
+    {
+        while (true)
+        {
+            angle += Time.deltaTime * speed;
+
+            float x = radius * Mathf.Cos(angle) / (1f + Mathf.Sin(angle) * Mathf.Sin(angle));
+            float y = x * Mathf.Sin(angle);
+
+            transform.position = new Vector3(x + posX, y + posY, 0f);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
     }
 
     IEnumerator EnemyShoot()
@@ -90,40 +107,14 @@ public class Chicken : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Bullet"))
-        {
-            Bullet bullet = collision.GetComponent<Bullet>();
-            if(bullet != null)
-            {
-                hp -= bullet.getDameBullet();
-                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
-            }
-            Atomic atomic = collision.GetComponent<Atomic>();
-            if (atomic != null)
-            {
-                hp -= atomic.getDameBullet();
-                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
-            }
-            if (hp <= 0)
-            {
-                Instantiate(chickenleg, transform.position, transform.rotation);
-
-                audioManager.PlayChickenDeath(audioManager.chickenDeathAudioClip);
-                int random = Random.Range(1, 5);
-                if(random == 3)
-                    Instantiate(present, transform.position, transform.rotation);
-                ScoreController.instance.getScore(score);
-                Destroy(gameObject);
-            }
-        }
-    }
-
     private void OnDestroy()
     {
         if (gameObject.scene.isLoaded)
         {
+            Instantiate(chickenleg, transform.position, transform.rotation);
+            int random = Random.Range(1, 5);
+            if (random == 3)
+                Instantiate(present, transform.position, transform.rotation);
             var Fog = Instantiate(fog, transform.position, transform.rotation);
             Destroy(Fog, 0.2f);
         }

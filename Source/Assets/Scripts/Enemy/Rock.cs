@@ -53,4 +53,8 @@ public class Rock : MonoBehaviour
             }
         }
     }
+    public void setSpeed(float spe)
+    {
+        this.speed = spe;
+    }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3649736277693881948}
   - component: {fileID: 3649736277693881949}
   - component: {fileID: 3649736277693881947}
+  - component: {fileID: 4452152071421525340}
   m_Layer: 0
   m_Name: RedChicken
   m_TagString: Chicken
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3649736277693881950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2, y: 2, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -173,5 +174,19 @@ MonoBehaviour:
   chickenleg: {fileID: 4026529917271576798, guid: 84d5c4e1fc8639640a0040f5f6d16e64, type: 3}
   present: {fileID: 4169244519788552512, guid: 42fbf8e335ae6c641b36093263c9497a, type: 3}
   fog: {fileID: 831047883632518319, guid: 27e138f7aafcbf54d8d9d6e0bf267b6b, type: 3}
+  radius: 7
+--- !u!114 &4452152071421525340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649736277693881950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd8c257d7b24af4f8e4fbc9981b7375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   score: 100
   hp: 1
+  useAudio: 1

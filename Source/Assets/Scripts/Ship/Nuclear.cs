@@ -7,6 +7,7 @@ public class Nuclear : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private GameObject smoke;
     [SerializeField] private GameObject atomic;
+    [SerializeField] private GameObject explosion;
     [SerializeField] private float timeSpawnSmoke;
     [SerializeField] private float timeExitSmoke;
     // Start is called before the first frame update
@@ -26,10 +27,9 @@ public class Nuclear : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, Vector3.zero, speed*Time.deltaTime);
         if(transform.position == Vector3.zero)
         {
-            Destroy(gameObject);
             Instantiate(atomic, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
-
     }
     private IEnumerator SpawnSmoke()
     {
@@ -40,5 +40,11 @@ public class Nuclear : MonoBehaviour
             Destroy(smokeObject, timeExitSmoke);
             yield return new WaitForSeconds(timeSpawnSmoke);
         }
+    }
+    private void OnDestroy()
+    {
+        
+        var exp = Instantiate(explosion, transform.position, Quaternion.identity);  
+        Destroy(exp, 0.5f);
     }
 }

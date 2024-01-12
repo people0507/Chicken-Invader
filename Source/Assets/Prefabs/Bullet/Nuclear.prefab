@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5623112089981049823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.725441, y: -3.1917307, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -122,5 +122,6 @@ MonoBehaviour:
   speed: 2
   smoke: {fileID: 800967470080327856, guid: 0292886880f93ed448cf8bed69ecc6b0, type: 3}
   atomic: {fileID: 6410055882422957071, guid: d07766ecfebd62a42a1d567c29a33fa9, type: 3}
+  explosion: {fileID: 3575210916362754025, guid: 966e09cdc0cfab04785f9bf1a27255d5, type: 3}
   timeSpawnSmoke: 0.2
   timeExitSmoke: 1

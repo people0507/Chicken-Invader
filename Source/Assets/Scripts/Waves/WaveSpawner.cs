@@ -1,15 +1,30 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
+//using UnityEditor.Tilemaps;
 using UnityEngine;
-[System.Serializable]
 
+public enum MoveOption
+{
+    None,
+    MoveToPos,
+    MoveToLemniscate
+}
+[System.Serializable]
 public class Wave
 {
     public string waveName;
     public int numEnemy;
     public GameObject enemy;
+    public float hp;
+    public float speed;
     public float timeSpawnEnemy;
+
+    public MoveOption move;
 }
+
+
 public class WaveSpawner : MonoBehaviour
 {
     public Wave[] waves;
@@ -24,10 +39,14 @@ public class WaveSpawner : MonoBehaviour
     private Canvas canvasWin;
     [SerializeField] private float timeShowCanvas;
 
+    private AudioManager audioManager;
+    private bool gameWin = true;
+
     private void Awake()
     {
         PosChicken();
         canvasWin = GameObject.Find("GameWin").GetComponent<Canvas>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
     // Update is called once per frame
     void Update()
@@ -56,7 +75,15 @@ public class WaveSpawner : MonoBehaviour
                 PosChicken();
             }
             else
-                Invoke("ShowCanvas", timeShowCanvas);
+            {
+                if (gameWin)
+                {
+                    audioManager.PlayBackground(audioManager.gameWinClip);
+                    Invoke("ShowCanvas", timeShowCanvas);
+                    gameWin = false;
+                }
+                
+            }
         }
     }
 
@@ -68,28 +95,55 @@ public class WaveSpawner : MonoBehaviour
         {
             GameObject enemy = currentWave.enemy;
             if (enemy.CompareTag("Rock"))
-                Instantiate(enemy, new Vector3(Random.Range(-x / 1.25f, x * 2) - x, y, 0), Quaternion.identity);
+            {
+                Rock rock = Instantiate(enemy, new Vector3(Random.Range(-x / 1.25f, x * 2) - x, y, 0), Quaternion.identity).GetComponent<Rock>();
+                rock.setSpeed(currentWave.speed);
+            }
+                
             else if (enemy.CompareTag("Chicken"))
             {
-                Chicken chicken = Instantiate(enemy, new Vector3(Random.Range(-x / 2, x / 2), y, 0), Quaternion.identity).GetComponent<Chicken>();
-                chicken.MoveToPos(posChicken.x, posChicken.y);
-                posChicken.x -= grid;
-                if (posChicken.x <= -x)
+                GameObject instantiatedObject = Instantiate(enemy, new Vector3(Random.Range(-x / 2, x / 2), y, 0), Quaternion.identity);
+                Chicken chicken = instantiatedObject.GetComponent<Chicken>();
+                OnTrigger trigger = instantiatedObject.GetComponent<OnTrigger>();
+                if(trigger.GetType().GetMethod("setHp") != null)
+                    trigger.setHp(currentWave.hp);
+                if (currentWave.move == MoveOption.MoveToLemniscate)
                 {
-                    posChicken.x = x - 1;
-                    posChicken.y -= grid;
+                    chicken.setMoveLemniscate(0, 3);
+                }
+                
+                if (currentWave.move == MoveOption.MoveToPos)
+                {
+                    chicken.setMoveToPos(posChicken.x, posChicken.y);
+                    posChicken.x -= grid;
+                    if (posChicken.x <= -x)
+                    {
+                        posChicken.x = x - 1;
+                        posChicken.y -= grid;
+                    }
                 }
             }
             else if (enemy.CompareTag("BossChicken"))
             {
-                Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity).GetComponent<ChickenBoss>();
+                GameObject gameObject = Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity);
+                ChickenBoss chickBoss = gameObject.GetComponent<ChickenBoss>();
+                OnTrigger trigger = gameObject.GetComponent<OnTrigger>();
+                if (trigger.GetType().GetMethod("setHp") != null)
+                    trigger.setHp(currentWave.hp);
             }
             else if (enemy.CompareTag("BigEgg"))
             {
                 Instantiate(enemy, new Vector3(Random.Range(-x + 1, x - 1), y, 0), Quaternion.identity).GetComponent<BigEgg>();
             }
-            else
-                Instantiate(enemy, new Vector3(Random.Range(-x + 1, x - 1), -y, 0), Quaternion.identity);
+            else if (enemy.CompareTag("Rocket"))
+            {
+                GameObject gameObject = Instantiate(enemy, new Vector3(Random.Range(-x + 1, x - 1), -y, 0), Quaternion.identity);
+                Rocket rocket = gameObject.GetComponent<Rocket>();
+                OnTrigger trigger = gameObject.GetComponent<OnTrigger>();
+                if (trigger.GetType().GetMethod("setHp") != null)
+                    trigger.setHp(currentWave.hp);
+            }
+                
             currentWave.numEnemy--;
             nextSpawnTime = Time.time + currentWave.timeSpawnEnemy;
             if(currentWave.numEnemy == 0)
@@ -108,6 +162,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void ShowCanvas()
     {
+        Cursor.visible = true;
         canvasWin.setActiveTrue();
         Ship ship = GameObject.FindGameObjectWithTag("Player").GetComponent<Ship>();
         ship.setControl(false);

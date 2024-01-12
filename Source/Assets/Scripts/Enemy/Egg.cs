@@ -23,7 +23,6 @@ public class Egg : MonoBehaviour
         //myBody.velocity = new Vector2(0f, -speed);
         float x = Camera.main.ViewportToWorldPoint(Vector3.one).x + 1;
         float y = Camera.main.ViewportToWorldPoint(Vector3.one).y + 1;
-        Debug.Log("x = " + x + ", y = " + y);
         if (transform.position.x > x || transform.position.x < -x || transform.position.y > y || transform.position.y < -y)
         {
             Destroy(gameObject);

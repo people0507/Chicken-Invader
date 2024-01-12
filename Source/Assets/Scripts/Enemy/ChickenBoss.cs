@@ -10,9 +10,7 @@ public class ChickenBoss : MonoBehaviour
     [SerializeField] private GameObject egg;
     [SerializeField] private GameObject chickenleg;
     [SerializeField] private GameObject fog;
-    [SerializeField] private int score;
-    [SerializeField] private float hp;
-
+    [SerializeField] private bool spawnEgg;
     private AudioManager audioManager;
 
     void Awake()
@@ -22,7 +20,8 @@ public class ChickenBoss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(EnemyShoot());
+        if(spawnEgg)
+            StartCoroutine(EnemyShoot());
         StartCoroutine(MoveBossToRandom());
     }
 
@@ -46,7 +45,7 @@ public class ChickenBoss : MonoBehaviour
 
     private Vector3 getRandomPoint()
     {
-        Vector3 posRandom = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0f, 1f), Random.Range(0.5f, 1f)));
+        Vector3 posRandom = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0f, 1f), Random.Range(0.6f, 1f)));
         posRandom.z = 0;
         return posRandom;
     }
@@ -58,43 +57,22 @@ public class ChickenBoss : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(0.5f, 3f));
             for(int i=-1; i<=1; i++)
             {
-                Instantiate(egg, transform.position - new Vector3(i, 0.6f, 0), Quaternion.identity);
+                Instantiate(egg, transform.position - new Vector3(i, -0.6f, 0), Quaternion.identity);
             }
             audioManager.PlayEgg(audioManager.eggClip);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnDestroy()
     {
-        if (collision.CompareTag("Bullet"))
+        //audioManager.PlayBackground(audioManager.gameWinClip);
+        var Fog = Instantiate(fog, transform.position, transform.rotation);
+        Destroy(Fog, 0.2f);
+        int ranLeg = Random.Range(10, 15);
+
+        for (int i = 0; i < ranLeg; i++)
         {
-            Bullet bullet = collision.GetComponent<Bullet>();
-            if (bullet != null)
-            {
-                hp -= bullet.getDameBullet();
-                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
-            }
-            Atomic atomic = collision.GetComponent<Atomic>();
-            if(atomic != null)
-            {
-                hp -= atomic.getDameBullet();
-                audioManager.PlayChickenHurt(audioManager.chickenHurtAudioClip);
-            }
-            if (hp <= 0)
-            {
-                var Fog = Instantiate(fog, transform.position, transform.rotation);
-                Destroy(Fog, 0.2f);
-                int ranLeg = Random.Range(10, 15);
-
-                for(int i=0; i<ranLeg; i++){
-                    Instantiate(chickenleg, transform.position, transform.rotation);
-                }
-
-                Destroy(gameObject);
-                audioManager.PlayChickenDeath(audioManager.chickenDeathAudioClip);
-                audioManager.PlayBackground(audioManager.gameWinClip);
-                ScoreController.instance.getScore(score);
-            }
+            Instantiate(chickenleg, transform.position, transform.rotation);
         }
     }
 }

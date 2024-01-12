@@ -9,6 +9,7 @@ public class BigEgg : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private GameObject spawnChicken;
     private Rigidbody2D myBody;
+    private bool destroyed = true;
 
     private void Awake()
     {
@@ -16,31 +17,23 @@ public class BigEgg : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        myBody.velocity = new Vector2(0f, -speed);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "BottomBorder")
+        //myBody.velocity = new Vector2(0f, -speed);
+        transform.Translate(Vector3.down * speed * Time.deltaTime);
+        float yMin = Camera.main.ViewportToWorldPoint(Vector3.zero).y;
+        if (transform.position.y < yMin)
         {
+            destroyed = false;
             Destroy(gameObject);
         }
-        if (collision.CompareTag("Bullet"))
+    }
+
+    private void OnDestroy()
+    {
+        if (destroyed)
         {
-            Bullet bullet = collision.GetComponent<Bullet>();
-            if (bullet != null)
-            {
-                Destroy(gameObject);
-                Chicken chicken = Instantiate(spawnChicken, transform.position, Quaternion.identity).GetComponent<Chicken>();
-                chicken.setIsMoving(true);
-            }
-            Atomic atomic = collision.GetComponent<Atomic>();
-            if (atomic != null)
-            {
-                Destroy(gameObject);
-                Chicken chicken = Instantiate(spawnChicken, transform.position, Quaternion.identity).GetComponent<Chicken>();
-                chicken.setIsMoving(true);
-            }
+            Chicken chicken = Instantiate(spawnChicken, transform.position, Quaternion.identity).GetComponent<Chicken>();
+            chicken.setMoveRandom();
+            //chicken.setMoveLemniscate(0, 0);
         }
     }
 }
