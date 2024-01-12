@@ -257,7 +257,7 @@ public class Ship : MonoBehaviour
             return;
         if (!shield.isShield && (collision.gameObject.tag == "Chicken" || collision.gameObject.tag == "Egg" || collision.gameObject.tag == "Rock" || collision.gameObject.tag == "BossChicken" || collision.gameObject.tag == "BigEgg"))
         {
-            if (health > 0)
+            if (health > 1)
             {
                 this.health--;
                 HeathController.instance.getHeath(health);

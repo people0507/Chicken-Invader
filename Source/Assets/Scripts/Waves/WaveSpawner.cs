@@ -17,8 +17,8 @@ public class Wave
     public string waveName;
     public int numEnemy;
     public GameObject enemy;
-    public float hp;
-    public float speed;
+    public float hpEnemy;
+    public float speedStone;
     public float timeSpawnEnemy;
 
     public MoveOption move;
@@ -97,7 +97,7 @@ public class WaveSpawner : MonoBehaviour
             if (enemy.CompareTag("Rock"))
             {
                 Rock rock = Instantiate(enemy, new Vector3(Random.Range(-x / 1.25f, x * 2) - x, y, 0), Quaternion.identity).GetComponent<Rock>();
-                rock.setSpeed(currentWave.speed);
+                rock.setSpeed(currentWave.speedStone);
             }
                 
             else if (enemy.CompareTag("Chicken"))
@@ -106,7 +106,7 @@ public class WaveSpawner : MonoBehaviour
                 Chicken chicken = instantiatedObject.GetComponent<Chicken>();
                 OnTrigger trigger = instantiatedObject.GetComponent<OnTrigger>();
                 if(trigger.GetType().GetMethod("setHp") != null)
-                    trigger.setHp(currentWave.hp);
+                    trigger.setHp(currentWave.hpEnemy);
                 if (currentWave.move == MoveOption.MoveToLemniscate)
                 {
                     chicken.setMoveLemniscate(0, 3);
@@ -126,14 +126,18 @@ public class WaveSpawner : MonoBehaviour
             else if (enemy.CompareTag("BossChicken"))
             {
                 GameObject gameObject = Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity);
-                ChickenBoss chickBoss = gameObject.GetComponent<ChickenBoss>();
+                ChickenBoss enemyy = gameObject.GetComponent<ChickenBoss>();
                 OnTrigger trigger = gameObject.GetComponent<OnTrigger>();
                 if (trigger.GetType().GetMethod("setHp") != null)
-                    trigger.setHp(currentWave.hp);
+                    trigger.setHp(currentWave.hpEnemy);
             }
             else if (enemy.CompareTag("BigEgg"))
             {
-                Instantiate(enemy, new Vector3(Random.Range(-x + 1, x - 1), y, 0), Quaternion.identity).GetComponent<BigEgg>();
+                GameObject gameObject = Instantiate(enemy, new Vector3(Random.Range(-x + 1, x - 1), y, 0), Quaternion.identity);
+                BigEgg enemyy = gameObject.GetComponent<BigEgg>();
+                OnTrigger trigger = gameObject.GetComponent<OnTrigger>();
+                if (trigger.GetType().GetMethod("setHp") != null)
+                    trigger.setHp(currentWave.hpEnemy);
             }
             else if (enemy.CompareTag("Rocket"))
             {
@@ -141,7 +145,7 @@ public class WaveSpawner : MonoBehaviour
                 Rocket rocket = gameObject.GetComponent<Rocket>();
                 OnTrigger trigger = gameObject.GetComponent<OnTrigger>();
                 if (trigger.GetType().GetMethod("setHp") != null)
-                    trigger.setHp(currentWave.hp);
+                    trigger.setHp(currentWave.hpEnemy);
             }
                 
             currentWave.numEnemy--;
