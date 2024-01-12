@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -19,8 +20,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource rockHurtAudioSource;
     [SerializeField] private AudioSource rockDeathAudioSource;
     [SerializeField] private AudioSource eatAudioSource;
+    [SerializeField] private AudioSource eggHatchAudioSource;
 
-    //ackground
+    //background
+    public AudioClip backgroundMenuClip;
     public AudioClip backgroundClip;
     public AudioClip gameWinClip;
     public AudioClip gameOverClip;
@@ -36,12 +39,23 @@ public class AudioManager : MonoBehaviour
     public AudioClip rockHurtAudioClip;
     public AudioClip rockDeathAudioClip;
     public AudioClip eatClip;
+    public AudioClip eggHatchClip;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayBackground(backgroundClip);
+        int currenScene = SceneManager.GetActiveScene().buildIndex;
+        if (currenScene == 0)
+        {
+            Cursor.visible = true;
+            PlayBackground(backgroundMenuClip);
+        }
+        else
+        {
+            Cursor.visible = false;
+            PlayBackground(backgroundClip);
+        }
         allAudioSources = new AudioSource[]
         {
             backgroundAudioSource,
@@ -54,7 +68,8 @@ public class AudioManager : MonoBehaviour
             eggBreakAudioSource,
             rockHurtAudioSource,
             rockDeathAudioSource,
-            eatAudioSource
+            eatAudioSource,
+            eggHatchAudioSource
         };
     }
 
@@ -122,6 +137,11 @@ public class AudioManager : MonoBehaviour
     {
         rockDeathAudioSource.clip = clip;
         rockDeathAudioSource.PlayOneShot(clip);
+    }
+    public void PlayEggHatch(AudioClip clip)
+    {
+        eggHatchAudioSource.clip = clip;
+        eggHatchAudioSource.PlayOneShot(clip);
     }
 
     public void StopAllAudioSources()

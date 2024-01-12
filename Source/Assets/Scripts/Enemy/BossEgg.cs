@@ -48,6 +48,7 @@ public class BossEgg : MonoBehaviour
         currentPos = transform.position;
         if (currentHP <= hp)
         {
+            audioManager.PlayEggHatch(audioManager.eggHatchClip);
             if (currentIndex + 1 < eggGameObjects.Length)
             {
                 currentIndex += 1;
@@ -168,7 +169,7 @@ public class BossEgg : MonoBehaviour
         {
             Ship ship = GameObject.FindGameObjectWithTag("Player").GetComponent<Ship>();
             NeutronBullet neutron = Instantiate(neutronBullet, transform.position - new Vector3(0, 0.6f, 0), Quaternion.identity).GetComponent<NeutronBullet>();
-            neutron.MoveToPos(ship.getPosShip());
+            neutron.MoveToPos(ship.transform.position);
             yield return new WaitForSeconds(timeFire);
         }
     }

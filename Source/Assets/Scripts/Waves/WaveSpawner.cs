@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
-using UnityEditor.Tilemaps;
+//using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public enum MoveOption
@@ -17,6 +17,8 @@ public class Wave
     public string waveName;
     public int numEnemy;
     public GameObject enemy;
+    public float hp;
+    public float speed;
     public float timeSpawnEnemy;
 
     public MoveOption move;
@@ -93,11 +95,19 @@ public class WaveSpawner : MonoBehaviour
         {
             GameObject enemy = currentWave.enemy;
             if (enemy.CompareTag("Rock"))
-                Instantiate(enemy, new Vector3(Random.Range(-x / 1.25f, x * 2) - x, y, 0), Quaternion.identity);
+            {
+                Rock rock = Instantiate(enemy, new Vector3(Random.Range(-x / 1.25f, x * 2) - x, y, 0), Quaternion.identity).GetComponent<Rock>();
+                rock.setSpeed(currentWave.speed);
+            }
+                
             else if (enemy.CompareTag("Chicken"))
             {
-                Chicken chicken = Instantiate(enemy, new Vector3(Random.Range(-x / 2, x / 2), y, 0), Quaternion.identity).GetComponent<Chicken>();
-                if(currentWave.move == MoveOption.MoveToLemniscate)
+                GameObject instantiatedObject = Instantiate(enemy, new Vector3(Random.Range(-x / 2, x / 2), y, 0), Quaternion.identity);
+                Chicken chicken = instantiatedObject.GetComponent<Chicken>();
+                OnTrigger trigger = instantiatedObject.GetComponent<OnTrigger>();
+                if(trigger.GetType().GetMethod("setHp") != null)
+                    trigger.setHp(currentWave.hp);
+                if (currentWave.move == MoveOption.MoveToLemniscate)
                 {
                     chicken.setMoveLemniscate(0, 3);
                 }
@@ -115,14 +125,25 @@ public class WaveSpawner : MonoBehaviour
             }
             else if (enemy.CompareTag("BossChicken"))
             {
-                Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity).GetComponent<ChickenBoss>();
+                GameObject gameObject = Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity);
+                ChickenBoss chickBoss = gameObject.GetComponent<ChickenBoss>();
+                OnTrigger trigger = gameObject.GetComponent<OnTrigger>();
+                if (trigger.GetType().GetMethod("setHp") != null)
+                    trigger.setHp(currentWave.hp);
             }
             else if (enemy.CompareTag("BigEgg"))
             {
                 Instantiate(enemy, new Vector3(Random.Range(-x + 1, x - 1), y, 0), Quaternion.identity).GetComponent<BigEgg>();
             }
-            else
-                Instantiate(enemy, new Vector3(Random.Range(-x + 1, x - 1), -y, 0), Quaternion.identity);
+            else if (enemy.CompareTag("Rocket"))
+            {
+                GameObject gameObject = Instantiate(enemy, new Vector3(Random.Range(-x + 1, x - 1), -y, 0), Quaternion.identity);
+                Rocket rocket = gameObject.GetComponent<Rocket>();
+                OnTrigger trigger = gameObject.GetComponent<OnTrigger>();
+                if (trigger.GetType().GetMethod("setHp") != null)
+                    trigger.setHp(currentWave.hp);
+            }
+                
             currentWave.numEnemy--;
             nextSpawnTime = Time.time + currentWave.timeSpawnEnemy;
             if(currentWave.numEnemy == 0)
@@ -141,6 +162,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void ShowCanvas()
     {
+        Cursor.visible = true;
         canvasWin.setActiveTrue();
         Ship ship = GameObject.FindGameObjectWithTag("Player").GetComponent<Ship>();
         ship.setControl(false);

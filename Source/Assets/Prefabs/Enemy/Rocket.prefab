@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8094706833170185423}
   - component: {fileID: 6556393271460630744}
   - component: {fileID: 3520922087198977643}
+  - component: {fileID: -5945109996044010529}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Rocket
@@ -150,5 +151,18 @@ MonoBehaviour:
   egg: {fileID: 6078868767272616198, guid: 73712c7bf975c9d4b8b26d72b379f5b9, type: 3}
   chickenleg: {fileID: 4026529917271576798, guid: 84d5c4e1fc8639640a0040f5f6d16e64, type: 3}
   present: {fileID: 4169244519788552512, guid: 42fbf8e335ae6c641b36093263c9497a, type: 3}
-  score: 100
-  hp: 3
+--- !u!114 &-5945109996044010529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075851434379810531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd8c257d7b24af4f8e4fbc9981b7375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 200
+  hp: 5
+  useAudio: 0
