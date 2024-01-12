@@ -239,7 +239,7 @@ MonoBehaviour:
   - waveName: Boss
     numEnemy: 1
     enemy: {fileID: 4668850598893376918, guid: 17a520f411669d54fa9c9b9b3c428ba4, type: 3}
-    hpEnemy: 75
+    hpEnemy: 150
     speedStone: 0
     timeSpawnEnemy: 1
     move: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
   - waveName: Boss
     numEnemy: 2
     enemy: {fileID: 4668850598893376918, guid: 17a520f411669d54fa9c9b9b3c428ba4, type: 3}
-    hpEnemy: 150
+    hpEnemy: 300
     speedStone: 0
     timeSpawnEnemy: 1
     move: 0
@@ -295,14 +295,14 @@ MonoBehaviour:
   - waveName: BossRed
     numEnemy: 3
     enemy: {fileID: 4668850598893376918, guid: 17a520f411669d54fa9c9b9b3c428ba4, type: 3}
-    hpEnemy: 200
+    hpEnemy: 400
     speedStone: 0
     timeSpawnEnemy: 2
     move: 0
   - waveName: BossEnd
     numEnemy: 1
     enemy: {fileID: 2721326806658230562, guid: 128d00a0f258f3940928699745e26717, type: 3}
-    hpEnemy: 500
+    hpEnemy: 1000
     speedStone: 0
     timeSpawnEnemy: 0
     move: 0
