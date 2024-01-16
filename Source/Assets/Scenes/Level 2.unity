@@ -5326,7 +5326,112 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9f14102b554ad4183cf75c64525574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: []
+  waves:
+  - waveName: BlueChicken
+    numEnemy: 18
+    enemy: {fileID: 4206068373068956795, guid: d9b9329943036264b842d8e341fd69dc, type: 3}
+    hpEnemy: 9
+    speedStone: 0
+    timeSpawnEnemy: 0.5
+    move: 1
+  - waveName: ChickenParachute
+    numEnemy: 15
+    enemy: {fileID: 7810753455979561741, guid: db72d36a15f97bb49a2077a049c53148, type: 3}
+    hpEnemy: 3
+    speedStone: 0
+    timeSpawnEnemy: 1
+    move: 0
+  - waveName: Rocket
+    numEnemy: 15
+    enemy: {fileID: 6075851434379810531, guid: 9229e405f5404e94a91b6874b9dd7d32, type: 3}
+    hpEnemy: 9
+    speedStone: 0
+    timeSpawnEnemy: 2
+    move: 0
+  - waveName: BlueChicken
+    numEnemy: 15
+    enemy: {fileID: 4206068373068956795, guid: d9b9329943036264b842d8e341fd69dc, type: 3}
+    hpEnemy: 12
+    speedStone: 0
+    timeSpawnEnemy: 1
+    move: 2
+  - waveName: BossUFO
+    numEnemy: 1
+    enemy: {fileID: 2721326806658230562, guid: 128d00a0f258f3940928699745e26717, type: 3}
+    hpEnemy: 150
+    speedStone: 0
+    timeSpawnEnemy: 2
+    move: 0
+  - waveName: BlueChicken
+    numEnemy: 27
+    enemy: {fileID: 4206068373068956795, guid: d9b9329943036264b842d8e341fd69dc, type: 3}
+    hpEnemy: 12
+    speedStone: 0
+    timeSpawnEnemy: 0.5
+    move: 1
+  - waveName: BlueChicken
+    numEnemy: 20
+    enemy: {fileID: 7810753455979561741, guid: db72d36a15f97bb49a2077a049c53148, type: 3}
+    hpEnemy: 3
+    speedStone: 0
+    timeSpawnEnemy: 1
+    move: 0
+  - waveName: Rocket
+    numEnemy: 20
+    enemy: {fileID: 6075851434379810531, guid: 9229e405f5404e94a91b6874b9dd7d32, type: 3}
+    hpEnemy: 9
+    speedStone: 0
+    timeSpawnEnemy: 2
+    move: 0
+  - waveName: BlueChicken
+    numEnemy: 20
+    enemy: {fileID: 4206068373068956795, guid: d9b9329943036264b842d8e341fd69dc, type: 3}
+    hpEnemy: 9
+    speedStone: 0
+    timeSpawnEnemy: 1
+    move: 0
+  - waveName: BossUFO
+    numEnemy: 2
+    enemy: {fileID: 2721326806658230562, guid: 128d00a0f258f3940928699745e26717, type: 3}
+    hpEnemy: 200
+    speedStone: 0
+    timeSpawnEnemy: 1
+    move: 0
+  - waveName: BlueChicken
+    numEnemy: 27
+    enemy: {fileID: 4206068373068956795, guid: d9b9329943036264b842d8e341fd69dc, type: 3}
+    hpEnemy: 12
+    speedStone: 0
+    timeSpawnEnemy: 0.5
+    move: 1
+  - waveName: ChickenParachute
+    numEnemy: 25
+    enemy: {fileID: 7810753455979561741, guid: db72d36a15f97bb49a2077a049c53148, type: 3}
+    hpEnemy: 3
+    speedStone: 0
+    timeSpawnEnemy: 1
+    move: 0
+  - waveName: Rocket
+    numEnemy: 20
+    enemy: {fileID: 6075851434379810531, guid: 9229e405f5404e94a91b6874b9dd7d32, type: 3}
+    hpEnemy: 12
+    speedStone: 0
+    timeSpawnEnemy: 2
+    move: 0
+  - waveName: BossUFO
+    numEnemy: 2
+    enemy: {fileID: 2721326806658230562, guid: 128d00a0f258f3940928699745e26717, type: 3}
+    hpEnemy: 300
+    speedStone: 0
+    timeSpawnEnemy: 2
+    move: 0
+  - waveName: bigEgg
+    numEnemy: 1
+    enemy: {fileID: 2007866619647712540, guid: 7372a0a0564860a4d989c1e5082a419c, type: 3}
+    hpEnemy: 1000
+    speedStone: 0
+    timeSpawnEnemy: 0
+    move: 0
   grid: 2
   timeShowCanvas: 3
 --- !u!114 &2108959995
