@@ -28,6 +28,7 @@ public class ExitButton : MonoBehaviour
                 Time.timeScale = 0f;
                 canvasExit.SetActive(true);
                 ship.setControl(false);
+                Cursor.visible = true;
             }
             else
                 Continue();

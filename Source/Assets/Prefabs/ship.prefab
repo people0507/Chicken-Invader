@@ -1264,6 +1264,6 @@ MonoBehaviour:
   currenTierBullet: 0
   timeFire: 0.3
   nuclear: {fileID: 5623112089981049823, guid: 08c195337b47bed4b9f7688f7ebfad25, type: 3}
-  countNuclear: 10
+  countNuclear: 3
   blinkTime: 3
   timeShowCanvas: 1

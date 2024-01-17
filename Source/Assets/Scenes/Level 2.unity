@@ -362,9 +362,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 202025397}
-        m_TargetAssemblyTypeName: ExitButton, Assembly-CSharp
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 2070335048}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayLevel2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -752,9 +752,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '10
-
-'
+  m_Text: 3
 --- !u!222 &268002668
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2359,9 +2357,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 202025397}
-        m_TargetAssemblyTypeName: ExitButton, Assembly-CSharp
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 2070335048}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayLevel2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5375,7 +5373,7 @@ MonoBehaviour:
     hpEnemy: 3
     speedStone: 0
     timeSpawnEnemy: 1
-    move: 0
+    move: 1
   - waveName: Rocket
     numEnemy: 20
     enemy: {fileID: 6075851434379810531, guid: 9229e405f5404e94a91b6874b9dd7d32, type: 3}
@@ -5389,7 +5387,7 @@ MonoBehaviour:
     hpEnemy: 9
     speedStone: 0
     timeSpawnEnemy: 1
-    move: 0
+    move: 2
   - waveName: BossUFO
     numEnemy: 2
     enemy: {fileID: 2721326806658230562, guid: 128d00a0f258f3940928699745e26717, type: 3}
@@ -5540,7 +5538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7206395925813406165, guid: 9489e78ce9034764e8af2c6f255c358e, type: 3}
       propertyPath: currenTierBullet
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8711473328807003740, guid: 9489e78ce9034764e8af2c6f255c358e, type: 3}
       propertyPath: m_Name

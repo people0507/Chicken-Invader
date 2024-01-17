@@ -174,7 +174,7 @@ MonoBehaviour:
   chickenleg: {fileID: 4026529917271576798, guid: 84d5c4e1fc8639640a0040f5f6d16e64, type: 3}
   present: {fileID: 4169244519788552512, guid: 42fbf8e335ae6c641b36093263c9497a, type: 3}
   fog: {fileID: 831047883632518319, guid: 27e138f7aafcbf54d8d9d6e0bf267b6b, type: 3}
-  radius: 1
+  radius: 6
 --- !u!114 &-7943407241371664455
 MonoBehaviour:
   m_ObjectHideFlags: 0

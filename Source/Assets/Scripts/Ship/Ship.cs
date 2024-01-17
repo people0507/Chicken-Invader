@@ -82,7 +82,7 @@ public class Ship : MonoBehaviour
         {
             Instantiate(nuclear, transform.position, Quaternion.identity);
             countNuclear--;
-            Debug.Log(countNuclear);
+            //Debug.Log(countNuclear);
             NuclearController.instance.getNuclear(countNuclear);
         }
 
@@ -255,12 +255,12 @@ public class Ship : MonoBehaviour
     {
         if (!isControl)
             return;
-        if (!shield.isShield && (collision.gameObject.tag == "Chicken" || collision.gameObject.tag == "Egg" || collision.gameObject.tag == "Rock" || collision.gameObject.tag == "BossChicken" || collision.gameObject.tag == "BigEgg"))
+        if (!shield.isShield && (collision.gameObject.tag == "Chicken" || collision.gameObject.tag == "Egg" || collision.gameObject.tag == "Rock" || collision.gameObject.tag == "BossChicken" || collision.gameObject.tag == "BigEgg" || collision.gameObject.tag == "Rocket"))
         {
-            if (health > 1)
+            this.health--;
+            HeathController.instance.getHeath(health);
+            if (health > 0)
             {
-                this.health--;
-                HeathController.instance.getHeath(health);
                 shield.Show();
                 StartBlinking();
                 Invoke("StopBlinking", blinkTime);
@@ -271,8 +271,7 @@ public class Ship : MonoBehaviour
                 var expl = Instantiate(explosion, transform.position, transform.rotation);
                 Destroy(expl, 0.3f);
 
-                Renderer renderer = GetComponent<Renderer>();
-                renderer.sortingOrder = -10;
+                spriteRenderer.enabled = false;
                 setControl(false);
 
                 audioManager.PlayShipDead(audioManager.shipDeadAudioClip);

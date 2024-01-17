@@ -82,7 +82,6 @@ public class WaveSpawner : MonoBehaviour
                     Invoke("ShowCanvas", timeShowCanvas);
                     gameWin = false;
                 }
-                
             }
         }
     }
@@ -150,7 +149,7 @@ public class WaveSpawner : MonoBehaviour
                 
             currentWave.numEnemy--;
             nextSpawnTime = Time.time + currentWave.timeSpawnEnemy;
-            if(currentWave.numEnemy == 0)
+            if(currentWave.numEnemy <= 0)
             {
                 canSpawn = false;
             }
