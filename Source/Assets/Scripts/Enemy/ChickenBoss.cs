@@ -27,15 +27,12 @@ public class ChickenBoss : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 checkPos = transform.position;
-        checkPos.x = Mathf.Clamp(checkPos.x, Camera.main.ViewportToWorldPoint(Vector3.zero).x, Camera.main.ViewportToWorldPoint(Vector3.one).x);
-        transform.position = checkPos;
     }
 
     private IEnumerator MoveBossToRandom()
     {
         Vector3 point = getRandomPoint();
-        //while (transform.position != point)
+        while (transform.position != point)
         {
             transform.position = Vector3.MoveTowards(transform.position, point, speed * Time.deltaTime);
             yield return new WaitForSeconds(Time.fixedDeltaTime);

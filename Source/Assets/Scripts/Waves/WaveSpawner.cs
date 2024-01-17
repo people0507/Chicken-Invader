@@ -146,6 +146,10 @@ public class WaveSpawner : MonoBehaviour
                 if (trigger.GetType().GetMethod("setHp") != null)
                     trigger.setHp(currentWave.hpEnemy);
             }
+            else if (enemy.CompareTag("BossEgg"))
+            {
+                Instantiate(enemy, new Vector3(0, y, 0), Quaternion.identity);
+            }
                 
             currentWave.numEnemy--;
             nextSpawnTime = Time.time + currentWave.timeSpawnEnemy;

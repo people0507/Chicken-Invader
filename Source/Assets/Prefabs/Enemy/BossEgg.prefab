@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 379679569299977241}
   m_Layer: 0
   m_Name: BossEgg3
-  m_TagString: BossChicken
+  m_TagString: BossEgg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
-  hp: 60
+  hp: 300
   eggGameObjects:
   - {fileID: 379679570059354780}
   - {fileID: 379679569698139576}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 379679569571842010}
   m_Layer: 0
   m_Name: BossEgg
-  m_TagString: BossChicken
+  m_TagString: BossEgg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 379679569619540084}
   m_Layer: 0
   m_Name: BossEgg2
-  m_TagString: BossChicken
+  m_TagString: BossEgg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
-  hp: 70
+  hp: 350
   eggGameObjects:
   - {fileID: 379679570059354780}
   - {fileID: 379679569698139576}
@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 379679569698139579}
   m_Layer: 0
   m_Name: BossEgg1
-  m_TagString: BossChicken
+  m_TagString: BossEgg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -846,7 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
-  hp: 80
+  hp: 400
   eggGameObjects:
   - {fileID: 379679570059354780}
   - {fileID: 379679569698139576}
@@ -880,7 +880,7 @@ GameObject:
   - component: {fileID: 379679569831663108}
   m_Layer: 0
   m_Name: BossEgg8
-  m_TagString: BossChicken
+  m_TagString: BossEgg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1129,7 +1129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
-  hp: 10
+  hp: 50
   eggGameObjects:
   - {fileID: 379679570059354780}
   - {fileID: 379679569698139576}
@@ -1163,7 +1163,7 @@ GameObject:
   - component: {fileID: 379679570059354783}
   m_Layer: 0
   m_Name: BossEgg0
-  m_TagString: BossChicken
+  m_TagString: BossEgg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1484,8 +1484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82bf62c9be2a3440ad59cb5f33fe23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 100
-  hp: 90
+  currentHP: 500
+  hp: 450
   eggGameObjects:
   - {fileID: 379679570059354780}
   - {fileID: 379679569698139576}
@@ -1519,7 +1519,7 @@ GameObject:
   - component: {fileID: 379679570548932312}
   m_Layer: 0
   m_Name: BossEgg7
-  m_TagString: BossChicken
+  m_TagString: BossEgg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1756,7 +1756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
-  hp: 20
+  hp: 100
   eggGameObjects:
   - {fileID: 379679570059354780}
   - {fileID: 379679569698139576}
@@ -1790,7 +1790,7 @@ GameObject:
   - component: {fileID: 379679571151245632}
   m_Layer: 0
   m_Name: BossEgg5
-  m_TagString: BossChicken
+  m_TagString: BossEgg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2036,7 +2036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
-  hp: 40
+  hp: 200
   eggGameObjects:
   - {fileID: 379679570059354780}
   - {fileID: 379679569698139576}
@@ -2070,7 +2070,7 @@ GameObject:
   - component: {fileID: 379679571195553085}
   m_Layer: 0
   m_Name: BossEgg4
-  m_TagString: BossChicken
+  m_TagString: BossEgg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2311,7 +2311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
-  hp: 50
+  hp: 250
   eggGameObjects:
   - {fileID: 379679570059354780}
   - {fileID: 379679569698139576}
@@ -2345,7 +2345,7 @@ GameObject:
   - component: {fileID: 794241984240683517}
   m_Layer: 0
   m_Name: BossEgg9
-  m_TagString: BossChicken
+  m_TagString: BossEgg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2621,7 +2621,7 @@ GameObject:
   - component: {fileID: 379679571388151769}
   m_Layer: 0
   m_Name: BossEgg6
-  m_TagString: BossChicken
+  m_TagString: BossEgg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2856,7 +2856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
-  hp: 30
+  hp: 150
   eggGameObjects:
   - {fileID: 379679570059354780}
   - {fileID: 379679569698139576}

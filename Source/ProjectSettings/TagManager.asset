@@ -15,6 +15,7 @@ TagManager:
   - BossChicken
   - BigEgg
   - Rocket
+  - BossEgg
   layers:
   - Default
   - TransparentFX
