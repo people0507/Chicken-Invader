@@ -14,7 +14,7 @@ public class Chicken : MonoBehaviour
 
     //move with Lemniscate
     private bool moveLemniscate = false;
-    [SerializeField] private float radius = 1f;
+    [SerializeField] private float radius = 4f;
     private float angle = 0f;
 
     private AudioManager audioManager;
@@ -64,7 +64,7 @@ public class Chicken : MonoBehaviour
         Vector3 point = getRandomPoint();
         while (transform.position != point)
         {
-            transform.position = Vector3.MoveTowards(transform.position, point, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, point, speed * Time.deltaTime * 2);
             yield return new WaitForSeconds(Time.fixedDeltaTime);
         }
         StartCoroutine(MoveToRandom());
@@ -82,7 +82,6 @@ public class Chicken : MonoBehaviour
         this.moveLemniscate = true;
         StartCoroutine(MoveToPos(posX, posY));
     }
-
     private IEnumerator MoveLemniscate(float posX, float posY)
     {
         while (true)

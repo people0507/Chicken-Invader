@@ -1676,9 +1676,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 120805091}
-        m_TargetAssemblyTypeName: ExitButton, Assembly-CSharp
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 1961331794}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayNewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2512,9 +2512,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '10
-
-'
+  m_Text: 3
 --- !u!222 &767510591
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4531,9 +4529,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 120805091}
-        m_TargetAssemblyTypeName: ExitButton, Assembly-CSharp
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 1961331794}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayNewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

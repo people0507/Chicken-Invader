@@ -5,6 +5,7 @@ using UnityEngine;
 public class PresentScript : MonoBehaviour
 {
     [SerializeField] private int score;
+    [SerializeField] private float speed;
 
     private void Update()
     {
